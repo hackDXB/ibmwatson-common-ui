@@ -1,0 +1,45 @@
+body.watson {
+    margin: 0;
+    font-family: 'Helvetica Neue for IBM';
+    color: $gray-70;
+}
+
+.watson * {
+    box-sizing: border-box;
+}
+
+.watson {
+    .main-container {
+        min-height: calc(100vh - #{$banner-height});
+        display: flex;
+    }
+
+    [role=main] {
+        padding: 1.2em;
+    }
+
+    .sr-only {
+        position: absolute;
+        clip: rect(0px 0px 0px 0px);
+        width: 0;
+    }
+}
+
+
+@mixin screen-large {
+  @media only screen and (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin screen-medium {
+  @media only screen and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin screen-small {
+  @media only screen and (max-width: 320px) {
+    @content;
+  }
+}

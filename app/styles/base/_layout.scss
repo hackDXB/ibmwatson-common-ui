@@ -1,0 +1,35 @@
+@mixin grid($default, $large, $medium, $small) {
+    display: flex;
+    flex-wrap: wrap;
+
+    & > * {
+        flex: 1 0 (100% / $default);
+        max-width: (100% / $default);
+
+        @include screen-large {
+            flex: 0 0 (100% / $large);
+            max-width: (100% / $large);
+        }
+
+        @include screen-medium {
+            flex: 0 0 (100% / $medium);
+            max-width: (100% / $medium);
+        }
+
+        @include screen-small {
+            flex: 0 0 (100% / $small);
+            max-width: (100% / $small);
+        }
+    }
+}
+
+.watson {
+    .grid-odd {
+        @include grid(3, 2, 1, 1);
+    }
+
+    .grid-even {
+        @include grid(4, 2, 1, 1);
+    }
+
+}
