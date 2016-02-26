@@ -1,0 +1,31 @@
+%input {
+	border-radius: 0;
+	border: 1px solid $border-color-light;
+	padding: .4em .8em;
+	font-size: 1em;
+	box-shadow: none;
+}
+
+.watson {
+	input[type=text],
+	input[type=username],
+	input[type=password],
+	input[type=email],
+	input[type=url],
+	input[type=search] {
+		@extend %input;
+		width: 100%;
+		margin-bottom: 0.5em;
+	}
+
+	input[type=search] {
+		padding-left: 2.5em;
+		background: url(#{$ibm-watson-images-path}/search_24.svg) no-repeat .7em 50% / 1.3em 1.3em $white;
+		width: 100%;
+	}
+
+	input.filter[type=search] {
+		padding-left: 2.5em;
+		background: url(#{$ibm-watson-images-path}/filter_24.svg) no-repeat .7em 50% / 1.3em 1.3em $white;
+	}
+}

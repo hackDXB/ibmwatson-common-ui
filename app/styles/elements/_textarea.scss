@@ -1,0 +1,5 @@
+textarea {
+	@extend %input;
+	resize: none;
+	width: 100%;
+}

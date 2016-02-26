@@ -1,0 +1,10 @@
+/* Additional styling just for the sample pages */
+
+.watson.style-guide .guide-row {
+    padding-bottom: 2em;
+    border-bottom: 1px solid #E0E0E0;
+}
+
+.watson.style-guide .guide-row:not(:first-child) {
+    margin: 2em 0;
+}

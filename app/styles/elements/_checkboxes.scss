@@ -1,0 +1,17 @@
+.watson {
+	input[type=checkbox] {
+		display: none;
+		margin-right: 2em;
+
+		& + label {
+			margin-bottom: .7em;
+			padding-left: 1.5em;
+			background: url(#{$ibm-watson-images-path}/checkbox.svg) no-repeat;
+			cursor: pointer;
+		}
+
+		&:checked + label {
+			background: url(#{$ibm-watson-images-path}/checkbox_checked.svg) no-repeat;
+		}
+	}
+}

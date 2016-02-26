@@ -1,0 +1,36 @@
+.watson {
+    progress {
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        appearance: none;
+        height: 20px;
+        background-color: transparent;
+        border-radius: 10px;
+        border: 1px solid #c39bf7;
+        color: #c39bf7;
+    }
+    progress.good {
+      border: 1px solid #69cac0;
+      color: #69cac0;
+    }
+
+    progress::-webkit-progress-bar {
+      background-color: transparent;
+      border-radius: 10px;
+    }
+    progress::-webkit-progress-value {
+      background-color: #c39bf7;
+      border-radius: 10px;
+    }
+    progress::-moz-progress-bar {
+      background-color: #c39bf7;
+      border-radius: 10px;
+    }
+
+    progress.good::-webkit-progress-value{
+      background-color: #69cac0;
+    }
+    progress.good::-moz-progress-bar {
+      background-color: #69cac0;
+    }
+}

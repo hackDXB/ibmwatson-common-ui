@@ -1,0 +1,47 @@
+.watson {
+    table {
+        width: 100%;
+        border-collapse: collapse;
+
+        thead {
+            @include screen-medium {
+                display: none;
+            }
+
+            tr {
+                th {
+                    text-align: left;
+                    border-bottom: 2px solid $gray-10;
+                    padding: 8px;
+                    font-weight: 700;
+                }
+            }
+        }
+
+        tbody {
+            tr {
+                @include screen-medium {
+                    &:nth-child(odd) {
+                        background-color: $cool-white-30;
+                    }
+                }
+
+                td {
+                    border-top: 1px solid $gray-10;
+                    padding: 8px;
+
+                    @include screen-medium {
+                        display: flex;
+                        padding: 10px;
+                        border: none;
+
+                        &::before {
+                            content: attr(label);
+                            width: 30%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

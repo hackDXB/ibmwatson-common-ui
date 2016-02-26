@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel='shortcut icon' href='dist/images/favicon.ico' type='image/x-icon' />
+        <link rel='icon' href='dist/images/favicon.ico' type='image/x-icon' />
+
+        <title>IBM Watson Common UI</title>
+        <meta name="description" content="">
+
+        <link rel="stylesheet" href="styles/ibmwatson-styleguide.css">
+
+        <!-- build:css ibmwatson.css -->
+        <link rel="stylesheet" href="styles/ibmwatson.css">
+        <!-- endbuild -->
+
+        <!-- build:js style-guide.js -->
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/angular-animate/angular-animate.js"></script>
+        <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+        <script src="app.js"></script>
+        <!-- endbuild -->
+
+        <!-- build:js ibmwatson.js -->
+        <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+        <script src="directives/scrollToTop/scrollToTop.directive.js"></script>
+        <!-- endbuild -->
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    </head>
+    <body class="watson style-guide" ng-app="watson.common.ui">
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <header role="banner" ng-controller="BannerController as banner">
+            <h1><a href="#">IBM <strong>Watson Common UI</strong></a></h1>
+            <nav>
+              <ul>
+                <li ng-class="{'active': atLocation('overview')}"><a href="#/overview">Home</a></li>
+                <li ng-class="{'active': atLocation('guide')}"><a href="#/guide/top">Guide</a></li>
+                <li class="icon"><a href="#"><span class="sr-only">Help</span><span class="ibm-glyph--help_24" aria-hidden="true"></span></a></li>
+                <li class="icon"><a href="#"><span class="sr-only">Settings</span><span class="ibm-glyph--settings-manage_24" aria-hidden="true"></span></a></li>
+                <li class="icon"><a href="#"><span class="sr-only">User</span><span class="ibm-glyph--user-profile_24" aria-hidden="true"></span></a></li>
+              </ul>
+            </nav>
+        </header>
+
+        <section ui-view="">
+        </section>
+
+        <footer role="contentinfo" scroll-to-top>
+
+        </footer>
+
+    </body>
+</html>
