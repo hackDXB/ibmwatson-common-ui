@@ -33,7 +33,7 @@
 @import 'components/_tag.scss';
 @import 'components/_loading.scss';
 
-@import '../directives/askWatson/askWatson.scss';
-@import '../directives/scrollToTop/scrollToTop.scss';
-@import '../directives/sideNav/sideNav.scss';
-@import '../directives/helpAssistant/helpAssistant.scss';
+@import '../../ng/directives/askWatson/askWatson.scss';
+@import '../../ng/directives/scrollToTop/scrollToTop.scss';
+@import '../../ng/directives/sideNav/sideNav.scss';
+@import '../../ng/directives/helpAssistant/helpAssistant.scss';
