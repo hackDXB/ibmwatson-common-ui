@@ -1,86 +1,86 @@
 .watson {
 
-    &.modal-open {
-        overflow: hidden;
+  &.modal-open {
+    overflow: hidden;
 
+  }
+
+  .modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1050;
+    display: none;
+    -webkit-overflow-scrolling: touch;
+    outline: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    &.fade {
+      .modal-dialog {
+        transition: transform .3s ease-out;
+        transform: translate(0, -25%);
+      }
+    }
+    &.in {
+      .modal-dialog {
+        transform: translate(0, 0);
+      }
     }
 
-    .modal {
-        position: fixed;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        z-index: 1050;
-        display: none;
-        -webkit-overflow-scrolling: touch;
+    .modal-dialog {
+      margin: 20px auto;
+      display: table;
+      min-width: 320px;
+
+      .modal-content {
+        background-color: $white;
+        background-clip: padding-box;
+        border: 1px solid rgba(0, 0, 0, .2);
+        border-radius: 6px;
         outline: 0;
-        overflow-x: hidden;
-        overflow-y: auto;
+        box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
 
-        &.fade {
-            .modal-dialog {
-                transition: transform .3s ease-out;
-                transform: translate(0, -25%);
-            }
-        }
-        &.in {
-            .modal-dialog {
-                transform: translate(0, 0);
-            }
+        & > header {
+          background-color: $gray-80;
+          color: $white;
+          padding: 15px;
         }
 
-        .modal-dialog {
-            margin: 20px auto;
-            display: table;
-            min-width: 320px;
-
-            .modal-content {
-                background-color: $white;
-                background-clip: padding-box;
-                border: 1px solid rgba(0, 0, 0, .2);
-                border-radius: 6px;
-                outline: 0;
-                box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
-
-                & > header {
-                    background-color: $gray-80;
-                    color: $white;
-                    padding: 15px;
-                }
-
-                & > section {
-                    position: relative;
-                    padding: 15px;
-                }
-
-                & > footer {
-                    background-color: $cool-white-30;
-                    padding: 15px;
-                    text-align: right;
-                }
-            }
+        & > section {
+          position: relative;
+          padding: 15px;
         }
 
+        & > footer {
+          background-color: $cool-white-30;
+          padding: 15px;
+          text-align: right;
+        }
+      }
     }
 
-    .modal-backdrop {
-        position: fixed;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        z-index: 1040;
-        background-color: $black;
+  }
 
-        &.fade {
-            filter: alpha(opacity=0);
-            opacity: 0;
-        }
-        &.in {
-            filter: alpha(opacity=50);
-            opacity: .5;
-        }
+  .modal-backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1040;
+    background-color: $black;
+
+    &.fade {
+      filter: alpha(opacity=0);
+      opacity: 0;
     }
+    &.in {
+      filter: alpha(opacity=50);
+      opacity: .5;
+    }
+  }
 
 }

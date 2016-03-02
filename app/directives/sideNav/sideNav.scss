@@ -1,0 +1,82 @@
+.watson {
+  [ui-view] {
+    transition: margin-left .5s ease;
+  }
+
+  side-nav {
+    nav {
+      transition: background-color .5s ease;
+
+      button.icon {
+        padding: 1em 1em .5em 1.35em;
+        margin: 0;
+        vertical-align: top;
+      }
+
+      ul {
+        position: fixed;
+        left: 0;
+        top: calc(#{$banner-height} - #{$banner-border-width});
+        width: $sidenav-width;
+        min-height: calc(100vh - #{$banner-height});
+        background-color: $gray-80;
+        color: $cool-gray-30;
+        z-index: 1000;
+        text-align: center;
+        transition: left .5s ease;
+        flex-direction: column;
+
+        &.ng-hide {
+          left: -60px;
+        }
+
+        li {
+          min-height: 50px;
+
+          &.active {
+            background-color: $gray-90;
+          }
+
+          a:not(:visited),
+          a:visited {
+            display: block;
+            color: $gray-20;
+            padding: 1em 1em .5em 1em;
+            line-height: 1.5em;
+          }
+
+          a:hover,
+          a:focus {
+            background-color: $gray-90;
+            border-bottom: none;
+          }
+        }
+      }
+    }
+  }
+
+  &.side-nav-open {
+    background-color: $gray-80;
+
+    [ui-view] {
+      margin-left: 60px;
+      background-color: $white;
+    }
+
+    side-nav {
+      nav {
+        background-color: $gray-80;
+
+        button.icon {
+          color: $gray-20;
+
+          &:hover,
+          &:focus {
+            color: $gray-20;
+            background-color: $gray-90;
+          }
+        }
+      }
+    }
+  }
+}

@@ -822,7 +822,8 @@ body.watson {
 .watson * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  outline: none; }
 
 .watson .main-container {
   min-height: -webkit-calc(100vh - 50px);
@@ -832,11 +833,17 @@ body.watson {
   display: -ms-flexbox;
   display: flex; }
 .watson [role=main] {
-  padding: 1.2em; }
+  padding: 1.2em;
+  background-color: white; }
 .watson .sr-only {
   position: absolute;
-  clip: rect(0px 0px 0px 0px);
-  width: 0; }
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0; }
 
 .watson a {
   color: #4178BE;
@@ -922,24 +929,20 @@ body.watson {
         flex: 0 0 100%;
         max-width: 100%; } }
 
-.watson:not(.no-animation) [ui-view].ng-enter, .watson:not(.no-animation) [ui-view].ng-leave {
+.watson.animate [ui-view].ng-enter, .watson.animate [ui-view].ng-leave {
   position: absolute;
   left: 0;
   right: 0;
-  -webkit-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
+  -webkit-transition: left 0.5s ease-in-out;
+  transition: left 0.5s ease-in-out;
   max-height: 98vh; }
-.watson:not(.no-animation) [ui-view].ng-enter {
-  opacity: 0;
+.watson.animate [ui-view].ng-enter {
   left: -150vw; }
-.watson:not(.no-animation) [ui-view].ng-enter-active {
-  opacity: 1;
+.watson.animate [ui-view].ng-enter-active {
   left: 0; }
-.watson:not(.no-animation) [ui-view].ng-leave {
-  opacity: 1;
+.watson.animate [ui-view].ng-leave {
   left: 0; }
-.watson:not(.no-animation) [ui-view].ng-leave-active {
-  opacity: 0;
+.watson.animate [ui-view].ng-leave-active {
   left: 150vw; }
 
 .watson ul {
@@ -999,14 +1002,18 @@ body.watson {
     .watson button.secondary:not([disabled]):hover, .watson button.secondary:active {
       background-color: #C7C7C7;
       color: #464646; }
-  .watson button.link, .watson button.close {
+  .watson button.link, .watson button.icon, .watson button.close {
     background-color: transparent;
-    color: #4178BE; }
-    .watson button.link:not([disabled]):hover, .watson button.link:active, .watson button.close:not([disabled]):hover, .watson button.close:active {
+    color: #121212;
+    min-width: 0;
+    padding: 0; }
+    .watson button.link:not([disabled]):hover, .watson button.link:active, .watson button.icon:not([disabled]):hover, .watson button.icon:active, .watson button.close:not([disabled]):hover, .watson button.close:active {
       color: #777677;
       background-color: transparent; }
-    .watson button.link [class^="ibm-icon--"], .watson button.link [class^="ibm-glyph--"], .watson button.close [class^="ibm-icon--"], .watson button.close [class^="ibm-glyph--"] {
+    .watson button.link [class^="ibm-icon--"], .watson button.link [class^="ibm-glyph--"], .watson button.icon [class^="ibm-icon--"], .watson button.icon [class^="ibm-glyph--"], .watson button.close [class^="ibm-icon--"], .watson button.close [class^="ibm-glyph--"] {
       color: inherit; }
+  .watson button.link {
+    color: #4178BE; }
   .watson button.error {
     background-color: #AD1625; }
     .watson button.error:not([disabled]):hover, .watson button.error:active {
@@ -1069,10 +1076,12 @@ body.watson {
 .watson input[type=search] {
   padding-left: 2.5em;
   background: url(../images/search_24.svg) no-repeat 0.7em 50%/1.3em 1.3em #FFFFFF;
-  width: 100%; }
+  width: 100%;
+  border-radius: 20px; }
 .watson input.filter[type=search] {
   padding-left: 2.5em;
-  background: url(../images/filter_24.svg) no-repeat 0.7em 50%/1.3em 1.3em #FFFFFF; }
+  background: url(../images/filter_24.svg) no-repeat 0.7em 50%/1.3em 1.3em #FFFFFF;
+  border-radius: 20px; }
 
 .watson input[type=checkbox] {
   display: none;
@@ -1142,7 +1151,7 @@ body.watson {
     color: #323232; }
 
 /* This awesome piece of CSS doesn't work in Firefox
-   because you can't use ::before and ::after on inputs */
+because you can't use ::before and ::after on inputs */
 .watson-nofirefox input[type=file] {
   display: block;
   width: 100%;
@@ -1283,14 +1292,13 @@ textarea {
   border: 0;
   border-radius: 0;
   margin-bottom: 0;
-  padding: 0 1.2em;
-  border-bottom: 4px solid #121212;
-  background-color: #323232;
+  padding: 0 1.2em 0 0;
+  border-bottom: 1px solid #C7C7C7;
+  background-color: #ECECEC;
   height: 50px;
-  line-height: -webkit-calc(50px - 2px);
-  line-height: calc(50px - 2px); }
+  line-height: 50px; }
   .watson header[role=banner] a {
-    color: #AEAEAE;
+    color: #464646;
     line-height: 2.2em; }
     .watson header[role=banner] a:hover {
       border-bottom: none; }
@@ -1299,30 +1307,13 @@ textarea {
     -webkit-box-flex: 1;
     -webkit-flex: 1;
     -ms-flex: 1;
-    flex: 1; }
-  .watson header[role=banner] nav ul {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex; }
-    .watson header[role=banner] nav ul li a {
-      display: block;
-      padding: 1.2em 1em 0.9em;
-      line-height: 1.2em;
-      font-size: 0.9em; }
-      .watson header[role=banner] nav ul li a:hover, .watson header[role=banner] nav ul li a:focus {
-        background-color: transparent;
-        -webkit-box-shadow: 0 4px 0 0 #FFFFFF;
-        box-shadow: 0 4px 0 0 #FFFFFF;
-        border: 0; }
-    .watson header[role=banner] nav ul li.icon a {
-      line-height: 0.8em; }
-    .watson header[role=banner] nav ul li.active {
-      background-color: #121212; }
-      .watson header[role=banner] nav ul li.active a {
-        -webkit-box-shadow: none;
-        box-shadow: none;
-        cursor: default; }
+    flex: 1;
+    margin-left: 1em; }
+  .watson header[role=banner] input[type=search] {
+    width: 300px;
+    margin-right: 100px;
+    display: block;
+    margin-top: 0.5em; }
 
 .watson ol.breadcrumb {
   list-style: none;
@@ -1374,7 +1365,7 @@ textarea {
     border: 1px solid #C7C7C7;
     border-radius: 0;
     color: #777677;
-    padding: 0.4em 1em;
+    padding: 0.5em;
     line-height: 1.2em;
     text-align: left; }
     .watson [uib-dropdown] button > * {
@@ -1693,6 +1684,87 @@ textarea {
     display: block;
     clear: both; }
 
+.watson [ui-view] {
+  -webkit-transition: margin-right 0.5s ease;
+  transition: margin-right 0.5s ease; }
+.watson ask-watson aside {
+  position: fixed;
+  right: 0;
+  top: 50px;
+  width: 40vw;
+  height: -webkit-calc(100vh - 50px);
+  height: calc(100vh - 50px);
+  z-index: 100;
+  background-color: #323232;
+  -webkit-transition: right 0.5s ease;
+  transition: right 0.5s ease;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column; }
+  @media only screen and (max-width: 768px) {
+    .watson ask-watson aside {
+      width: 100vw;
+      padding-left: 2em; } }
+  .watson ask-watson aside.ng-hide {
+    right: -40vw; }
+  .watson ask-watson aside header {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    padding: 1em; }
+    .watson ask-watson aside header button.icon {
+      color: #C7C7C7; }
+  .watson ask-watson aside footer {
+    padding: 1em;
+    background-color: #ECECEC; }
+  .watson ask-watson aside section {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    padding: 1em; }
+    .watson ask-watson aside section ol {
+      list-style: none;
+      padding: 0;
+      color: #E0E0E0; }
+      .watson ask-watson aside section ol > li {
+        line-height: 1.5em;
+        margin-top: 1em;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex; }
+        .watson ask-watson aside section ol > li > * {
+          display: inline-block;
+          vertical-align: top; }
+        .watson ask-watson aside section ol > li.user-speech {
+          -webkit-box-pack: end;
+          -webkit-justify-content: flex-end;
+          -ms-flex-pack: end;
+          justify-content: flex-end; }
+        .watson ask-watson aside section ol > li.watson-speech [uib-dropdown] {
+          -webkit-box-ordinal-group: 0;
+          -webkit-order: -1;
+          -ms-flex-order: -1;
+          order: -1; }
+        .watson ask-watson aside section ol > li .date {
+          color: #959595; }
+  .watson ask-watson aside input[type=text] {
+    padding: 1em; }
+.watson.ask-watson-open [ui-view] {
+  margin-right: 40vw; }
+
 .watson [scroll-to-top] .stt-container {
   position: fixed;
   bottom: 0;
@@ -1705,3 +1777,91 @@ textarea {
   padding: 0.5em 0.2em 0.2em 0.5em;
   min-width: 0;
   margin: 0; }
+
+.watson [ui-view] {
+  -webkit-transition: margin-left 0.5s ease;
+  transition: margin-left 0.5s ease; }
+.watson side-nav nav {
+  -webkit-transition: background-color 0.5s ease;
+  transition: background-color 0.5s ease; }
+  .watson side-nav nav button.icon {
+    padding: 1em 1em 0.5em 1.35em;
+    margin: 0;
+    vertical-align: top; }
+  .watson side-nav nav ul {
+    position: fixed;
+    left: 0;
+    top: -webkit-calc(50px - 1px);
+    top: calc(50px - 1px);
+    width: 60px;
+    min-height: -webkit-calc(100vh - 50px);
+    min-height: calc(100vh - 50px);
+    background-color: #323232;
+    color: #AEB8B8;
+    z-index: 1000;
+    text-align: center;
+    -webkit-transition: left 0.5s ease;
+    transition: left 0.5s ease;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column; }
+    .watson side-nav nav ul.ng-hide {
+      left: -60px; }
+    .watson side-nav nav ul li {
+      min-height: 50px; }
+      .watson side-nav nav ul li.active {
+        background-color: #121212; }
+      .watson side-nav nav ul li a:not(:visited), .watson side-nav nav ul li a:visited {
+        display: block;
+        color: #C7C7C7;
+        padding: 1em 1em 0.5em 1em;
+        line-height: 1.5em; }
+      .watson side-nav nav ul li a:hover, .watson side-nav nav ul li a:focus {
+        background-color: #121212;
+        border-bottom: none; }
+.watson.side-nav-open {
+  background-color: #323232; }
+  .watson.side-nav-open [ui-view] {
+    margin-left: 60px;
+    background-color: #FFFFFF; }
+  .watson.side-nav-open side-nav nav {
+    background-color: #323232; }
+    .watson.side-nav-open side-nav nav button.icon {
+      color: #C7C7C7; }
+      .watson.side-nav-open side-nav nav button.icon:hover, .watson.side-nav-open side-nav nav button.icon:focus {
+        color: #C7C7C7;
+        background-color: #121212; }
+
+.watson help-assistant {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10000;
+  -webkit-transition: bottom 0.5s ease;
+  transition: bottom 0.5s ease; }
+  .watson help-assistant aside {
+    min-height: 100px;
+    max-height: 30vh;
+    background-color: white;
+    border: 1px solid #C7C7C7;
+    padding: 1em 1em 1em 2em;
+    -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex; }
+    .watson help-assistant aside .help-content {
+      -webkit-box-flex: 1;
+      -webkit-flex: 1;
+      -ms-flex: 1;
+      flex: 1; }
+    .watson help-assistant aside p::before {
+      content: '';
+      margin-right: 1em;
+      border-left: 4px solid #41D6C3; }
+  .watson help-assistant.ng-hide {
+    bottom: -100px; }

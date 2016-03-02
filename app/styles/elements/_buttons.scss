@@ -1,22 +1,22 @@
 .watson {
 	button {
 		font-size: 14px;
-	    text-align: center;
-	    white-space: nowrap;
-	    vertical-align: middle;
-	    -ms-touch-action: manipulation;
-	    touch-action: manipulation;
-	    user-select: none;
-	    background-image: none;
+		text-align: center;
+		white-space: nowrap;
+		vertical-align: middle;
+		-ms-touch-action: manipulation;
+		touch-action: manipulation;
+		user-select: none;
+		background-image: none;
 		border-radius: 0;
-	    border-width: 0;
-	    margin: 0 .5em 0 0;
-	    padding: .6em 1em .4em;
-	    box-shadow: none;
-	    line-height: 1.6em;
-	    transition: all 0.2s ease;
-	    background-color: $blue-50;
-	    color: $white;
+		border-width: 0;
+		margin: 0 .5em 0 0;
+		padding: .6em 1em .4em;
+		box-shadow: none;
+		line-height: 1.6em;
+		transition: all 0.2s ease;
+		background-color: $blue-50;
+		color: $white;
 		cursor: pointer;
 
 		&:not(.link) {
@@ -36,19 +36,22 @@
 
 		&.secondary {
 			background-color: $gray-10;
-    		color: $gray-60;
+			color: $gray-60;
 
 			&:not([disabled]):hover,
 			&:active {
 				background-color: $gray-20;
-    			color: $gray-70;
+				color: $gray-70;
 			}
 		}
 
 		&.link,
+		&.icon,
 		&.close {
 			background-color: transparent;
-			color: $blue-50;
+			color: $gray-90;
+			min-width: 0;
+			padding: 0;
 
 			&:not([disabled]):hover,
 			&:active {
@@ -60,6 +63,10 @@
 			& [class^="ibm-glyph--"] {
 				color: inherit;
 			}
+		}
+
+		&.link {
+			color: $blue-50;
 		}
 
 		&.error {
@@ -86,37 +93,37 @@
 	button {
 		font-size: 14px;
 		background-color: $teal-20;
-	    border: none;
-	    box-shadow: none;
-	    border-radius: 20px;
-	    color: $white;
-	    padding: 10px 20px;
+		border: none;
+		box-shadow: none;
+		border-radius: 20px;
+		color: $white;
+		padding: 10px 20px;
 		margin: 0 .5em 0 0;
-	    min-width: 120px;
-	    text-align: center;
-	    text-transform: none;
-	    cursor: pointer;
-	    overflow: hidden;
-	    text-overflow: clip;
-	    white-space: nowrap;
-	    transition: all 1s ease;
+		min-width: 120px;
+		text-align: center;
+		text-transform: none;
+		cursor: pointer;
+		overflow: hidden;
+		text-overflow: clip;
+		white-space: nowrap;
+		transition: all 1s ease;
 	}
 
 	a.button {
 		font-size: 14px;
-	    display: inline-block;
-	    background-color: transparent;
-	    border: 2px solid $teal-30;
-	    border-radius: 20px;
-	    box-shadow: none;
-	    color: $teal-10;
+		display: inline-block;
+		background-color: transparent;
+		border: 2px solid $teal-30;
+		border-radius: 20px;
+		box-shadow: none;
+		color: $teal-10;
 		margin: 0 .5em 0 0;
-	    padding: 8px;
-	    min-width: 120px;
-	    text-align: center;
-	    text-transform: uppercase;
-	    text-decoration: none;
+		padding: 8px;
+		min-width: 120px;
+		text-align: center;
+		text-transform: uppercase;
+		text-decoration: none;
 		line-height: normal;
-	    transition: all 1s ease;
+		transition: all 1s ease;
 	}
 }

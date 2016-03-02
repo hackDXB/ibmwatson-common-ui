@@ -1,0 +1,34 @@
+.watson {
+  help-assistant {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10000;
+    transition: bottom .5s ease;
+
+    aside {
+      min-height: 100px;
+      max-height: 30vh;
+      background-color: white;
+      border: 1px solid $gray-20;
+      padding: 1em 1em 1em 2em;
+      box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+      display: flex;
+
+      .help-content {
+        flex: 1;
+      }
+
+      p::before {
+        content: '';
+        margin-right: 1em;
+        border-left: 4px solid $teal-30;
+      }
+    }
+
+    &.ng-hide {
+      bottom: -100px;
+    }
+  }
+}

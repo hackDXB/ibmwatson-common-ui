@@ -1,28 +1,35 @@
 body.watson {
-    margin: 0;
-    font-family: 'Helvetica Neue for IBM';
-    color: $gray-70;
+  margin: 0;
+  font-family: 'Helvetica Neue for IBM';
+  color: $gray-70;
 }
 
 .watson * {
-    box-sizing: border-box;
+  box-sizing: border-box;
+  outline: none;
 }
 
 .watson {
-    .main-container {
-        min-height: calc(100vh - #{$banner-height});
-        display: flex;
-    }
+  .main-container {
+    min-height: calc(100vh - #{$banner-height});
+    display: flex;
+  }
 
-    [role=main] {
-        padding: 1.2em;
-    }
+  [role=main] {
+    padding: 1.2em;
+    background-color: white;
+  }
 
-    .sr-only {
-        position: absolute;
-        clip: rect(0px 0px 0px 0px);
-        width: 0;
-    }
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+  }
 }
 
 

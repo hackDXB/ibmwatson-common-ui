@@ -1,31 +1,31 @@
 .watson {
-    .sidebar {
-        background-color: $gray-80;
-        min-width: 200px;
-        max-width: 300px;
-        border-right: 1px solid $gray-70;
+  .sidebar {
+    background-color: $gray-80;
+    min-width: 200px;
+    max-width: 300px;
+    border-right: 1px solid $gray-70;
 
-    	li {
-    		border-bottom: 1px solid $gray-70;
+    li {
+      border-bottom: 1px solid $gray-70;
 
-    		a {
-    			padding: .6em 1em .4em 1.2em;
-    			transition: all .1s ease;
-    			color: $gray-30;
-                display: block;
-                word-break: break-word;
-
-                &:hover,
-                &:focus {
-        			background-color: $gray-90;
-                    border-bottom: none;
-                }
-    		}
-    		&.active a {
-    			background-color: $gray-90;
-    			box-shadow: inset 8px 0 0 0 $green-30;
-    			cursor: default;
-    		}
-    	}
+      a {
+        padding: .6em 1em .4em 1.2em;
+        transition: all .1s ease;
+        color: $gray-30;
+        display: block;
+        word-break: break-word;
+        
+        &:hover,
+        &:focus {
+          background-color: $gray-90;
+          border-bottom: none;
+        }
+      }
+      &.active a {
+        background-color: $gray-90;
+        box-shadow: inset 8px 0 0 0 $green-30;
+        cursor: default;
+      }
     }
+  }
 }

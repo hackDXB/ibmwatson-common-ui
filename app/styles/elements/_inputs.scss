@@ -22,10 +22,12 @@
 		padding-left: 2.5em;
 		background: url(#{$ibm-watson-images-path}/search_24.svg) no-repeat .7em 50% / 1.3em 1.3em $white;
 		width: 100%;
+		border-radius: 20px;
 	}
 
 	input.filter[type=search] {
 		padding-left: 2.5em;
 		background: url(#{$ibm-watson-images-path}/filter_24.svg) no-repeat .7em 50% / 1.3em 1.3em $white;
+		border-radius: 20px;
 	}
 }
