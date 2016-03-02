@@ -1,0 +1,11 @@
+// Loading indicator
+.watson {
+  .loading {
+    background-image: url(#{$ibm-watson-images-path}/watson_busy_icn.gif);
+    background-repeat: no-repeat;
+    width: 150px;
+    height: 150px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

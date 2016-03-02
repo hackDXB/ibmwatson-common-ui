@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel='shortcut icon' href='dist/images/favicon.ico' type='image/x-icon' />
+  <link rel='icon' href='dist/images/favicon.ico' type='image/x-icon' />
+
+  <title>IBM Watson Common UI</title>
+  <meta name="description" content="">
+
+  <link rel="stylesheet" href="styles/ibmwatson-styleguide.css">
+
+  <link rel="stylesheet" href="ibmwatson.css"/>
+
+  <script src="style-guide.js"></script>
+
+  <script src="ibmwatson.js"></script>
+</head>
+<body class="watson animate style-guide" ng-app="watson.common.ui">
+  <!--[if lt IE 7]>
+  <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+
+  <header role="banner" ng-controller="BannerController as ctrl">
+    <side-nav links="[{label: 'Overview', href:'#/overview', icon: 'ibm-icon--home'}, {label: 'Elements', href:'#/elements', icon: 'ibm-icon--code'}, {label: 'Components', href:'#/components', icon: 'ibm-icon--inventory'}, {label: 'Layout', href:'#/layout', icon: 'ibm-icon--spaces'}]"></side-nav>
+    <h1><a href="#">IBM <strong>Watson Common UI</strong></a></h1>
+    <input type="search" ng-model="ctrl.searchTerm" ng-keyUp="ctrl.search()" placeholder="Search" aria-label="Search"/>
+    <ask-watson></ask-watson>
+  </header>
+
+  <section ui-view="">
+  </section>
+
+  <footer role="contentinfo" scroll-to-top>
+
+  </footer>
+
+</body>
+</html>

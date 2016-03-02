@@ -1,5 +1,8 @@
-textarea {
-	@extend %input;
-	resize: none;
-	width: 100%;
+// Textareas
+.watson {
+	textarea {
+		@extend %input;
+		resize: none;
+		width: 100%;
+	}
 }
