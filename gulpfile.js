@@ -79,7 +79,7 @@ gulp.task('scripts', function () {
 });
 
 gulp.task('watch', function () {
-    gulp.watch([ 'app/styles/**/*.scss'], ['sass']);
+    gulp.watch([ 'app/**/*.scss'], ['sass']);
     gulp.watch([ 'app/scripts' + '/**/*.js'], ['scripts']);
     gulp.watch(['./app/**/*.html'], ['html']);
 });

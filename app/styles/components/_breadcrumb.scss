@@ -1,17 +1,17 @@
 .watson {
-    ol.breadcrumb {
-        list-style: none;
-    	padding: 1em 0;
-    	background-color: transparent;
+  ol.breadcrumb {
+    list-style: none;
+    padding: 1em 0;
+    background-color: transparent;
 
-        li {
-            display: inline-block;
+    li {
+      display: inline-block;
 
-            & + li::before {
-                padding: 0 5px;
-                color: $gray-20;
-                content: "/\00a0";
-            }
-        }
+      & + li::before {
+        padding: 0 5px;
+        color: $gray-20;
+        content: "/\00a0";
+      }
     }
+  }
 }

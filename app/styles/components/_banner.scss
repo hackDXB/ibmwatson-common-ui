@@ -1,64 +1,35 @@
 .watson {
-    header[role=banner] {
-    	display: flex;
-    	border: 0;
-    	border-radius: 0;
-    	margin-bottom: 0;
-    	padding: 0 1.2em;
-        border-bottom: 4px solid $gray-90;
-        background-color: $gray-80;
-        height: $banner-height;
-        line-height: calc(#{$banner-height} - 2px);
+  header[role=banner] {
+    display: flex;
+    border: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+    padding: 0 1.2em 0 0;
+    border-bottom: $banner-border-width solid $gray-20;
+    background-color: $neutral-white-40;
+    height: $banner-height;
+    line-height: $banner-height;
 
-        a {
-            color: $gray-30;
-            line-height: 2.2em;
+    a {
+      color: $gray-70;
+      line-height: 2.2em;
 
-            &:hover {
-                border-bottom: none;
-            }
-        }
-
-    	h1 {
-    		font-size: 1.3em;
-        	flex: 1;
-    	}
-
-    	nav {
-    		ul {
-                display: flex;
-
-    			li {
-    				a {
-                        display: block;
-    					padding: 1.2em 1em .9em;
-    					line-height: 1.2em;
-                        font-size: 0.9em;
-
-    					&:hover,
-    					&:focus {
-    						background-color: transparent;
-    						box-shadow: 0 4px 0 0 $white;
-    						border: 0;
-    					}
-    				}
-
-    				&.icon {
-                        a {
-                            line-height: .8em;
-                        }
-    				}
-
-    				&.active {
-    					background-color: $gray-90;
-
-    					a {
-    						box-shadow: none;
-    						cursor: default;
-    					}
-    				}
-    			}
-    		}
-    	}
+      &:hover {
+        border-bottom: none;
+      }
     }
+
+    h1 {
+      font-size: 1.3em;
+      flex: 1;
+      margin-left: 1em;
+    }
+
+    input[type=search] {
+      width: 300px;
+      margin-right: 100px;
+      display: block;
+      margin-top: .5em;
+    }
+  }
 }
