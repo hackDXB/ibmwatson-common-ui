@@ -1,3 +1,5 @@
+// Variables
+
 // Typography
 $ibm-watson-fonts-path: "../fonts" !default;
 $font: 'Helvetica Neue for IBM', Helvetica, Arial, 'Roboto', sans-serif;
@@ -30,6 +32,8 @@ $bg-color-info: $blue-10;
 $bg-color-warning: $yellow-10;
 $bg-color-error: $red-10;
 
+// Sizes
 $banner-height: 50px;
 $banner-border-width: 1px;
 $sidenav-width: 60px;
+$footer-height: 0px;

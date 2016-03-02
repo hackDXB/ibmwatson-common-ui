@@ -1,6 +1,7 @@
+// Core
 body.watson {
+  @include font-roman;
   margin: 0;
-  font-family: 'Helvetica Neue for IBM';
   color: $gray-70;
 }
 
