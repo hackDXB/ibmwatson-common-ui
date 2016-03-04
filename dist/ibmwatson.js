@@ -7098,6 +7098,34 @@ angular.module('ui.bootstrap.typeahead').run(function() {!angular.$$csp().noInli
 (function () {
 
   angular
+    .module('watson.common.ui', [
+      "ngAnimate",
+      "ui.bootstrap"
+    ]);
+
+})();
+;
+
+/**
+ * Copyright 2015 IBM Corp.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ **/
+
+'use strict';
+(function () {
+
+  angular
     .module('watson.common.ui')
     .directive('askWatson', sideNav);
 
@@ -7109,7 +7137,9 @@ angular.module('ui.bootstrap.typeahead').run(function() {!angular.$$csp().noInli
         links: '='
       },
       controller: function($scope, $location) {
-        this.conversation = [
+        var vm = this;
+
+        vm.conversation = [
           {
             who: "user",
             message: "Where is the bathroom?",
@@ -7124,12 +7154,12 @@ angular.module('ui.bootstrap.typeahead').run(function() {!angular.$$csp().noInli
           }
         ];
 
-        this.toggleMenu = function() {
-          this.isOpen = !this.isOpen;
+        vm.toggleMenu = function() {
+          vm.isOpen = !vm.isOpen;
           angular.element(document.body).toggleClass("ask-watson-open");
         };
       },
-      controllerAs: 'ctrl'
+      controllerAs: 'vm'
     };
   };
 
@@ -7216,18 +7246,25 @@ angular.module('ui.bootstrap.typeahead').run(function() {!angular.$$csp().noInli
       scope: {
         links: '='
       },
+      link: function(scope, element, attributes) {
+      },
       controller: function($scope, $location) {
-        this.toggleMenu = function() {
-          this.sideNavOpen = !this.sideNavOpen;
-          angular.element(document.body).toggleClass("side-nav-open");
+        var vm = this;
+
+        vm.toggleMenu = function(open) {
+          if(open != null) {
+            vm.sideNavExpanded = open;
+          } else {
+            vm.sideNavExpanded = !vm.sideNavExpanded;
+          }
         };
-        this.location = function(href) {
+        vm.location = function(href) {
           if(!href) return false;
           if(href.indexOf('#') == 0) href = href.substring(1);
           return $location.url().indexOf(href) > -1;
         };
       },
-      controllerAs: 'ctrl'
+      controllerAs: 'vm'
     };
   };
 
@@ -7263,11 +7300,7 @@ angular.module('ui.bootstrap.typeahead').run(function() {!angular.$$csp().noInli
       templateUrl: 'directives/helpAssistant/helpAssistant.html',
       scope: {
         template: '='
-      },
-      controller: function($scope, $location) {
-
-      },
-      controllerAs: 'ctrl'
+      }
     };
   };
 

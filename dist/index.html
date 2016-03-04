@@ -19,23 +19,25 @@
 
   <link rel="stylesheet" href="ibmwatson.css"/>
 
-  <script src="style-guide.js"></script>
+  <script src="dependencies.js"></script>
 
   <script src="ibmwatson.js"></script>
+
+  <script src="style-guide.js"></script>
 </head>
-<body class="watson animate style-guide" ng-app="watson.common.ui">
+<body class="watson animate style-guide" ng-app="watson.common.ui.guide">
   <!--[if lt IE 7]>
   <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
 
-  <header role="banner" ng-controller="BannerController as ctrl">
+  <header role="banner" ng-controller="BannerController as vm">
     <side-nav links="[{label: 'Overview', href:'#/overview', icon: 'ibm-icon--home'}, {label: 'Elements', href:'#/elements', icon: 'ibm-icon--code'}, {label: 'Components', href:'#/components', icon: 'ibm-icon--inventory'}, {label: 'Layout', href:'#/layout', icon: 'ibm-icon--spaces'}]"></side-nav>
     <h1><a href="#">IBM <strong>Watson Common UI</strong></a></h1>
-    <input type="search" ng-model="ctrl.searchTerm" ng-keyUp="ctrl.search()" placeholder="Search" aria-label="Search"/>
+    <input type="search" ng-model="vm.searchTerm" ng-keyUp="vm.search()" placeholder="Search" aria-label="Search"/>
     <ask-watson></ask-watson>
   </header>
 
-  <section ui-view="">
+  <section ui-view="" class="main-container">
   </section>
 
   <footer role="contentinfo" scroll-to-top>

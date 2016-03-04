@@ -18,17 +18,9 @@
 (function () {
 
   angular
-    .module('watson.common.ui')
-    .directive('helpAssistant', helpAssistant);
-
-  function helpAssistant() {
-    return {
-      restrict: 'E',
-      templateUrl: 'directives/helpAssistant/helpAssistant.html',
-      scope: {
-        template: '='
-      }
-    };
-  };
+    .module('watson.common.ui', [
+      "ngAnimate",
+      "ui.bootstrap"
+    ]);
 
 })();
