@@ -1,14 +1,14 @@
 <div>
-  <button type="button" role="button" class="icon" aria-label="Ask Watson" ng-click="ctrl.toggleMenu()">
+  <button type="button" role="button" class="icon" aria-label="Ask Watson" ng-click="vm.toggleMenu()">
     <span class="ibm-icon--forum" aria-hidden="true"></span>
   </button>
 
-  <aside ng-show="ctrl.isOpen">
+  <aside ng-show="vm.isOpen">
     <header>
     </header>
     <section>
       <ol>
-        <li class="{{step.who}}-speech" ng-repeat="step in ctrl.conversation">
+        <li class="{{step.who}}-speech" ng-repeat="step in vm.conversation">
           <div>
             <div>{{step.message}}</div>
             <div class="date">{{step.date}}</div>

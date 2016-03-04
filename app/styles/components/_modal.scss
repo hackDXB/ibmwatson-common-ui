@@ -21,7 +21,7 @@
 
     &.fade {
       .modal-dialog {
-        transition: transform .3s ease-out;
+        @include transition(transform);
         transform: translate(0, -25%);
       }
     }

@@ -1,10 +1,6 @@
 $ask-watson-width: 40vw;
 
 .watson {
-  [ui-view] {
-    transition: margin-right .5s ease;
-  }
-
   ask-watson {
     aside {
       position:fixed;
@@ -14,9 +10,10 @@ $ask-watson-width: 40vw;
       height: calc(100vh - #{$banner-height});
       z-index: 100;
       background-color: $gray-80;
-      transition: right .5s ease;
       display: flex;
       flex-direction: column;
+
+      @include transition(right);
 
       @include screen-medium {
         width: 100vw;

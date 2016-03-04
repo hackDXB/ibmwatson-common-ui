@@ -1,4 +1,6 @@
 // Mixins
+
+// Fonts
 @mixin font-light {
 	font-family: $font;
   font-weight: 300;
@@ -46,12 +48,33 @@
 	letter-spacing: .05em;
 }
 
+// Box shadow
 @mixin dropshadow {
 	-moz-box-shadow: .1em .1em .2em $gray-50;
 	-webkit-box-shadow: .1em .1em .2em $gray-50;
 	box-shadow: .1em .1em .2em $gray-50;
 }
 
+// Media breakpoints
+@mixin screen-large {
+  @media only screen and (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin screen-medium {
+  @media only screen and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin screen-small {
+  @media only screen and (max-width: 320px) {
+    @content;
+  }
+}
+
+// Grid
 @mixin grid($default, $large, $medium, $small) {
   display: flex;
   flex-wrap: wrap;
@@ -75,4 +98,11 @@
       max-width: (100% / $small);
     }
   }
+}
+
+// Animation
+@mixin transition($properties...) {
+	transition-property: $properties;
+	transition-duration: .5s;
+	transition-timing-function: ease;
 }

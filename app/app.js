@@ -18,11 +18,11 @@
 (function () {
 
   angular
-    .module('watson.common.ui', [
+    .module('watson.common.ui.guide', [
       "ngAnimate",
       "ui.bootstrap",
       "ui.router",
-      "watson.common.ui.controllers"
+      "watson.common.ui"
     ])
     .config(appConfig);
 
@@ -45,7 +45,7 @@
         url: '/components',
         templateUrl: 'guide/components.html',
         controller: 'GuideController',
-        controllerAs: 'ctrl'
+        controllerAs: 'vm'
       })
       .state('layout', {
         url: '/layout',

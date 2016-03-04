@@ -15,10 +15,11 @@
 		padding: .6em 1em .4em;
 		box-shadow: none;
 		line-height: 1.6em;
-		transition: all 0.2s ease;
 		background-color: $blue-50;
 		color: $white;
 		cursor: pointer;
+
+		@include transition(all);
 
 		&:not(.link) {
 			min-width: 120px;
@@ -107,7 +108,7 @@
 		overflow: hidden;
 		text-overflow: clip;
 		white-space: nowrap;
-		transition: all 1s ease;
+		@include transition(all);
 	}
 
 	a.button {
@@ -125,6 +126,6 @@
 		text-transform: uppercase;
 		text-decoration: none;
 		line-height: normal;
-		transition: all 1s ease;
+		@include transition(all);
 	}
 }

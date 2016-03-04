@@ -10,8 +10,9 @@
     font-family: "HelvNeueRomanforIBM";
     font-size: .9em;
     overflow: hidden;
-    transition: all .3s ease;
     position: relative;
+
+    @include transition(all);
 
     input[type=file] {
       position: absolute;

@@ -13,7 +13,9 @@ body.watson {
 .watson {
   .main-container {
     min-height: calc(100vh - #{$banner-height});
+    margin-top: $banner-height;
     display: flex;
+    margin-left: 60px;
   }
 
   [role=main] {
@@ -30,24 +32,5 @@ body.watson {
     overflow: hidden;
     clip: rect(0,0,0,0);
     border: 0;
-  }
-}
-
-
-@mixin screen-large {
-  @media only screen and (max-width: 1024px) {
-    @content;
-  }
-}
-
-@mixin screen-medium {
-  @media only screen and (max-width: 768px) {
-    @content;
-  }
-}
-
-@mixin screen-small {
-  @media only screen and (max-width: 320px) {
-    @content;
   }
 }

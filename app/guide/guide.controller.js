@@ -18,7 +18,7 @@
 (function () {
 
   angular
-  .module('watson.common.ui.controllers', [])
+  .module('watson.common.ui')
   .controller('GuideController', ['$scope', '$uibModal', guideController])
   .controller('BannerController', ['$scope', '$location', bannerController])
   .controller('ModalController', modalController);
@@ -35,7 +35,7 @@
         windowTemplateUrl: 'templates/modal.html',
         templateUrl: 'templates/modal-content.html',
         controller: 'ModalController',
-        controllerAs: 'ctrl'
+        controllerAs: 'vm'
       });
     };
   };

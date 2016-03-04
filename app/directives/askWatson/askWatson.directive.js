@@ -29,7 +29,9 @@
         links: '='
       },
       controller: function($scope, $location) {
-        this.conversation = [
+        var vm = this;
+
+        vm.conversation = [
           {
             who: "user",
             message: "Where is the bathroom?",
@@ -44,12 +46,12 @@
           }
         ];
 
-        this.toggleMenu = function() {
-          this.isOpen = !this.isOpen;
+        vm.toggleMenu = function() {
+          vm.isOpen = !vm.isOpen;
           angular.element(document.body).toggleClass("ask-watson-open");
         };
       },
-      controllerAs: 'ctrl'
+      controllerAs: 'vm'
     };
   };
 

@@ -28,18 +28,25 @@
       scope: {
         links: '='
       },
+      link: function(scope, element, attributes) {
+      },
       controller: function($scope, $location) {
-        this.toggleMenu = function() {
-          this.sideNavOpen = !this.sideNavOpen;
-          angular.element(document.body).toggleClass("side-nav-open");
+        var vm = this;
+
+        vm.toggleMenu = function(open) {
+          if(open != null) {
+            vm.sideNavExpanded = open;
+          } else {
+            vm.sideNavExpanded = !vm.sideNavExpanded;
+          }
         };
-        this.location = function(href) {
+        vm.location = function(href) {
           if(!href) return false;
           if(href.indexOf('#') == 0) href = href.substring(1);
           return $location.url().indexOf(href) > -1;
         };
       },
-      controllerAs: 'ctrl'
+      controllerAs: 'vm'
     };
   };
 
