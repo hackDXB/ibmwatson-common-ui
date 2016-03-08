@@ -6,8 +6,6 @@
 // visual design/comparisons etc. and easy enough to refresh browser
 // manually
 //
-// Include scss in dist/styles
-//
 // Uncomment linting
 //
 
@@ -17,6 +15,7 @@ var gulp = require('gulp');
 var browserify = require('browserify');
 var del = require('del');
 var express = require('express');
+var merge = require('merge-stream');
 var streamqueue = require('streamqueue');
 
 // Load gulp plugins
@@ -43,7 +42,8 @@ var srcPaths = {
     srcFolder + '/ng/**/*.js',
     '!/**/*.spec.js'
   ],
-  styles: [srcFolder + '/assets/styles/ibmwatson.scss'],
+  rootStyles: [srcFolder + '/assets/styles/ibmwatson.scss'],
+  styles: [srcFolder + '/assets/styles/**/*.scss'],
   templates: [srcFolder + '/ng/**/*.html']
 };
 
@@ -128,15 +128,15 @@ var scriptsTask = function () {
     //.pipe(plugins.remember('scripts')))
   )
     .pipe(plugins.order(['**/common-ui.js', '*']))
-    .pipe(plugins.sourcemaps.init())
-    .pipe(plugins.concat('ibmwatson-common-ui.js'))
+    .pipe(plugins.concat('ibmwatson.js'))
     .pipe(gulp.dest(destPaths.scripts))
+    .pipe(plugins.sourcemaps.init())
     .pipe(plugins.ngAnnotate())
     .pipe(plugins.uglify())
-    .pipe(plugins.sourcemaps.write('../maps'))
     .pipe(plugins.rename({
-      suffix: '.min'
+      extname: '.min.js'
     }))
+    .pipe(plugins.sourcemaps.write('../maps'))
     .pipe(gulp.dest(destPaths.scripts));
 };
 gulp.task('scripts', scriptsTask);
@@ -160,23 +160,29 @@ gulp.task('clean-serve', ['clean-build', 'clean-demo'], serveTask);
 // Styles
 
 var stylesTask = function stylesTask() {
-  return gulp.src(srcPaths.styles)
-    .pipe(plugins.plumber({
-      errorHandler: handleError
-    }))
-    .pipe(plugins.cached('styles'))
-    //.pipe(gulp.dest(destPaths.styles))
-    .pipe(plugins.rename('ibmwatson-common-ui.css'))
-    .pipe(plugins.sourcemaps.init())
-    .pipe(plugins.sass({
-      outputStyle: 'compressed'
-    }))
-    .pipe(plugins.autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
-    .pipe(plugins.sourcemaps.write('../maps'))
-    .pipe(plugins.rename({
-      suffix: '.min'
-    }))
-    .pipe(gulp.dest(destPaths.styles));
+  return merge(
+    gulp.src(srcPaths.styles)
+      .pipe(plugins.plumber({
+        errorHandler: handleError
+      }))
+      .pipe(plugins.cached('styles'))
+      .pipe(gulp.dest(destPaths.styles)),
+    gulp.src(srcPaths.rootStyles)
+      .pipe(plugins.plumber({
+        errorHandler: handleError
+      }))
+      .pipe(plugins.cached('rootStyles'))
+      .pipe(plugins.sourcemaps.init())
+      .pipe(plugins.sass({
+        outputStyle: 'compressed'
+      }))
+      .pipe(plugins.autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
+      .pipe(plugins.rename({
+        extname: '.min.css'
+      }))
+      .pipe(plugins.sourcemaps.write('../maps'))
+      .pipe(gulp.dest(destPaths.styles))
+  );
 };
 gulp.task('styles', stylesTask);
 gulp.task('clean-styles', ['clean'], stylesTask);
