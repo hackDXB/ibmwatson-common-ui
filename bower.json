@@ -1,9 +1,14 @@
 {
   "name": "watson-common-ui",
-  "version": "0.0.1",
-  "main": "dist/ibmwatson-common-ui.js",
+  "version": "0.0.2",
+  "main": [
+    "dist/js/ibmwatson.min.js",
+    "dist/styles/ibmwatson.min.css"
+  ],
   "ignore": [
-
+    "*",
+    "!bower.json",
+    "!/dist/*"
   ],
   "dependencies": {
     "angular": "1.4.8",
