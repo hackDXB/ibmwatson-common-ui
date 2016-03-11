@@ -1,14 +1,9 @@
 {
-  "name": "watson-common-ui",
-  "version": "0.0.2",
+  "name": "ibmwatson-common-ui",
+  "version": "0.0.3",
   "main": [
-    "dist/js/ibmwatson.min.js",
-    "dist/styles/ibmwatson.min.css"
-  ],
-  "ignore": [
-    "*",
-    "!bower.json",
-    "!/dist/*"
+    "dist/js/ibmwatson.js",
+    "dist/styles/ibmwatson.scss"
   ],
   "dependencies": {
     "angular": "1.4.8",
@@ -22,5 +17,17 @@
   },
   "resolutions": {
     "angular": "1.4.8"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.ibm.com:WatsonTooling/ibmwatson-common-ui.git"
+  },
+  "private": true,
+  "ignore": [
+    "*",
+    "!bower.json",
+    "!LICENSE",
+    "!README.md",
+    "!/dist/**/*"
+  ]
 }
