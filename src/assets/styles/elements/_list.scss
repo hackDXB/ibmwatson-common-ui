@@ -22,5 +22,29 @@
 
   ol {
     margin: 0;
+
+    li {
+      input[type=text] {
+        padding-top: 0;
+      }
+    }
+
+    &.numbered {
+      li {
+        list-style-type: none;
+        counter-increment: list;
+        position: relative;
+
+        &::before {
+          content: counter(list) ".";
+          position: absolute;
+          left: -2.5em;
+          width: 2em;
+          text-align: right;
+          color: $gray-40;
+          font-weight: bold;
+        }
+      }
+    }
   }
 }

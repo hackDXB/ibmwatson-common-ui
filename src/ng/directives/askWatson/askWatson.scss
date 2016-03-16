@@ -81,10 +81,4 @@ $ask-watson-width: 40vw;
       }
     }
   }
-
-  &.ask-watson-open {
-    [ui-view] {
-      margin-right: $ask-watson-width;
-    }
-  }
 }

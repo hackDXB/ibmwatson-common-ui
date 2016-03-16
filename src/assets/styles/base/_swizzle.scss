@@ -30,4 +30,21 @@
       @include transition(margin-left, margin-right, left);
     }
   }
+
+  .no-animation {
+    transition-duration: 0s;
+  }
+
+  .fade {
+    transition: opacity .5s ease;
+
+    &.ng-hide {
+      opacity: 0;
+    }
+  }
+
+  .flip {
+    transform: rotate3d(1, 0, 0, 180deg);
+    transform-origin: 50% 50%;
+  }
 }

@@ -48,9 +48,14 @@
     vm.atLocation = function(location) {
       return $location.url().indexOf(location) > -1;
     };
+
     vm.atLocation = function(location) {
       return $location.url().indexOf(location) > -1;
     };
+
+    vm.toggleTheme = function() {
+      angular.element(document.getElementById('theme-container')).toggleClass('dark-theme');
+    }
   };
 
   function modalController ($scope, $uibModalInstance) {

@@ -37,19 +37,19 @@
   <!--[if lt IE 7]>
   <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
-
   <header role="banner" ng-controller="BannerController as vm">
     <side-nav links="[{label: 'Overview', href:'#/overview', icon: 'ibm-icon--home'}, {label: 'Elements', href:'#/elements', icon: 'ibm-icon--code'}, {label: 'Components', href:'#/components', icon: 'ibm-icon--inventory'}, {label: 'Layout', href:'#/layout', icon: 'ibm-icon--spaces'}]"></side-nav>
     <h1><a href="#">IBM <strong>Watson Common UI</strong></a></h1>
-    <input type="search" ng-model="vm.searchTerm" ng-keyUp="vm.search()" placeholder="Search" aria-label="Search"/>
+    <button type="button" role="button" class="icon" title="Toggle theme" aria-label="Toggle theme" ng-click="vm.toggleTheme()">
+      <span class="ibm-icon--catalog" aria-hidden="true"></span>
+    </button>
     <ask-watson></ask-watson>
   </header>
 
-  <section ui-view="" class="main-container">
+  <section ui-view="" class="main-container" id="theme-container">
   </section>
 
   <footer role="contentinfo" scroll-to-top>
-
   </footer>
 
 </body>

@@ -95,7 +95,7 @@
   <div class="guide-row">
     <h2 id="/guide/modals">Modals</h2>
     <p>Use the <code>$uibModal</code> service for modals.</p>
-    <button type="button" ng-click="vm.openModal()">Open Modal</button>
+    <button type="button" role="button" class="primary" ng-click="vm.openModal()">Open Modal</button>
   </div>
 
   <div class="guide-row">
@@ -201,7 +201,7 @@
   </div>
   <div class="guide-row">
     <h2 id="/guide/help">Help</h2>
-    <button type="button" role="button" ng-click="vm.show = !vm.show">Toggle Help</button>
+    <button type="button" role="button" class="primary" ng-click="vm.show = !vm.show">Toggle Help</button>
     <help-assistant template="vm.helpTemplate" ng-show="vm.show"></help-assistant>
   </div>
 
