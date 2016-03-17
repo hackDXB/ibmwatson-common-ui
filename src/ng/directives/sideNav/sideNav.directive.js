@@ -28,25 +28,21 @@
       scope: {
         links: '='
       },
-      link: function(scope, element, attributes) {
-      },
+      controllerAs: 'vm',
       controller: function($scope, $location) {
         var vm = this;
 
-        vm.toggleMenu = function(open) {
-          if(open != null) {
-            vm.sideNavExpanded = open;
-          } else {
-            vm.sideNavExpanded = !vm.sideNavExpanded;
-          }
+        vm.toggleMenu = function() {
+          vm.sideNavOpen = !vm.sideNavOpen;
+          angular.element(document.body).toggleClass("side-nav-open");
         };
+
         vm.location = function(href) {
           if(!href) return false;
           if(href.indexOf('#') == 0) href = href.substring(1);
           return $location.url().indexOf(href) > -1;
         };
-      },
-      controllerAs: 'vm'
+      }
     };
   };
 

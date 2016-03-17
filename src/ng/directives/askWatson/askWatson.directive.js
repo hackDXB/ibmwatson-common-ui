@@ -28,6 +28,7 @@
       scope: {
         links: '='
       },
+      controllerAs: 'vm',
       controller: function($scope, $location) {
         var vm = this;
 
@@ -50,8 +51,7 @@
           vm.isOpen = !vm.isOpen;
           angular.element(document.body).toggleClass("ask-watson-open");
         };
-      },
-      controllerAs: 'vm'
+      }
     };
   };
 

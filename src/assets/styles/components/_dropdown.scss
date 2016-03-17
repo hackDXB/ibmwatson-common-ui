@@ -104,4 +104,12 @@
       }
     }
   }
+
+  .dark-theme {
+    [uib-dropdown] {
+      button {
+        color: $gray-10;
+      }
+    }
+  }
 }

@@ -11,16 +11,21 @@ body.watson {
 }
 
 .watson {
+
+  .dark-theme {
+    background-color: $blue-90;
+    color: $white;
+  }
+
   .main-container {
     min-height: calc(100vh - #{$banner-height});
     margin-top: $banner-height;
     display: flex;
-    margin-left: 60px;
   }
 
   [role=main] {
     padding: 1.2em;
-    background-color: white;
+    flex: 1;
   }
 
   .sr-only {

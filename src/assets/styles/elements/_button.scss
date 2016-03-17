@@ -9,25 +9,27 @@
 		touch-action: manipulation;
 		user-select: none;
 		background-image: none;
-		border-radius: 0;
-		border-width: 0;
+    border-radius: 20px;
+    border: 1px solid transparent;
 		margin: 0 .5em 0 0;
-		padding: .6em 1em .4em;
+		padding: .5em 1em .5em;
 		box-shadow: none;
 		line-height: 1.6em;
-		background-color: $blue-50;
-		color: $white;
 		cursor: pointer;
 
 		@include transition(all);
 
-		&:not(.link) {
-			min-width: 120px;
+		& + button {
+		  margin-left: 1em;
 		}
 
-		&:not([disabled]):hover,
-		&:active {
-			background-color: $blue-60;
+		h1 {
+			display: inline;
+			margin-right: .5em;
+		}
+
+		&:not(.link) {
+			min-width: 120px;
 		}
 
 		&[disabled],
@@ -36,14 +38,37 @@
 			cursor: not-allowed;
 		}
 
+		&.primary {
+			background-color: $teal-60;
+			color: $white;
+
+			&:hover,
+			&:active {
+				background-color: $white;
+				color: $teal-60;
+				border: 1px solid $teal-60;
+			}
+
+			&[disabled]:hover {
+				background-color: $teal-60;
+				color: $white;
+			}
+		}
+
 		&.secondary {
 			background-color: $gray-10;
 			color: $gray-60;
 
-			&:not([disabled]):hover,
+			&:hover,
 			&:active {
-				background-color: $gray-20;
+				background-color: $white;
 				color: $gray-70;
+				border: 1px solid $gray-10;
+			}
+
+			&[disabled]:hover {
+				background-color: $gray-10;
+				color: $gray-60;
 			}
 		}
 
@@ -55,10 +80,16 @@
 			min-width: 0;
 			padding: 0;
 
-			&:not([disabled]):hover,
+			&:hover,
 			&:active {
-				color: $gray-50;
+				color: $teal-50;
 				background-color: transparent;
+		    border: 1px solid transparent;
+			}
+
+			&[disabled]:hover {
+				background-color: transparent;
+				color: $gray-90;
 			}
 
 			& [class^="ibm-icon--"],
@@ -68,15 +99,32 @@
 		}
 
 		&.link {
-			color: $blue-50;
+			color: $teal-60;
+
+			&[disabled]:hover {
+				background-color: transparent;
+				color: $teal-60;
+			}
+
+			[class^="ibm-icon--"] {
+				font-size: 1.2em;
+			}
 		}
 
 		&.error {
-			background-color: $red-60;
+			background-color: $red-70;
+			color: $white;
 
-			&:not([disabled]):hover,
+			&:hover,
 			&:active {
+				background-color: $white;
+				color: $red-70;
+		    border: 1px solid $red-70;
+			}
+
+			&[disabled]:hover {
 				background-color: $red-70;
+				color: $white;
 			}
 		}
 
@@ -89,43 +137,85 @@
 			font-size: 0.8em;
 		}
 	}
-}
 
-.watson-2016 {
-	button {
-		font-size: 14px;
-		background-color: $teal-20;
-		border: none;
-		box-shadow: none;
-		border-radius: 20px;
-		color: $white;
-		padding: 10px 20px;
-		margin: 0 .5em 0 0;
-		min-width: 120px;
-		text-align: center;
-		text-transform: none;
-		cursor: pointer;
-		overflow: hidden;
-		text-overflow: clip;
-		white-space: nowrap;
-		@include transition(all);
-	}
+	.dark-theme {
+		button {
+			&.primary {
+				border: 1px solid $teal-30;
+				background-color: transparent;
+				color: $teal-30;
 
-	a.button {
-		font-size: 14px;
-		display: inline-block;
-		background-color: transparent;
-		border: 2px solid $teal-30;
-		border-radius: 20px;
-		box-shadow: none;
-		color: $teal-10;
-		margin: 0 .5em 0 0;
-		padding: 8px;
-		min-width: 120px;
-		text-align: center;
-		text-transform: uppercase;
-		text-decoration: none;
-		line-height: normal;
-		@include transition(all);
+				&:hover,
+				&:active {
+					border: 1px solid $teal-60;
+					background-color: $teal-60;
+					color: $white;
+				}
+
+				&[disabled]:hover {
+					background-color: transparent;
+					color: $teal-30;
+				}
+			}
+
+			&.secondary {
+				border: 1px solid $gray-30;
+				background-color: transparent;
+				color: $gray-30;
+
+				&:hover,
+				&:active {
+					border: 1px solid $gray-70;
+					background-color: $gray-70;
+					color: $white;
+				}
+
+				&[disabled]:hover {
+					background-color: transparent;
+					color: $gray-30;
+				}
+			}
+
+			&.error {
+				border: 1px solid $red-30;
+				background-color: transparent;
+				color: $red-30;
+
+				&:hover,
+				&:active {
+					border: 1px solid $red-70;
+					background-color: $red-70;
+					color: $white;
+				}
+
+				&[disabled]:hover {
+					background-color: transparent;
+					color: $red-30;
+				}
+			}
+
+			&.link,
+			&.icon,
+			&.close {
+				color: $gray-30;
+
+				&:hover,
+				&:active {
+					color: $teal-30;
+				}
+
+				&[disabled]:hover {
+					color: $gray-30;
+				}
+			}
+
+			&.link {
+				color: $teal-30;
+
+				&[disabled]:hover {
+					color: $teal-30;
+				}
+			}
+		}
 	}
 }

@@ -1,12 +1,12 @@
 // File upload
 .watson {
   .file-upload {
-    border: 2px dashed #C8D2D2;
+    border: 2px dashed $cool-gray-20;
     padding: 1em;
     margin-bottom: 1em;
     text-align: center;
     vertical-align: middle;
-    color: #5A6464;
+    color: $cool-gray-60;
     font-family: "HelvNeueRomanforIBM";
     font-size: .9em;
     overflow: hidden;
@@ -49,54 +49,10 @@
       color: $gray-80;
     }
   }
-}
 
-
-/* This awesome piece of CSS doesn't work in Firefox
-because you can't use ::before and ::after on inputs */
-.watson-nofirefox {
-  input[type=file] {
-    display: block;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    position: relative;
-    height: 1px;
-    margin-bottom: 60px;
-    font-size: 1em;
-  }
-  input[type="file"]:hover::after {
-    background-color: $green-10;
-    border: 2px dashed $green-50;
-    color: $gray-80;
-  }
-
-  input[type=file]::before {
-    content: '\e62b';
-    display: block;
-    padding: 1em;
-    color: #777677;
-    position: absolute;
-    font-family: 'ibm-icons';
-    width: 100%;
-    padding-left: 25%;
-    z-index: 1;
-    box-sizing: border-box;
-    cursor: pointer;
-  }
-
-  input[type=file]::after {
-    content: attr(title);
-    display: block;
-    border: 2px dashed $gray-10;
-    padding: 1em 0 1em 28%;
-    width: 100%;
-    color: $gray-50;
-    overflow: hidden;
-    font-size: 0.9rem;
-    position: absolute;
-    top: 0;
-    margin-bottom: 60px;
-    box-sizing: border-box;
+  .dark-theme {
+    .file-upload {
+      color: $gray-10;
+    }
   }
 }
