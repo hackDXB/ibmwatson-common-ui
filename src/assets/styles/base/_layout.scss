@@ -1,0 +1,18 @@
+// Layout
+.watson {
+  .grid-odd {
+    @include grid(3, 2, 1, 1);
+  }
+
+  .grid-even {
+    @include grid(4, 2, 1, 1);
+  }
+
+  .flex-container {
+    display : flex;
+  }
+
+  .flex {
+    flex: 1;
+  }
+}

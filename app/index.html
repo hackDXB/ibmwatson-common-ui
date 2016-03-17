@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel='shortcut icon' href='images/favicon.ico' type='image/x-icon' />
+  <link rel='icon' href='images/favicon.ico' type='image/x-icon' />
+
+  <title>IBM Watson Common UI</title>
+  <meta name="description" content="">
+
+  <link rel="stylesheet" href="styles/ibmwatson-styleguide.css">
+
+  <link rel="stylesheet" href="styles/ibmwatson.min.css">
+
+  <!-- build:js dependencies.js -->
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.js"></script>
+  <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+  <!-- endbuild -->
+
+  <script src="js/ibmwatson.min.js"></script>
+
+  <!-- build:js style-guide.js -->
+  <script src="app.js"></script>
+  <script src="guide/guide.controller.js"></script>
+  <!-- endbuild -->
+</head>
+<body class="watson animate style-guide" ng-app="watson.common.ui.guide">
+  <!--[if lt IE 7]>
+  <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+  <header role="banner" ng-controller="BannerController as vm">
+    <side-nav links="[{label: 'Overview', href:'#/overview', icon: 'ibm-icon--home'}, {label: 'Elements', href:'#/elements', icon: 'ibm-icon--code'}, {label: 'Components', href:'#/components', icon: 'ibm-icon--inventory'}, {label: 'Layout', href:'#/layout', icon: 'ibm-icon--spaces'}]"></side-nav>
+    <h1><a href="#">IBM <strong>Watson Common UI</strong></a></h1>
+    <button type="button" role="button" class="icon" title="Toggle theme" aria-label="Toggle theme" ng-click="vm.toggleTheme()">
+      <span class="ibm-icon--catalog" aria-hidden="true"></span>
+    </button>
+    <ask-watson></ask-watson>
+  </header>
+
+  <section ui-view="" class="main-container" id="theme-container">
+  </section>
+
+  <footer role="contentinfo" scroll-to-top>
+  </footer>
+
+</body>
+</html>

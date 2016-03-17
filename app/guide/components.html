@@ -1,0 +1,220 @@
+<div role="main" id="guide-main">
+  <header>
+    <h1>Components</h1>
+  </header>
+  <div class="guide-row">
+    <h2 id="/guide/banner">Banner</h2>
+    <p>Use <code>&lt;header role="banner"&gt;&lt;/header&gt;</code> for the top banner.</p>
+  </div>
+
+  <div class="guide-row">
+    <h2 id="/guide/sidenav">Sidenav</h2>
+    <p>Use <code>&lt;side-nav links="[{label:'Overview', icon:'ibm-icon--home', href:'#/overview'}]"&gt;&lt;/side-nav&gt;</code> for the sidenav.</p>
+  </div>
+
+  <div class="guide-row">
+    <h2 id="/guide/dropdowns">Dropdowns</h2>
+    <p>Use the <code>uib-dropdown</code> attribute directives for dropdowns.</p>
+    <div uib-dropdown is-open="status1.isopen">
+      <button id="dropdown-default" type="button" role="button" uib-dropdown-toggle>
+        <span>Dropdown</span><span class="ibm-glyph--caret-down_24"></span>
+      </button>
+      <ul uib-dropdown-menu role="menu" aria-labelledby="dropdown-default">
+        <li role="menuitem"><a href="#">Action</a></li>
+        <li role="menuitem"><a href="#">Another action</a></li>
+        <li role="menuitem"><a href="#">Something else here</a></li>
+        <li class="divider"></li>
+        <li role="menuitem"><a href="#">Separated link</a></li>
+      </ul>
+    </div>
+
+    <div uib-dropdown is-open="status2.isopen">
+      <button id="dropdown-right-aligned" type="button" role="button" uib-dropdown-toggle>
+        <span>Dropdown - right aligned</span><span class="ibm-glyph--caret-down_24"></span>
+      </button>
+      <ul uib-dropdown-menu role="menu" aria-labelledby="dropdown-right-aligned" class="pull-right">
+        <li role="menuitem"><a href="#">Action</a></li>
+        <li role="menuitem"><a href="#">Another action</a></li>
+        <li role="menuitem"><a href="#">Something else here</a></li>
+        <li class="divider"></li>
+        <li role="menuitem"><a href="#">Separated link</a></li>
+      </ul>
+    </div>
+
+    <div uib-dropdown is-open="status3.isopen">
+      <span class="label">Sort by:</span>
+      <button id="dropdown-with-label" type="button" role="button" uib-dropdown-toggle>
+        <span>Dropdown - with label</span><span class="ibm-glyph--caret-down_24"></span>
+      </button>
+      <ul uib-dropdown-menu role="menu" aria-labelledby="dropdown-with-label" class="pull-right">
+        <li role="menuitem"><a href="#">Action</a></li>
+        <li role="menuitem"><a href="#">Another action</a></li>
+        <li role="menuitem"><a href="#">Something else here</a></li>
+        <li class="divider"></li>
+        <li role="menuitem"><a href="#">Separated link</a></li>
+      </ul>
+    </div>
+
+    <div uib-dropdown is-open="status4.isopen" class="minimal">
+      <button id="dropdown-minimal" type="button" role="button" uib-dropdown-toggle>
+        <span>Minimal dropdown</span><span class="ibm-glyph--caret-down_24"></span>
+      </button>
+      <ul uib-dropdown-menu role="menu" aria-labelledby="dropdown-minimal">
+        <li role="menuitem"><a href="#">Action</a></li>
+        <li role="menuitem"><a href="#">Another action</a></li>
+        <li role="menuitem"><a href="#">Something else here</a></li>
+        <li class="divider"></li>
+        <li role="menuitem"><a href="#">Separated link</a></li>
+      </ul>
+    </div>
+
+    <div uib-dropdown is-open="status5.isopen" class="minimal">
+      <button id="dropdown-icon" type="button" role="button" uib-dropdown-toggle class="link" title="Actions" aria-label="Actions">
+        <span class="ibm-icon--menuoverflow-vertical"></span>
+      </button>
+      <ul uib-dropdown-menu role="menu" aria-labelledby="dropdown-icon" class="pull-right">
+        <li role="menuitem"><a href="#">Action</a></li>
+        <li role="menuitem"><a href="#">Another action</a></li>
+        <li role="menuitem"><a href="#">Something else here</a></li>
+        <li class="divider"></li>
+        <li role="menuitem"><a href="#">Separated link</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="guide-row">
+    <h2 id="/guide/breadcrumb">Breadcrumb</h2>
+    <p>Use <code>&lt;ol class="breadcrumb"&gt;</code> for breadcrumbs</p>
+    <ol class="breadcrumb">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Library</a></li>
+      <li>Data</li>
+    </ol>
+  </div>
+
+  <div class="guide-row">
+    <h2 id="/guide/modals">Modals</h2>
+    <p>Use the <code>$uibModal</code> service for modals.</p>
+    <button type="button" role="button" class="primary" ng-click="vm.openModal()">Open Modal</button>
+  </div>
+
+  <div class="guide-row">
+    <h2 id="/guide/tooltips">Tooltips</h2>
+    <p>Use <code>uib-popover</code> attribute directives for tooltips.</p>
+    <button role="button" type="button" class="link" title="Help" aria-label="Help"
+        uib-popover="Some help text" popover-trigger="outsideClick" popover-title="Info" popover-placement="right">
+      <span class="ibm-icon--info-question" aria-hidden="true"></span>
+    </button>
+  </div>
+
+  <div class="guide-row">
+    <h2 id="/guide/accordian">Accordian</h2>
+    <p>Use <code>&lt;uib-accordian&gt;</code> and <code>&lt;uib-accordian-group&gt;</code> for accordians.</p>
+    <uib-accordion close-others="true">
+      <uib-accordion-group heading="First thing">
+        <p>...stuff...</p>
+      </uib-accordion-group>
+      <uib-accordion-group heading="Second thing">
+        <p>...more stuff...</p>
+      </uib-accordion-group>
+    </uib-accordion>
+  </div>
+
+  <div class="guide-row">
+    <h2 id="/guide/labels">Labels</h2>
+    <p>Use <code>class="chip"</code> for "labels".</p>
+    <ul class="inline">
+      <li>
+        <div class="chip">
+          <span>default</span>
+        </div>
+      </li>
+      <li>
+        <div class="chip secondary">
+          <span>secondary</span>
+        </div>
+      </li>
+      <li>
+        <div class="chip selected">
+          <span>selected</span>
+        </div>
+      </li>
+      <li>
+        <div class="chip error">
+          <span>error</span>
+        </div>
+      </li>
+      <li>
+        <div class="chip warning">
+          <span>warning</span>
+        </div>
+      </li>
+      <li>
+        <div class="chip success">
+          <span>success</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="guide-row">
+    <h2 id="/guide/tags">Tags</h2>
+    <p>Use <code>class="tag"</code> for tags.</p>
+    <ul class="inline">
+      <li>
+        <div class="tag">
+          <span>default</span>
+          <button type="button" role="button" title="Delete tag" aria-label="Delete tag" class="link"><span class="ibm-glyph--close" aria-hidden="true"></span></button>
+        </div>
+      </li>
+      <li>
+        <div class="tag secondary">
+          <span>secondary</span>
+          <button type="button" role="button" title="Delete tag" aria-label="Delete tag" class="link"><span class="ibm-glyph--close" aria-hidden="true"></span></button>
+        </div>
+      </li>
+      <li>
+        <div class="tag selected">
+          <span>selected</span>
+          <button type="button" role="button" title="Delete tag" aria-label="Delete tag" class="link"><span class="ibm-glyph--close" aria-hidden="true"></span></button>
+        </div>
+      </li>
+      <li>
+        <div class="tag error">
+          <span>error</span>
+          <button type="button" role="button" title="Delete tag" aria-label="Delete tag" class="link"><span class="ibm-glyph--close" aria-hidden="true"></span></button>
+        </div>
+      </li>
+      <li>
+        <div class="tag warning">
+          <span>warning</span>
+          <button type="button" role="button" title="Delete tag" aria-label="Delete tag" class="link"><span class="ibm-glyph--close" aria-hidden="true"></span></button>
+        </div>
+      </li>
+      <li>
+        <div class="tag success">
+          <span>success</span>
+          <button type="button" role="button" title="Delete tag" aria-label="Delete tag" class="link"><span class="ibm-glyph--close" aria-hidden="true"></span></button>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="guide-row">
+    <h2 id="/guide/help">Help</h2>
+    <button type="button" role="button" class="primary" ng-click="vm.show = !vm.show">Toggle Help</button>
+    <help-assistant template="vm.helpTemplate" ng-show="vm.show"></help-assistant>
+  </div>
+
+  <div class="guide-row">
+    <h2 id="/guide/alerts">Alerts</h2>
+    <p>Use <code>&lt;uib-alert type="..."&gt;</code> for alerts.  Types can be <code>info</code>, <code>success</code>, <code>warning</code> or <code>error</code>.</p>
+    <div ng-repeat="type in ['info', 'success', 'warning', 'error']">
+      <uib-alert type="{{type}}" close="closeAlert($index)">{{type}} alert</uib-alert>
+    </div>
+  </div>
+
+  <div class="guide-row">
+    <h2 id="/guide/loading">Loading indicator</h2>
+    <div class="loading"></div>
+  </div>
+</div>

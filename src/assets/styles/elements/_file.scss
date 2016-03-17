@@ -1,0 +1,58 @@
+// File upload
+.watson {
+  .file-upload {
+    border: 2px dashed $cool-gray-20;
+    padding: 1em;
+    margin-bottom: 1em;
+    text-align: center;
+    vertical-align: middle;
+    color: $cool-gray-60;
+    font-family: "HelvNeueRomanforIBM";
+    font-size: .9em;
+    overflow: hidden;
+    position: relative;
+
+    @include transition(all);
+
+    input[type=file] {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      opacity: 0;
+      cursor: pointer;
+    }
+
+    &::before {
+      font-family: 'ibm-icons';
+      content: '\e62b';
+      margin-right: .5em;
+    }
+    &::after {
+      content: attr(title);
+      width: 100%;
+    }
+
+    &:hover::before,
+    &:focus::before,
+    &:hover::after,
+    &:focus::after {
+      color: $gray-80;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: $green-10;
+      border: 2px dashed $green-50;
+      color: $gray-80;
+    }
+  }
+
+  .dark-theme {
+    .file-upload {
+      color: $gray-10;
+    }
+  }
+}

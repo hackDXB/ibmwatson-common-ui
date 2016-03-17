@@ -1,0 +1,39 @@
+// Variables
+
+// Typography
+$ibm-watson-fonts-path: "../fonts" !default;
+$font: 'Helvetica Neue for IBM', Helvetica, Arial, 'Roboto', sans-serif;
+$font-code: 'Source Code Pro', "Lucida Console", "Andale Mono", monospace;
+
+// Images
+$ibm-watson-images-path: "../images" !default;
+
+// Border color
+$border-color-darkest: $gray-90;
+$border-color-dark: $gray-70;
+$border-color-medium: $gray-50;
+$border-color-light: $gray-20;
+$border-color-lightest: $gray-10;
+
+// Border width
+$border-width-large: 8px;
+$border-width-medium: 4px;
+$border-width-small: 1px;
+
+// Alert border colors
+$border-color-success: $green-50;
+$border-color-info: $blue-50;
+$border-color-warning: $yellow-30;
+$border-color-error: $red-50;
+
+// Alert background colors
+$bg-color-success: $green-10;
+$bg-color-info: $blue-10;
+$bg-color-warning: $yellow-10;
+$bg-color-error: $red-10;
+
+// Sizes
+$banner-height: 50px;
+$banner-border-width: 1px;
+$sidenav-width: 60px;
+$footer-height: 0px;

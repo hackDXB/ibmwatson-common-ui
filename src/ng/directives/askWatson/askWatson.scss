@@ -1,0 +1,84 @@
+$ask-watson-width: 40vw;
+
+.watson {
+  ask-watson {
+    aside {
+      position:fixed;
+      right: 0;
+      top: $banner-height;
+      width: $ask-watson-width;
+      height: calc(100vh - #{$banner-height});
+      z-index: 100;
+      background-color: $gray-80;
+      display: flex;
+      flex-direction: column;
+
+      @include transition(right);
+
+      @include screen-medium {
+        width: 100vw;
+        padding-left: 2em;
+      }
+
+      &.ng-hide {
+        right: -$ask-watson-width;
+      }
+
+      header {
+        display: flex;
+        justify-content: flex-end;
+        padding: 1em;
+
+        button.icon {
+          color: $gray-20;
+        }
+      }
+
+      footer {
+        padding: 1em;
+        background-color: $neutral-white-40;
+      }
+
+      section {
+        flex: 1;
+        padding: 1em;
+
+        ol {
+          list-style: none;
+          padding: 0;
+          color: $gray-10;
+
+          & > li {
+            line-height: 1.5em;
+            margin-top: 1em;
+            display: flex;
+
+            & > * {
+              display: inline-block;
+              vertical-align: top;
+            }
+
+            &.user-speech {
+              justify-content: flex-end;
+
+            }
+            &.watson-speech {
+              [uib-dropdown] {
+                order: -1;
+              }
+            }
+
+            .date {
+              color: $gray-40;
+            }
+          }
+        }
+
+      }
+
+      input[type=text] {
+        padding: 1em;
+      }
+    }
+  }
+}

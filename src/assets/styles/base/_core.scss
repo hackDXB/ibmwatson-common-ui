@@ -1,0 +1,41 @@
+// Core
+body.watson {
+  @include font-roman;
+  margin: 0;
+  color: $gray-70;
+}
+
+.watson * {
+  box-sizing: border-box;
+  outline: none;
+}
+
+.watson {
+
+  .dark-theme {
+    background-color: $blue-90;
+    color: $white;
+  }
+
+  .main-container {
+    min-height: calc(100vh - #{$banner-height});
+    margin-top: $banner-height;
+    display: flex;
+  }
+
+  [role=main] {
+    padding: 1.2em;
+    flex: 1;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+  }
+}

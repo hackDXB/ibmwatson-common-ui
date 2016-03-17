@@ -1,0 +1,108 @@
+// Mixins
+
+// Fonts
+@mixin font-light {
+	font-family: $font;
+  font-weight: 300;
+  font-style: normal;
+}
+@mixin font-light-italic {
+	font-family: $font;
+  font-weight: 300;
+  font-style: italic;
+}
+@mixin font-roman {
+	font-family: $font;
+  font-weight: 400;
+  font-style: normal;
+}
+@mixin font-roman-italic {
+	font-family: $font;
+  font-weight: 400;
+  font-style: italic;
+}
+@mixin font-medium {
+	font-family: $font;
+  font-weight: 500;
+  font-style: normal;
+}
+@mixin font-medium-italic {
+	font-family: $font;
+  font-weight: 500;
+  font-style: italic;
+}
+@mixin font-bold {
+	font-family: $font;
+  font-weight: 700;
+  font-style: normal;
+}
+@mixin font-bold-italic {
+	font-family: $font;
+  font-weight: 700;
+  font-style: italic;
+}
+
+@mixin text-uppercase {
+	text-transform: uppercase;
+	font-size: .9em;
+	letter-spacing: .05em;
+}
+
+// Box shadow
+@mixin dropshadow {
+	-moz-box-shadow: .1em .1em .2em $gray-50;
+	-webkit-box-shadow: .1em .1em .2em $gray-50;
+	box-shadow: .1em .1em .2em $gray-50;
+}
+
+// Media breakpoints
+@mixin screen-large {
+  @media only screen and (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin screen-medium {
+  @media only screen and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin screen-small {
+  @media only screen and (max-width: 320px) {
+    @content;
+  }
+}
+
+// Grid
+@mixin grid($default, $large, $medium, $small) {
+  display: flex;
+  flex-wrap: wrap;
+
+  & > * {
+    flex: 1 0 (100% / $default);
+    max-width: (100% / $default);
+
+    @include screen-large {
+      flex: 0 0 (100% / $large);
+      max-width: (100% / $large);
+    }
+
+    @include screen-medium {
+      flex: 0 0 (100% / $medium);
+      max-width: (100% / $medium);
+    }
+
+    @include screen-small {
+      flex: 0 0 (100% / $small);
+      max-width: (100% / $small);
+    }
+  }
+}
+
+// Animation
+@mixin transition($properties...) {
+	transition-property: $properties;
+	transition-duration: .5s;
+	transition-timing-function: ease;
+}

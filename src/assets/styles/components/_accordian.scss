@@ -1,0 +1,33 @@
+// Accordian
+.watson {
+  uib-accordion {
+    .panel:last-child {
+      border-bottom: 1px solid $gray-20;
+    }
+
+    .accordion-toggle {
+      display: block;
+      padding: 1.2em 1.5em 1em;
+      background-color: $neutral-white-40;
+      border-top: 1px solid $gray-20;
+      color: $gray-70;
+
+      &:hover,
+      &:focus {
+        border-bottom: none;
+        background-color: $gray-10;
+      }
+    }
+
+    .collapse {
+      display: none;
+
+      &.in {
+        display: block;
+        border: 1px solid $gray-10;
+        border-bottom: none;
+        padding: 1.5em;
+      }
+    }
+  }
+}

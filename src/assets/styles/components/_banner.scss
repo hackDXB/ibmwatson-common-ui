@@ -1,0 +1,40 @@
+// Banner
+.watson {
+  header[role=banner] {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    border: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+    padding: 0 1.2em 0 0;
+    border-bottom: $banner-border-width solid $gray-20;
+    background-color: $neutral-white-40;
+    height: $banner-height;
+    line-height: $banner-height;
+
+    a {
+      color: $gray-70;
+      line-height: 2.2em;
+
+      &:hover {
+        border-bottom: none;
+      }
+    }
+
+    h1 {
+      font-size: 1.3em;
+      flex: 1;
+      margin-left: 1em;
+    }
+
+    input[type=search] {
+      width: 300px;
+      margin-right: 100px;
+      display: block;
+      margin-top: .5em;
+    }
+  }
+}

@@ -1,0 +1,115 @@
+// Dropdown
+.watson {
+  [uib-dropdown] {
+    position: relative;
+    display: inline-block;
+
+    &.minimal {
+      button {
+        border: none;
+      }
+    }
+
+    .label {
+      display: inline-block;
+      margin-right: .3em;
+      padding: .3em 0;
+      vertical-align: top;
+      color: $gray-50;
+    }
+
+    button {
+      background-color: transparent;
+      border: 1px solid $gray-20;
+      border-radius: 0;
+      color: $gray-50;
+      padding: .5em;
+      line-height: 1.2em;
+      text-align: left;
+
+      & > * {
+        float: left;
+      }
+
+      &:hover {
+        background-color: transparent;
+      }
+
+      .ibm-glyph--caret-down_24 {
+        margin-left: 1em;
+        float: right;
+      }
+
+      &::after {
+        content: '';
+        display: block;
+        clear: both;
+      }
+    }
+
+    [uib-dropdown-menu] {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      z-index: 1000;
+      display: none;
+      min-width: 160px;
+      padding: 5px 0;
+      margin: 2px 0 0;
+      font-size: 14px;
+      text-align: left;
+      background-color: $white;
+      -webkit-background-clip: padding-box;
+      background-clip: padding-box;
+      border: 1px solid $gray-20;
+      border: 1px solid rgba(0, 0, 0, .15);
+      border-radius: 4px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+
+      &.pull-right {
+        right: 0;
+        left: auto;
+      }
+
+      .divider {
+        height: 1px;
+        margin: 9px 0;
+        overflow: hidden;
+        background-color: $gray-10;
+      }
+
+      li {
+        a {
+          display: block;
+          padding: 3px 20px;
+          clear: both;
+          font-weight: normal;
+          line-height: 1.42857143;
+          color: $gray-80;
+          white-space: nowrap;
+
+          &:focus,
+          &:hover {
+            color: $gray-90;
+            text-decoration: none;
+            background-color: $neutral-white-30;
+          }
+        }
+      }
+    }
+
+    &.open {
+      [uib-dropdown-menu] {
+        display: block;
+      }
+    }
+  }
+
+  .dark-theme {
+    [uib-dropdown] {
+      button {
+        color: $gray-10;
+      }
+    }
+  }
+}

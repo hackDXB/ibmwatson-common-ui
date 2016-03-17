@@ -1,0 +1,19 @@
+// Extends
+%input {
+	background-color: transparent;
+	border-radius: 0;
+  border: none;
+	border-bottom: 1px solid $border-color-light;
+	padding: .4em .8em .4em 0;
+	font-size: 1em;
+	box-shadow: none;
+
+  &.ng-dirty.invalid {
+    border-bottom: 1px solid #8C101C;
+  }
+
+  &:hover,
+  &:focus {
+    border-bottom: 1px solid #69cac0;
+  }
+}

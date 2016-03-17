@@ -1,0 +1,22 @@
+// Links
+.watson {
+	a,
+	a:visited {
+		color: $blue-50;
+		text-decoration: none;
+		cursor: pointer;
+
+		&:hover {
+			border-bottom: 2px solid #325C80;
+			text-decoration: none;
+			color: $blue-60;
+		}
+
+		&:active,
+		&:focus {
+			border-bottom: 2px solid #264A60;
+			text-decoration: none;
+			color: $blue-70;
+		}
+	}
+}

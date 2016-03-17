@@ -1,0 +1,44 @@
+// Alerts
+.watson {
+  .alert {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: $neutral-white-40;
+    color: $gray-60;
+    border-left: 8px solid $neutral-white-40;
+    padding: 1.5em;
+    box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.12);
+
+    &[type=info] {
+      border-color: $blue-50;
+    }
+
+    &[type=success] {
+      border-color: $green-50;
+    }
+
+    &[type=warning] {
+      border-color: $yellow-30;
+    }
+
+    &[type=error] {
+      border-color: $red-50;
+    }
+
+    & > button {
+      float: right;
+      margin: 0;
+      padding: 0;
+      font-size: 1.5em;
+      line-height: .7em;
+      min-width: 0;
+      color: $gray-60;
+    }
+
+    &::after {
+      content: '';
+      clear: both;
+    }
+  }
+}

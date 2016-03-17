@@ -1,0 +1,8 @@
+<aside ng-if="!vm.hide">
+  <div class="help-content" ng-include src="template"></div>
+  <div>
+    <button type="button" role="button" class="icon" title="Close" aria-label="Close" ng-click="vm.hide = !vm.hide">
+      <span class="ibm-glyph--close" aria-hidden="true"></span>
+    </button>
+  </div>
+</aside>

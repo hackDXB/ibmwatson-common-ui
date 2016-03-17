@@ -1,0 +1,76 @@
+.watson {
+  .main-container {
+    transition: margin-left .5s ease;
+  }
+
+  side-nav {
+    nav {
+      transition: background-color .5s ease;
+
+      button.icon {
+        padding: 1em 1em .7em 1.35em;
+        margin: 0;
+        vertical-align: top;
+
+        &:hover,
+        &:focus {
+          color: $gray-90;
+        }
+      }
+
+      ul {
+        position: fixed;
+        left: 0;
+        top: $banner-height;
+        width: $sidenav-width;
+        min-height: calc(100vh - #{$banner-height});
+        background-color: $neutral-white-40;
+        color: $gray-90;
+        z-index: 1000;
+        text-align: center;
+        transition: left .5s ease;
+        flex-direction: column;
+
+        &.ng-hide {
+          left: -60px;
+        }
+
+        li {
+          height: 60px;
+
+          &.active {
+            background-color: $gray-20;
+            border-radius: 50%;
+          }
+
+          a,
+          a:visited {
+            display: block;
+            color: $gray-90;
+            padding: 1em 1em .6em 1em;
+            line-height: 1em;
+
+            [class^="ibm-icon--"] {
+              margin-right: 0;
+            }
+          }
+
+          a:hover,
+          a:visited:hover,
+          a:focus {
+            background-color: $gray-20;
+            color: $gray-90;
+            border-radius: 50%;
+            border-bottom: none;
+          }
+        }
+      }
+    }
+  }
+
+  &.side-nav-open {
+    .main-container {
+      margin-left: 60px;
+    }
+  }
+}

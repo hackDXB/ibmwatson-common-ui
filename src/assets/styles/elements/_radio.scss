@@ -1,0 +1,33 @@
+// Radio buttons
+.watson {
+	input[type=radio] {
+		display: none;
+		margin-right: 2em;
+
+		& + label {
+			display: inline-block;
+			margin-bottom: .5em;
+			padding-left: 1.5em;
+			background: url(#{$ibm-watson-images-path}/inputRadio.png) no-repeat 0 -200px;
+			cursor: pointer;
+		}
+
+		&:checked + label {
+			background-position: -350px -50px;
+		}
+	}
+
+	fieldset {
+		border: none;
+		padding: 0;
+		margin-bottom: 1em;
+
+		legend {
+			padding: 0 0 .5em 0;
+		}
+
+		input[type=radio] + label {
+			margin-right: 1em;
+		}
+	}
+}
