@@ -1,10 +1,11 @@
 <header>
-  <h3 id="modal-title">Do some stuff</h3>
+  <h2 class="flex" id="modal-title">Do some stuff</h2>
+  <button type="button" role="button" title="cancel" class="link modal-exit" ng-click="vm.cancel()"
+          aria-label="cancel creating a workspace"><span class="ibm-glyph--close" aria-hidden="true"></span></button>
 </header>
 <section>
   Main content here...
 </section>
 <footer>
-  <button type="button" role="button" class="secondary" ng-click="vm.cancel()">Cancel</button>
   <button type="button" role="button" class="primary" ng-click="vm.ok()">Submit</button>
 </footer>
