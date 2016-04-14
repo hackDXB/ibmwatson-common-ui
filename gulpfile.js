@@ -15,6 +15,7 @@ var gulp = require('gulp');
 var browserify = require('browserify');
 var del = require('del');
 var express = require('express');
+var karma = require('karma');
 var merge = require('merge-stream');
 var streamqueue = require('streamqueue');
 
@@ -139,8 +140,8 @@ var scriptsTask = function () {
     .pipe(plugins.sourcemaps.write('../maps'))
     .pipe(gulp.dest(destPaths.scripts));
 };
-gulp.task('scripts', scriptsTask);
-gulp.task('clean-scripts', ['clean'], scriptsTask);
+gulp.task('scripts', ['test'], scriptsTask);
+gulp.task('clean-scripts', ['clean', 'test'], scriptsTask);
 
 // Serve
 
@@ -186,6 +187,21 @@ var stylesTask = function stylesTask() {
 };
 gulp.task('styles', stylesTask);
 gulp.task('clean-styles', ['clean'], stylesTask);
+
+// Tests
+
+var testTask = function testTask(done) {
+  var KarmaServer = karma.Server;
+
+  KarmaServer.start({
+    configFile: __dirname + '/karma.conf.js',
+    singleRun: true
+  }, function() {
+    done();
+  });
+};
+gulp.task('test', testTask);
+gulp.task('clean-test', ['clean'], testTask);
 
 // Meta
 
