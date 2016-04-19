@@ -6,7 +6,7 @@
     left: 0;
     z-index: 1060;
     display: none;
-    max-width: 276px;
+    max-width: 350px;
     padding: 1px;
     font-style: normal;
     font-weight: normal;
@@ -20,7 +20,8 @@
     word-spacing: normal;
     word-wrap: normal;
     white-space: normal;
-    background-color: $white;
+    color: $white;
+    background-color: $cool-gray-80;
     background-clip: padding-box;
     border: 1px solid rgba(0, 0, 0, .2);
     border-radius: 6px;
@@ -31,7 +32,6 @@
       padding: 8px 14px;
       margin: 0;
       font-size: 1em;
-      background-color: $cool-white-30;
       border-radius: 5px 5px 0 0;
     }
 
@@ -71,7 +71,7 @@
         bottom: 1px;
         margin-left: -10px;
         content: " ";
-        border-top-color: $white;
+        border-top-color: $cool-gray-80;
         border-bottom-width: 0;
       }
     }
@@ -90,7 +90,7 @@
         bottom: -10px;
         left: 1px;
         content: " ";
-        border-right-color: $white;
+        border-right-color: $cool-gray-80;
         border-left-width: 0;
       }
     }
@@ -110,7 +110,7 @@
         margin-left: -10px;
         content: " ";
         border-top-width: 0;
-        border-bottom-color: $white;
+        border-bottom-color: $cool-gray-80;
       }
     }
     &.left {
@@ -129,7 +129,7 @@
         bottom: -10px;
         content: " ";
         border-right-width: 0;
-        border-left-color: $white;
+        border-left-color: $cool-gray-80;
       }
     }
   }
