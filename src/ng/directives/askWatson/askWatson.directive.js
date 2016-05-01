@@ -21,38 +21,38 @@
     .module('watson.common.ui')
     .directive('askWatson', sideNav);
 
-  function sideNav() {
+  function sideNav () {
     return {
-      restrict: 'E',
-      templateUrl: 'directives/askWatson/askWatson.html',
-      scope: {
-        links: '='
+      restrict : 'E',
+      templateUrl : 'directives/askWatson/askWatson.html',
+      scope : {
+        links : '='
       },
-      controllerAs: 'vm',
-      controller: function($scope, $location) {
+      controllerAs : 'vm',
+      controller : function ($scope, $location) {
         var vm = this;
 
         vm.conversation = [
           {
-            who: "user",
-            message: "Where is the bathroom?",
-            intents: [],
-            date: "Today, 4:58pm"
+            who : 'user',
+            message : 'Where is the bathroom?',
+            intents : [],
+            date : 'Today, 4:58pm'
           },
           {
-            who: "watson",
-            message: "Sorry, I don't know",
-            intents: [],
-            date: "Today, 4:58pm"
+            who : 'watson',
+            message : 'Sorry, I don\'t know',
+            intents : [],
+            date : 'Today, 4:58pm'
           }
         ];
 
-        vm.toggleMenu = function() {
+        vm.toggleMenu = function () {
           vm.isOpen = !vm.isOpen;
-          angular.element(document.body).toggleClass("ask-watson-open");
+          angular.element(document.body).toggleClass('ask-watson-open');
         };
       }
     };
-  };
+  }
 
 })();

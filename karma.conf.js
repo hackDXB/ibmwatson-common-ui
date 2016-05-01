@@ -44,7 +44,7 @@ module.exports = function (config) {
     },
 
     ngHtml2JsPreprocessor : {
-      stripPrefix : 'src/ng/'
+      moduleName : 'watson.common.ui.templates'
     },
 
     // list of files / patterns to exclude
@@ -58,6 +58,11 @@ module.exports = function (config) {
         },
         {
           type : 'text-summary'
+        },
+        {
+          type : 'json',
+          dir : 'coverage',
+          subdir : './'
         }
       ]
     },

@@ -20,12 +20,18 @@ describe('Directive: helpAssistant', function () {
 
   // load the directive's module and view
   beforeEach(module('watson.common.ui'));
-  beforeEach(module('app/directives/helpAssistant/helpAssistant.html'));
 
   var element, scope;
 
-  beforeEach(inject(function ($rootScope) {
+  beforeEach(inject(function ($rootScope, $compile) {
     scope = $rootScope.$new();
+
+    element = angular.element('<help-assistant></help-assistant>');
+
+    scope.intent = { template : ''};
+
+    element = $compile(element)(scope);
+
   }));
 
 });
