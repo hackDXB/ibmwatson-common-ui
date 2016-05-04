@@ -20,12 +20,20 @@ describe('Directive: askWatson', function () {
 
   // load the directive's module and view
   beforeEach(module('watson.common.ui'));
-  beforeEach(module('app/directives/askWatson/askWatson.html'));
 
-  var element, scope;
+  var scope, element;
 
-  beforeEach(inject(function ($rootScope) {
+  beforeEach(inject(function ($rootScope, $compile) {
     scope = $rootScope.$new();
+
+    element = $compile('<ask-watson></ask-watson>')(scope);
   }));
+
+
+  it('should substitute the element', function () {
+
+    element.should.not.be.null;
+
+  });
 
 });

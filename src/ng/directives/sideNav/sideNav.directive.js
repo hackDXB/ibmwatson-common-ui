@@ -21,29 +21,33 @@
     .module('watson.common.ui')
     .directive('sideNav', sideNav);
 
-  function sideNav() {
+  function sideNav () {
     return {
-      restrict: 'E',
-      templateUrl: 'directives/sideNav/sideNav.html',
-      scope: {
-        links: '='
+      restrict : 'E',
+      templateUrl : 'directives/sideNav/sideNav.html',
+      scope : {
+        links : '='
       },
-      controllerAs: 'vm',
-      controller: function($scope, $location) {
+      controllerAs : 'vm',
+      controller : function ($scope, $location) {
         var vm = this;
 
-        vm.toggleMenu = function() {
+        vm.toggleMenu = function () {
           vm.sideNavOpen = !vm.sideNavOpen;
-          angular.element(document.body).toggleClass("side-nav-open");
+          angular.element(document.body).toggleClass('side-nav-open');
         };
 
-        vm.location = function(href) {
-          if(!href) return false;
-          if(href.indexOf('#') == 0) href = href.substring(1);
+        vm.location = function (href) {
+          if (!href) {
+            return false;
+          }
+          if (href.indexOf('#') == 0) {
+            href = href.substring(1);
+          }
           return $location.url().indexOf(href) > -1;
         };
       }
     };
-  };
+  }
 
 })();

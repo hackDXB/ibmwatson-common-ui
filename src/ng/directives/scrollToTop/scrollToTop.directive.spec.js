@@ -21,9 +21,17 @@ describe('Directive: scrollToTop', function () {
   // load the directive's module
   beforeEach(module('watson.common.ui'));
 
-  var scope;
+  var scope, element;
 
-  beforeEach(inject(function ($rootScope) {
+  beforeEach(inject(function ($rootScope, $compile) {
     scope = $rootScope.$new();
+
+    element = $compile('<div scroll-to-top></div>')(scope);
   }));
+
+  it('should substitute the element', function () {
+
+    element.should.not.be.null;
+
+  });
 });
