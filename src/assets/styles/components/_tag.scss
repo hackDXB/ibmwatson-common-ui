@@ -1,76 +1,69 @@
 // Tags
-@mixin chip {
-  display: inline-block;
-  border: 1px solid $gray-20;
-  border-radius: 30em;
-  padding: 0.3em 0.9em 0.3em 1.2em;
-  background-color: $white;
-  line-height: 1em;
-  font-size: .8em;
-  color: $gray-60;
-  min-width: 100px;
-  max-width: 250px;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-
-  &.secondary {
-    background-color: $neutral-white-40;
-  }
-
-  &.selected {
-    border-color: $blue-50;
-    background-color: $blue-10;
-  }
-
-  &.error {
-    border-color: $red-50;
-    background-color: $red-10;
-  }
-
-  &.warning {
-    border-color: $yellow-30;
-    background-color: $yellow-10;
-  }
-
-  &.success {
-    border-color: $green-50;
-    background-color: $green-10;
-  }
-}
-
 .watson {
-  .chip {
-    @include chip;
-    padding: 0.3em 1.2em 0.4em;
-    text-align: center;
-  }
-
   .tag {
-    @include chip;
-    padding: 0.3em 0.9em 0.3em 1.2em;
+    display: inline-block;
+    border: 1px solid $cool-gray-20;
+    border-radius: 4px;
+    background-color: $white;
+    color: $cool-gray-50;
+    line-height: 28px;
+    height: 30px;
+    max-width: 250px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-align: center;
+    padding: 0 .5em;
 
-    & > * {
-      float: left;
-    }
+    &:hover {
+      border: 1px solid $cool-gray-70;
+      color: $cool-gray-70;
 
-    & > button {
-      padding: 0;
-      margin: 0;
-      float: right;
-      color: $gray-60;
-      margin-left: 1em;
-      line-height: 1em;
-
-      .ibm-glyph--close {
-        font-size: .8em;
+      * + * {
+        border-left: 1px solid $cool-gray-70;
       }
     }
 
-    &::after {
-      content: '';
-      display: block;
-      clear: both;
+    &:focus, &:active {
+      border: 1px solid $teal-40;
+      color: $teal-40;
+
+      * + * {
+        border-left: 1px solid $teal-40;
+      }
+    }
+
+    &.confidence {
+      border: 1px solid $cool-gray-20;
+      color: $purple-50;
+
+      &:hover {
+        border: 1px solid $cool-gray-70;
+        color: $cool-gray-70;
+
+        * + * {
+          border-left: 1px solid $cool-gray-70;
+        }
+      }
+
+      &:focus, &:active {
+        border: 1px solid $purple-60;
+        color: $purple-60;
+
+        * + * {
+          border-left: 1px solid $purple-40;
+        }
+      }
+    }
+
+    * {
+      display: inline-block;
+
+      & + * {
+        border-left: 1px solid $cool-gray-20;
+        margin-left: .5em;
+        padding-left: .5em;
+      }
     }
   }
 }

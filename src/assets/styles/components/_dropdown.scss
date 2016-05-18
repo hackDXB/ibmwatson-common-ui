@@ -5,26 +5,41 @@
     display: inline-block;
 
     &.minimal {
-      button {
+      & > button {
         border: none;
       }
     }
 
     .label {
       display: inline-block;
-      margin-right: .3em;
-      padding: .3em 0;
-      vertical-align: top;
-      color: $gray-50;
+      font-size: 0.8em;
+      color: $cool-gray-60;
     }
 
-    button {
+    &:not(.minimal) {
+      & > button {
+        .ibm-glyph--caret-down_24 {
+          border-left: 1px solid $cool-gray-20;
+          padding-left: 12px;
+        }
+
+        &[aria-expanded=true] {
+          border-bottom-left-radius: 0;
+          border-bottom-right-radius: 0;
+          box-shadow: 1px 1px 3px rgba(0, 0, 0, .2);
+        }
+      }
+    }
+
+    & > button {
+      display: flex;
       background-color: transparent;
-      border: 1px solid $gray-20;
-      border-radius: 0;
-      color: $purple-50;
-      padding: .5em;
-      line-height: 1.2em;
+      color: $cool-gray-60;
+      border: 1px solid $cool-gray-20;
+      border-radius: 4px;
+      padding: 0 12px 0 1em;
+      height: 40px;
+      line-height: 2.4em;
       text-align: left;
 
       & > * {
@@ -33,11 +48,18 @@
 
       &:hover {
         background-color: transparent;
+        color: $cool-gray-70;
+      }
+
+      &:focus,
+      &:active {
+        background-color: transparent;
+        color: $cool-gray-80;
       }
 
       .ibm-glyph--caret-down_24 {
         margin-left: 1em;
-        float: right;
+        line-height: 2em;
       }
 
       &::after {
@@ -45,26 +67,30 @@
         display: block;
         clear: both;
       }
+
+      &:not(.icon) + [uib-dropdown-menu] {
+        width: 100%;
+      }
     }
 
-    [uib-dropdown-menu] {
+
+    [uib-dropdown-menu],
+    .dropdown-menu {
       position: absolute;
       top: 100%;
       left: 0;
-      z-index: 1000;
+      z-index: $z-index-dropdown;
       display: none;
-      min-width: 160px;
-      padding: 5px 0;
-      margin: 2px 0 0;
+      margin-top: -1px;
       font-size: 14px;
       text-align: left;
       background-color: $white;
+      color: $cool-gray-80;
       -webkit-background-clip: padding-box;
       background-clip: padding-box;
       border: 1px solid $gray-20;
-      border: 1px solid rgba(0, 0, 0, .15);
-      border-radius: 4px;
-      box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+      border-radius: 0 0 4px 4px;
+      box-shadow: 1px 1px 3px rgba(0, 0, 0, .2);
 
       &.pull-right {
         right: 0;
@@ -73,7 +99,6 @@
 
       .divider {
         height: 1px;
-        margin: 9px 0;
         overflow: hidden;
         background-color: $gray-10;
       }
@@ -81,7 +106,7 @@
       li {
         a {
           display: block;
-          padding: 3px 20px;
+          padding: 6px 16px;
           clear: both;
           font-weight: normal;
           line-height: 1.42857143;
@@ -90,9 +115,10 @@
 
           &:focus,
           &:hover {
-            color: $gray-90;
+            color: $cool-gray-80;
             text-decoration: none;
-            background-color: $neutral-white-30;
+            border-bottom: none;
+            background-color: $cool-gray-10;
           }
         }
       }
@@ -101,6 +127,44 @@
     &.open {
       [uib-dropdown-menu] {
         display: block;
+      }
+    }
+  }
+
+  .auto-complete {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    background-color: #f9f9f9;
+  }
+
+  .auto-complete > .dropdown-menu {
+    position: static;
+    float: none;
+    display: block;
+    min-width: 160px;
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .dark-theme {
+    [uib-dropdown] button,
+    [uib-dropdown] .label {
+      color: $cool-gray-20;
+    }
+
+    [uib-dropdown] button {
+      &:hover {
+        color: $cool-gray-30;
+      }
+
+      &:focus,
+      &:active {
+        color: $teal;
       }
     }
   }

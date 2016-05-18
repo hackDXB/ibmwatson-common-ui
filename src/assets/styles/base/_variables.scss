@@ -34,6 +34,14 @@ $bg-color-error: $red-10;
 
 // Sizes
 $banner-height: 50px;
+$footer-height: 50px;
 $banner-border-width: 1px;
 $sidenav-width: 60px;
-$footer-height: 0px;
+
+// z-indices
+$z-index-tooltip: 1060;
+$z-index-modal: 1100;
+$z-index-modal-backdrop: 1050;
+$z-index-alert: 1060;
+$z-index-banner: 1010;
+$z-index-dropdown: 1000;

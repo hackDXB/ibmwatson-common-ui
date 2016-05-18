@@ -1,33 +1,33 @@
 // Typography
 .watson {
   h1 {
-    font-size: 2.441em;
-    font-weight: 300;
-    margin: 0;
-  }
-  h2 {
     font-size: 1.953em;
     font-weight: 300;
     margin: 0;
   }
-  h3 {
+  h2 {
     font-size: 1.563em;
     font-weight: 300;
     margin: 0;
   }
-  h4 {
+  h3 {
     font-size: 1.25em;
+    font-weight: 300;
+    margin: 0;
+  }
+  h4 {
+    font-size: 1em;
     font-weight: bold;
     margin: 0;
   }
   h5 {
-    font-size: 1em;
+    font-size: 0.8em;
     font-weight: bold;
     margin: 0;
   }
   h6 {
     font-size: 0.8em;
-    font-weight: bold;
+    font-style: italic;
     margin: 0;
   }
 
@@ -69,7 +69,7 @@
     padding: 1em;
     border-radius: 0;
     font-family: $font-code;
-    color: white;
+    color: $white;
     display: block;
   }
 
@@ -84,5 +84,16 @@
   mark {
     background-color: $yellow-10;
     color: $black;
+  }
+
+  label {
+    font-size: .8em;
+    color: $cool-gray-50;
+  }
+
+  .dark-theme {
+    label {
+      color: $cool-gray-20;
+    }
   }
 }

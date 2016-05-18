@@ -1,7 +1,8 @@
 // Buttons
 .watson {
   button {
-    font-size: 16px;
+    position: relative;
+    font-size: 1em;
     text-align: center;
     white-space: nowrap;
     vertical-align: middle;
@@ -9,10 +10,10 @@
     touch-action: manipulation;
     user-select: none;
     background-image: none;
-    border-radius: 20px;
     border: 1px solid transparent;
-    margin: 0 .5em 0 0;
-    padding: .5em 1em .5em;
+    margin: 0;
+    padding-left: 2em;
+    padding-right: 2em;
     box-shadow: none;
     line-height: 1.6em;
     cursor: pointer;
@@ -39,11 +40,49 @@
     }
 
     &.primary {
-      background-color: $purple-50;
+      background-color: $teal-50;
       color: $white;
+      border-radius: 20px;
 
       &:hover {
-        background-color: $purple-60;
+        background-color: $teal-60;
+      }
+      &:active, &:focus {
+        background-color: $teal-70;
+      }
+
+      &[disabled], &[disabled]:hover {
+        background-color: $cool-gray-20;
+      }
+
+      [class^="ibm-icon--"]:last-child,
+      [class^="ibm-glyph--"]:last-child {
+        position: absolute;
+        right: 3px;
+        top: 3px;
+      }
+
+      &.add {
+        padding-right: 3em;
+
+        &::after {
+          content: "\e608";
+          font-family: ibm-icons;
+          font-size: 1.5em;
+          position: absolute;
+          right: 5px;
+        }
+      }
+    }
+
+
+    &.secondary {
+      background-color: $cool-gray-50;
+      color: $white;
+      border-radius: 20px;
+
+      &:hover {
+        background-color: $cool-gray-60;
       }
       &:active, &:focus {
         background-color: $cool-gray-70;
@@ -54,37 +93,23 @@
       }
     }
 
-    &.secondary {
-      background-color: transparent;
-      border: solid 1px $purple-50;
-      color: $purple-50;
-
-      &:hover {
-        border-color: $cool-gray-50;
-        color: $cool-gray-50;
-      }
-      &:active, &:focus {
-        border-color: $cool-gray-80;
-        color: $gray-80;
-      }
-
-      &[disabled], &[disabled]:hover {
-        border-color: $cool-gray-20;
-        color: $cool-gray-20;
-      }
-    }
-
     &.link,
     &.icon,
     &.close {
       background-color: transparent;
-      color: $purple-50;
+      color: $teal-50;
       min-width: 0;
       padding: 0;
 
-      &:hover,
+      &:hover{
+        color: $teal-60;
+        background-color: transparent;
+        border: 1px solid transparent;
+      }
+
+      &:focus,
       &:active {
-        color: $purple-50;
+        color: $teal-70;
         background-color: transparent;
         border: 1px solid transparent;
       }
@@ -94,45 +119,39 @@
         color: $cool-gray-20;
       }
 
-      & [class^="ibm-icon--"],
-      & [class^="ibm-glyph--"] {
+      [class^="ibm-icon--"],
+      [class^="ibm-glyph--"] {
         color: inherit;
       }
     }
 
     &.link {
-      color: $purple-50;
+      color: $teal-50;
 
-      &[disabled], &[disabled]:hover {
-        background-color: transparent;
-        color: $cool-gray-20;
-      }
-
+      [class^="ibm-glyph--"],
       [class^="ibm-icon--"] {
-        font-size: 1.2em;
-      }
-    }
-
-    &.error {
-      background-color: $red-70;
-      color: $white;
-
-      &:hover,
-      &:active {
-        background-color: $white;
-        color: $red-70;
-        border: 1px solid $red-70;
+        &:first-child {
+          margin-right: 1em;
+        }
       }
 
-      &[disabled], &[disabled]:hover {
-        background-color: $red-70;
-        color: $white;
+      &.add {
+        padding-left: 2.5em;
+
+        &::before {
+          position: absolute;
+          left: 0;
+          content: "\e608";
+          font-family: ibm-icons;
+          font-size: 1.5em;
+        }
       }
     }
 
     &.delete {
       background-color: $red-50;
       color: $white;
+      border-radius: 20px;
 
       &:hover {
         background-color: $red-60;
@@ -157,99 +176,111 @@
   }
 
   .dark-theme {
-    button {
-      &.primary {
-        background-color: $purple-50;
-        color: $white;
+    button.icon,
+    button.link {
+      color: $teal-30;
 
-        &:hover {
-          background-color: $purple-40;
-        }
-        &:active, &:focus {
-          background-color: $cool-gray-30;
-        }
-
-        &[disabled], &[disabled]:hover {
-          background-color: $cool-gray-20;
-        }
-      }
-
-      &.secondary {
-        background-color: transparent;
-        border: solid 1px $purple-20;
-        color: $purple-20;
-
-        &:hover {
-          border-color: $cool-gray-20;
-          color: $cool-gray-20;
-        }
-        &:active, &:focus {
-          border-color: $white;
-          color: $white;
-        }
-
-        &[disabled], &[disabled]:hover {
-          border-color: $gray-20;
-          color: $white;
-        }
-      }
-
-      &.error {
-        border: 1px solid $red-30;
-        background-color: transparent;
-        color: $red-30;
-
-        &:hover,
-        &:active {
-          border: 1px solid $red-70;
-          background-color: $red-70;
-          color: $white;
-        }
-
-        &[disabled]:hover {
-          background-color: transparent;
-          color: $red-30;
-        }
-      }
-
-      &.delete {
-        background-color: $red-50;
-        color: $white;
-
-        &:hover {
-          background-color: $red-40;
-        }
-        &:active, &:focus {
-          background-color: $red-30;
-        }
-
-        &[disabled], &[disabled]:hover {
-          background-color: $cool-gray-20;
-        }
-      }
-
-      &.link,
-      &.icon,
-      &.close {
-        color: $purple-50;
-
-        &:hover,
-        &:active {
-          color: $cool-gray-50;
-        }
-
-        &[disabled], &[disabled]:hover {
-          color: $cool-gray-30;
-        }
-      }
-
-      &.link {
-        color: $purple-20;
-
-        &[disabled], &[disabled]:hover {
-          color: $cool-gray-20;
-        }
+      &:hover,
+      &:focus {
+        color: $teal-40;
       }
     }
   }
+
+  // .dark-theme {
+  //   button {
+  //     &.primary {
+  //       background-color: $teal-50;
+  //       color: $white;
+  //
+  //       &:hover {
+  //         background-color: $teal-40;
+  //       }
+  //       &:active, &:focus {
+  //         background-color: $cool-gray-30;
+  //       }
+  //
+  //       &[disabled], &[disabled]:hover {
+  //         background-color: $cool-gray-20;
+  //       }
+  //     }
+  //
+  //     &.secondary {
+  //       background-color: transparent;
+  //       border: solid 1px $teal-20;
+  //       color: $teal-20;
+  //
+  //       &:hover {
+  //         border-color: $cool-gray-20;
+  //         color: $cool-gray-20;
+  //       }
+  //       &:active, &:focus {
+  //         border-color: $white;
+  //         color: $white;
+  //       }
+  //
+  //       &[disabled], &[disabled]:hover {
+  //         border-color: $gray-20;
+  //         color: $white;
+  //       }
+  //     }
+  //
+  //     &.error {
+  //       border: 1px solid $red-30;
+  //       background-color: transparent;
+  //       color: $red-30;
+  //
+  //       &:hover,
+  //       &:active {
+  //         border: 1px solid $red-70;
+  //         background-color: $red-70;
+  //         color: $white;
+  //       }
+  //
+  //       &[disabled]:hover {
+  //         background-color: transparent;
+  //         color: $red-30;
+  //       }
+  //     }
+  //
+  //     &.delete {
+  //       background-color: $red-50;
+  //       color: $white;
+  //
+  //       &:hover {
+  //         background-color: $red-40;
+  //       }
+  //       &:active, &:focus {
+  //         background-color: $red-30;
+  //       }
+  //
+  //       &[disabled], &[disabled]:hover {
+  //         background-color: $cool-gray-20;
+  //       }
+  //     }
+  //
+  //     &.link,
+  //     &.icon,
+  //     &.close {
+  //       color: $teal-50;
+  //
+  //       &:hover,
+  //       &:active {
+  //         color: $cool-gray-50;
+  //       }
+  //
+  //       &[disabled], &[disabled]:hover {
+  //         color: $cool-gray-30;
+  //       }
+  //     }
+  //
+  //     &.link {
+  //       color: $teal-20;
+  //
+  //       &[disabled], &[disabled]:hover {
+  //         color: $cool-gray-20;
+  //       }
+  //     }
+  //   }
+  // }
 }

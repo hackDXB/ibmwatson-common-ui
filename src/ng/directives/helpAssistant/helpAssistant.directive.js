@@ -26,7 +26,8 @@
       restrict : 'E',
       templateUrl : 'directives/helpAssistant/helpAssistant.html',
       scope : {
-        template : '='
+        template : '=',
+        showHelp : '='
       }
     };
   }

@@ -11,10 +11,10 @@
     aside {
       min-height: 100px;
       max-height: 30vh;
-      background-color: white;
-      border: 1px solid $gray-20;
+      background-color: $white;
+      border: 1px solid $cool-gray-20;
       padding: 1em 1em 1em 2em;
-      box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+      box-shadow: 1px 1px 3px rgba(0, 0, 0, .2);
       display: flex;
 
       .help-content {
@@ -24,7 +24,7 @@
       p::before {
         content: '';
         margin-right: 1em;
-        border-left: 4px solid $teal-30;
+        border-left: 4px solid $teal;
       }
     }
 

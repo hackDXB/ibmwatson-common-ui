@@ -8,14 +8,14 @@
   </div>
   <div class="guide-row">
     <h2 id="/guide/headings">Headings</h2>
-    <p>Use the <code>&lt;h1&gt; - &lt;h6&gt;</code> tags for headings.  Remember to use <code>&lt;hgroup&gt;</code> for groups of titles.</p>
+    <p>Use the <code>&lt;h1&gt; - &lt;h6&gt;</code> tags for headings.  Remember to use <code>&lt;hgroup&gt;</code> for groups of headings.</p>
     <hgroup>
-      <h1>H1 header/ 2.441em</h1>
-      <h2>H2 header/ 1.953em</h2>
-      <h3>H3 header/ 1.563em</h3>
-      <h4>H4 header/ 1.25em</h4>
-      <h5>H5 header/ 1em</h5>
-      <h6>H6 header/ 0.8em</h6>
+      <h1>H1 heading</h1>
+      <h2>H2 heading</h2>
+      <h3>H3 heading</h3>
+      <h4>H4 heading</h4>
+      <h5>H5 heading</h5>
+      <h6>H6 heading</h6>
     </hgroup>
   </div>
   <div class="guide-row">
@@ -34,6 +34,20 @@
       <li><p class="error-text">Error text - <code>&lt;* class="error-text"&gt;</code></p></li>
       <li><code>Use &lt;code&gt; for code snippets</code></li>
     </ul>
+  </div>
+
+  <div class="guide-row">
+    <h2 id="/guide/links">Links</h2>
+    <p>Use <code>&lt;a&gt;</code> for links.  <code>gray</code> and <code>purple</code> classes available for overriding the color.</p>
+    <div>
+      <a href="#">Default link</a>
+    </div>
+    <div>
+      <a href="#" class="gray">Gray link</a>
+    </div>
+    <div>
+      <a href="#" class="purple">Purple link</a>
+    </div>
   </div>
 
   <div class="guide-row">
@@ -110,38 +124,41 @@
     <p>Use <code>&lt;button&gt;</code> for primary buttons.  Add a class of <code>secondary</code>, <code>error</code> or <code>link</code> for the others.</p>
     <div class="guide-row">
       <button type="button" role="button" class="primary">Primary</button>
+      <button type="button" role="button" class="primary add">Add thing</button>
       <button type="button" role="button" class="secondary">Secondary</button>
-      <button type="button" role="button" class="error">Error</button>
-      <button type="button" role="button" class="link"><span class="ibm-glyph--add-new_24" aria-hidden="true"></span>Secondary button</button>
-      <button type="button" role="button" class="link">Tertiary button</button>
-      <button type="button" role="button" class="icon" title="Icon button" aria-label="Icon button"><span class="ibm-glyph--add-new_24" aria-hidden="true"></span></button>
+      <button type="button" role="button" class="delete">Delete</button>
+      <button type="button" role="button" class="link add">Add thing</button>
+      <button type="button" role="button" class="link">Link button</button>
+      <button type="button" role="button" class="icon" title="Icon button" aria-label="Icon button"><span class="ibm-icon--add-new" aria-hidden="true"></span></button>
     </div>
     <p>Use <code>&lt;button disabled&gt;</code> for disabled buttons.  Use <code>ng-disabled</code> to dynamically set this.</p>
     <div class="guide-row">
       <button type="button" role="button" class="primary" disabled>Disabled Primary</button>
       <button type="button" role="button" class="secondary" disabled>Disabled Secondary</button>
-      <button type="button" role="button" class="error" disabled>Disabled Error</button>
-      <button type="button" role="button" class="link" disabled><span class="ibm-glyph--add-new_24" aria-hidden="true"></span>Disabled Secondary</button>
-      <button type="button" role="button" class="link" disabled>Disabled Tertiary</button>
-      <button type="button" role="button" class="icon" title="Icon button" aria-label="Icon button" disabled><span class="ibm-glyph--add-new_24" aria-hidden="true"></span></button>
+      <button type="button" role="button" class="delete" disabled>Disabled Delete</button>
+      <button type="button" role="button" class="link add" disabled>Disabled Add</button>
+      <button type="button" role="button" class="link" disabled>Disabled Link</button>
+      <button type="button" role="button" class="icon" title="Icon button" aria-label="Icon button" disabled><span class="ibm-icon--add-new" aria-hidden="true"></span></button>
     </div>
     <p>Use <code>&lt;button class="large"&gt;</code> for large buttons.</p>
     <div class="guide-row">
-      <button type="button" role="button" class="primary large">Primary big button</button>
-      <button type="button" role="button" class="secondary large">Secondary big button</button>
-      <button type="button" role="button" class="error large">Error big button</button>
-      <button type="button" role="button" class="link large"><span class="ibm-glyph--add-new_24" aria-hidden="true"></span>Secondary button</button>
-      <button type="button" role="button" class="link large">Tertiary button</button>
-      <button type="button" role="button" class="icon large" title="Icon button" aria-label="Icon button"><span class="ibm-glyph--add-new_24" aria-hidden="true"></span></button>
+      <button type="button" role="button" class="primary large">Primary large</button>
+      <button type="button" role="button" class="primary add large">Add something</button>
+      <button type="button" role="button" class="secondary large">Secondary large</button>
+      <button type="button" role="button" class="delete large">Delete large</button>
+      <button type="button" role="button" class="link add large">Add thing</button>
+      <button type="button" role="button" class="link large">Link large</button>
+      <button type="button" role="button" class="icon large" title="Icon button" aria-label="Icon button"><span class="ibm-icon--add-new" aria-hidden="true"></span></button>
     </div>
     <p>Use <code>&lt;button class="small"&gt;</code> for small buttons.</p>
     <div class="guide-row">
-      <button type="button" role="button" class="primary small">Primary small button</button>
-      <button type="button" role="button" class="secondary small">Secondary small button</button>
-      <button type="button" role="button" class="error small">Error small button</button>
-      <button type="button" role="button" class="link small"><span class="ibm-glyph--add-new_24" aria-hidden="true"></span>Secondary button</button>
+      <button type="button" role="button" class="primary small">Primary small</button>
+      <button type="button" role="button" class="primary add small">Add something</button>
+      <button type="button" role="button" class="secondary small">Secondary small</button>
+      <button type="button" role="button" class="delete small">Delete small</button>
+      <button type="button" role="button" class="link add small">Add thing</button>
       <button type="button" role="button" class="link small">Tertiary button</button>
-      <button type="button" role="button" class="icon small" title="Icon button" aria-label="Icon button"><span class="ibm-glyph--add-new_24" aria-hidden="true"></span></button>
+      <button type="button" role="button" class="icon small" title="Icon button" aria-label="Icon button"><span class="ibm-icon--add-new" aria-hidden="true"></span></button>
     </div>
   </div>
 

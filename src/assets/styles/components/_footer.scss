@@ -1,0 +1,24 @@
+// Banner
+.watson {
+  footer[role=contentinfo] {
+    flex: none;
+    height: $footer-height;
+    width: 100%;
+    border-top: solid 1px $cool-gray-60;
+    padding: 10px 1.2em;
+    background-color : $cool-gray-80;
+
+    .ibm-logo {
+      width: 50px;
+      height: 20px;
+      background-image: url(#{$ibm-watson-images-path}/ibm_logo.png);
+
+      &::before {
+        content: "";
+        width: 50px;
+        height: 20px;
+        display: inline-block;
+      }
+    }
+  }
+}

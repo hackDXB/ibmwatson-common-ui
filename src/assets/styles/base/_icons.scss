@@ -8,9 +8,16 @@
     font-variant: normal;
     text-transform: none;
     line-height: 1;
-    margin-right: .3em;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
+    &.small {
+      font-size: 1em;
+    }
+
+    &.large {
+      font-size: 2em;
+    }
 }
 .ibm-icon--flag_outline::before {
     content: "\e800";

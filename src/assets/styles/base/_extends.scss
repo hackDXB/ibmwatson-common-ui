@@ -3,17 +3,22 @@
 	background-color: transparent;
 	border-radius: 0;
   border: none;
-	border-bottom: 1px solid $border-color-light;
-	padding: .4em .8em .4em 0;
-	font-size: 1em;
+	border-bottom: 2px solid $cool-gray-10;
+	padding: .3em .8em .2em 0;
+	font-size: 1rem;
 	box-shadow: none;
+	color: $cool-gray-60;
 
   &.ng-dirty.invalid {
-    border-bottom: 1px solid #8C101C;
+    border-bottom: 2px solid $red-50;
   }
 
-  &:hover,
-  &:focus {
-    border-bottom: 1px solid $purple-50;
+  &:hover {
+    border-bottom: 2px solid $cool-gray-30;
   }
+
+	&:focus {
+    border-bottom: 2px solid $teal;
+		color: $cool-gray-100;
+	}
 }

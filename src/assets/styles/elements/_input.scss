@@ -14,9 +14,12 @@
 	input[type=search] {
 		border: 1px solid $border-color-light;
 		padding-left: 2.5em;
-		background: url(#{$ibm-watson-images-path}/search_24.svg) no-repeat .7em 50% / 1.3em 1.3em;
+		background: url(#{$ibm-watson-images-path}/search_24.svg) no-repeat .5em 50% / 1em 1em;
 		width: 100%;
 		border-radius: 20px;
+		font-size: 1.1em;
+    padding-top: .3em;
+    padding-bottom: 0.3em;
 
 	  &:hover,
 	  &:focus {
@@ -25,12 +28,14 @@
 	}
 
 	input.filter[type=search] {
-		background: url(#{$ibm-watson-images-path}/filter_24.svg) no-repeat .7em 50% / 1.3em 1.3em;
+		background: url(#{$ibm-watson-images-path}/filter_24.svg) no-repeat .5em 50% / 1em 1em;
 	}
 
 	.dark-theme {
-		input {
-			color: white;
+		input,
+		input:hover,
+		input:focus {
+			color: $white;
 		}
 	}
 }

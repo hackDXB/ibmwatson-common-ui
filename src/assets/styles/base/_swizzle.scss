@@ -4,10 +4,14 @@
     .main-container.ng-enter,
     .main-container.ng-leave {
       position: absolute;
+      top: $banner-height;
       left: 0;
       right: 0;
-      max-height: 98vh;
       z-index: -1;
+      overflow: hidden;
+      white-space: nowrap;
+      width: 100vw;
+      height: calc(100vh - #{$banner-height});
     }
 
     .main-container.ng-enter {

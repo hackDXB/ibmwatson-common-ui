@@ -1,0 +1,67 @@
+// Alerts
+.watson {
+  .inline-notification {
+    position: relative;
+    display: inline-block;
+    min-width: 400px;
+    padding: 10px 16px 10px 26px;
+    margin: .5em 0;
+    color: $cool-gray-60;
+    border-radius: 4px;
+
+    &.error {
+      background-color: $red-10;
+
+      &::before {
+        color: $red-60;
+      }
+    }
+
+    &.success {
+      background-color: $green-10;
+
+      &::before {
+        color: $green-60;
+      }
+    }
+
+    &.warning {
+      background-color: $yellow-10;
+
+      &::before {
+        color: $yellow-60;
+      }
+    }
+
+    &.info {
+      background-color: $blue-10;
+
+      &::before {
+        color: $blue-60;
+      }
+    }
+
+    &::before {
+      position: relative;
+      left: -16px;
+      content: '\e614';
+      font-family: 'ibm-icons';
+    }
+
+    &.closable {
+      padding-right: 56px;
+    }
+
+    button.icon {
+      position: absolute;
+      top: 6px;
+      right: 12px;
+      color: $cool-gray-60;
+
+      [class^="ibm-glyph--"],
+      [class^="ibm-icon--"] {
+        font-size: 1em;
+      }
+    }
+  }
+}

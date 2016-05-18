@@ -2,7 +2,8 @@
 body.watson {
   @include font-roman;
   margin: 0;
-  color: $gray-70;
+  color: $cool-gray-80;
+  background-color: $neutral-white-3;
 }
 
 .watson * {
@@ -11,15 +12,23 @@ body.watson {
 }
 
 .watson {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 
+  #body-content {
+    flex: 1;
+    width: 100%;
+    overflow-y: auto;
+  }
+
+  &.dark-theme,
   .dark-theme {
     background-color: $cool-gray-80;
     color: $cool-gray-20;
   }
 
   .main-container {
-    min-height: calc(100vh - #{$banner-height});
-    margin-top: $banner-height;
     display: flex;
   }
 
@@ -35,7 +44,24 @@ body.watson {
     padding: 0;
     margin: -1px;
     overflow: hidden;
-    clip: rect(0,0,0,0);
+    clip: rect(0, 0, 0, 0);
     border: 0;
+  }
+
+  .display-inline {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .align-top {
+    vertical-align: top;
+  }
+
+  .align-middle {
+    vertical-align: middle;
+  }
+
+  .no-animation {
+    transition-duration: 0s;
   }
 }

@@ -2,21 +2,47 @@
 .watson {
 	a,
 	a:visited {
-		color: $blue-50;
+		color: $teal-50;
 		text-decoration: none;
 		cursor: pointer;
 
 		&:hover {
-			border-bottom: 2px solid #325C80;
+			border-bottom: 2px solid $teal-60;
 			text-decoration: none;
-			color: $blue-60;
+			color: $teal-60;
 		}
 
 		&:active,
 		&:focus {
-			border-bottom: 2px solid #264A60;
+			border-bottom: 2px solid $teal-70;
 			text-decoration: none;
-			color: $blue-70;
+			color: $teal-70;
+		}
+
+		a.grey {
+			color: $cool-gray-50;
+
+			&:hover {
+				color: $cool-gray-60;
+			}
+
+			&:active,
+			&:focus {
+				color: $cool-gray-70;
+			}
+		}
+
+		a.purple {
+			color: $purple-50;
+
+			&:hover {
+				color: $purple-60;
+			}
+
+			&:active,
+			&:focus {
+				color: $purple-70;
+			}
 		}
 	}
 }

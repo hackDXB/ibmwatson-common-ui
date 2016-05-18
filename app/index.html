@@ -43,11 +43,12 @@
     <button type="button" role="button" class="icon" title="Toggle theme" aria-label="Toggle theme" ng-click="vm.toggleTheme()">
       <span class="ibm-icon--catalog" aria-hidden="true"></span>
     </button>
-    <ask-watson></ask-watson>
+    <!-- <ask-watson></ask-watson> -->
   </header>
 
-  <section ui-view="" class="main-container" id="theme-container">
-  </section>
+  <div id="body-content">
+    <section ui-view="" class="main-container" id="theme-container"></section>
+  </div>
 
   <footer role="contentinfo" scroll-to-top>
   </footer>
