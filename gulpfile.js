@@ -1,5 +1,5 @@
 /**
- * Copyright 2015 IBM Corp.
+ * Copyright 2016 IBM Corp.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,6 +19,8 @@
 var gulp = require('gulp');
 var del = require('del');
 var express = require('express');
+var livereload = require('connect-livereload');
+var runSequence = require('run-sequence');
 var karma = require('karma');
 var merge = require('merge-stream');
 var streamqueue = require('streamqueue');
@@ -44,8 +46,7 @@ var srcPaths = {
   fonts : [srcFolder + '/assets/fonts/**/*.{eot,svg,ttf,woff,woff2}'],
   images : [srcFolder + '/assets/images/**/*.{png,ico,jpg,gif,svg}'],
   scripts : [
-    srcFolder + '/ng/**/*.js',
-    '!/**/*.spec.js'
+    srcFolder + '/ng/**/!(*.spec|*.mock).js'
   ],
   tests : [
     srcFolder + '/ng/**/*.{spec,mock}.js'
@@ -72,13 +73,12 @@ var coverageFolder = './coverage';
 function cleanTask () {
   return del([distFolder, publicFolder, coverageFolder]);
 }
-
 gulp.task('clean', cleanTask);
 
 //Lint
 
 function lintScriptsTask () {
-  gulp.src(srcPaths.scripts)
+  return gulp.src(srcPaths.scripts)
     .pipe(plugins.cached('lint'))
     .pipe(plugins.eslint({quiet : true}))
     .pipe(plugins.eslint.format())
@@ -87,7 +87,7 @@ function lintScriptsTask () {
 gulp.task('lint-scripts', lintScriptsTask);
 
 function lintTestsTask () {
-  gulp.src(srcPaths.tests)
+  return gulp.src(srcPaths.tests)
     .pipe(plugins.cached('lint'))
     .pipe(plugins.eslint({quiet : true}))
     .pipe(plugins.eslint.format())
@@ -98,30 +98,28 @@ gulp.task('lint-tests', lintTestsTask);
 // Demo app
 
 function demoAppTask () {
-  gulp.src(srcPaths.demo)
+  return gulp.src(srcPaths.demo)
     .pipe(plugins.plumber({
       errorHandler : handleError
     }))
     .pipe(plugins.cached('demo'))
     .pipe(gulp.dest(publicFolder));
 }
-
 gulp.task('demo', demoAppTask);
-gulp.task('clean-demo', ['clean'], demoAppTask);
 
 // Fonts
 
 function fontsTask () {
-  gulp.src(srcPaths.fonts)
+  return gulp.src(srcPaths.fonts)
     .pipe(plugins.plumber({
       errorHandler : handleError
     }))
     .pipe(plugins.cached('fonts'))
-    .pipe(gulp.dest(destPaths.fonts));
+    .pipe(gulp.dest(destPaths.fonts))
+    .pipe(plugins.livereload());
 
 }
 gulp.task('fonts', fontsTask);
-gulp.task('clean-fonts', ['clean'], fontsTask);
 
 // Images
 
@@ -132,10 +130,10 @@ function imagesTask () {
     }))
     .pipe(plugins.cached('images'))
     .pipe(plugins.imagemin())
-    .pipe(gulp.dest(destPaths.images));
+    .pipe(gulp.dest(destPaths.images))
+    .pipe(plugins.livereload());
 }
 gulp.task('images', imagesTask);
-gulp.task('clean-images', ['clean'], imagesTask);
 
 // Scripts
 
@@ -163,16 +161,17 @@ var scriptsTask = function () {
       extname : '.min.js'
     }))
     .pipe(plugins.sourcemaps.write('../maps'))
-    .pipe(gulp.dest(destPaths.scripts));
+    .pipe(gulp.dest(destPaths.scripts))
+    .pipe(plugins.livereload());
 };
 gulp.task('scripts', ['test'], scriptsTask);
-gulp.task('clean-scripts', ['clean', 'test'], scriptsTask);
 
 // Serve
 
-function serveTask () {
+function startServer () {
   var port = 3000;
   var app = express();
+  app.use(livereload());
   app.use(express.static(__dirname + '/dist'));
   app.use(express.static(__dirname + '/public'));
   app.use('/bower_components', express.static(__dirname + '/bower_components'));
@@ -180,8 +179,19 @@ function serveTask () {
 
   plugins.gutil.log(plugins.gutil.colors.green('Demo app available on port %d'), port);
 }
-gulp.task('serve', ['build', 'demo'], serveTask);
-gulp.task('clean-serve', ['clean-build', 'clean-demo'], serveTask);
+gulp.task('start-server', startServer);
+
+function serveTask (callback) {
+  runSequence('clean',
+    ['lint-scripts', 'lint-tests'],
+    ['build', 'demo'],
+    'start-server',
+    'watch',
+    callback);
+}
+
+gulp.task('serve', serveTask);
+gulp.task('start', serveTask);
 
 // Styles
 
@@ -197,7 +207,6 @@ function stylesTask () {
       .pipe(plugins.plumber({
         errorHandler : handleError
       }))
-      .pipe(plugins.cached('rootStyles'))
       .pipe(plugins.sourcemaps.init())
       .pipe(plugins.sass({
         outputStyle : 'compressed'
@@ -208,28 +217,43 @@ function stylesTask () {
       }))
       .pipe(plugins.sourcemaps.write('../maps'))
       .pipe(gulp.dest(destPaths.styles))
-  );
+  ).pipe(plugins.livereload());
 }
 gulp.task('styles', stylesTask);
-gulp.task('clean-styles', ['clean'], stylesTask);
 
 // Tests
 
-var testTask = function testTask (done) {
+var testTask = function testTask (callback) {
   var KarmaServer = karma.Server;
 
   KarmaServer.start({
     configFile : __dirname + '/karma.conf.js',
     singleRun : true
   }, function () {
-    done();
+    callback();
   });
 };
 gulp.task('test', testTask);
-gulp.task('clean-test', ['clean'], testTask);
+
+// Watch
+
+function watchTask (callback) {
+  plugins.livereload.listen();
+  gulp.watch(srcPaths.styles, ['styles']);
+  gulp.watch(srcPaths.fonts, ['fonts']);
+  gulp.watch(srcPaths.images, ['images']);
+  gulp.watch(srcPaths.scripts, ['scripts']);
+
+  callback();
+}
+gulp.task('watch', watchTask);
+
+function buildTask (callback) {
+  runSequence('clean',
+    ['fonts', 'images', 'scripts', 'styles'],
+    callback);
+}
+gulp.task('build', buildTask);
 
 // Meta
-
 gulp.task('default', ['lint-scripts', 'lint-tests', 'build']);
-gulp.task('build', ['fonts', 'images', 'scripts', 'styles']);
-gulp.task('clean-build', ['clean-fonts', 'clean-images', 'clean-scripts', 'clean-styles']);
