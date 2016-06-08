@@ -29,7 +29,8 @@ var streamqueue = require('streamqueue');
 var plugins = require('gulp-load-plugins')({
   rename : {
     'gulp-angular-templatecache' : 'templateCache',
-    'gulp-util' : 'gutil'
+    'gulp-util' : 'gutil',
+    'ghPages' : 'gh-pages'
   }
 });
 
@@ -41,7 +42,12 @@ function handleError (err) {
 }
 
 var srcFolder = './src';
-var srcPaths = {
+var distFolder = './dist';
+var publicFolder = './public';
+var pagesFolder = './.publish';
+var coverageFolder = './coverage';
+
+var paths = {
   demo : ['./app/**/*'],
   fonts : [srcFolder + '/assets/fonts/**/*.{eot,svg,ttf,woff,woff2}'],
   images : [srcFolder + '/assets/images/**/*.{png,ico,jpg,gif,svg}'],
@@ -53,32 +59,29 @@ var srcPaths = {
   ],
   rootStyles : [srcFolder + '/assets/styles/ibmwatson.scss'],
   styles : [srcFolder + '/assets/styles/**/*.scss'],
-  templates : [srcFolder + '/ng/**/*.html']
+  templates : [srcFolder + '/ng/**/*.html'],
+  bower : ['./bower_components/**/*'],
+  dest : {
+    all : [distFolder + '/**/*'],
+    fonts : distFolder + '/fonts',
+    images : distFolder + '/images',
+    styles : distFolder + '/styles',
+    scripts : distFolder + '/js'
+  },
+  public : [publicFolder + '/**/*']
 };
-
-var distFolder = './dist';
-var destPaths = {
-  fonts : distFolder + '/fonts',
-  images : distFolder + '/images',
-  styles : distFolder + '/styles',
-  scripts : distFolder + '/js'
-};
-
-var publicFolder = './public';
-
-var coverageFolder = './coverage';
 
 // Clean
 
 function cleanTask () {
-  return del([distFolder, publicFolder, coverageFolder]);
+  return del([distFolder, publicFolder, coverageFolder, pagesFolder]);
 }
 gulp.task('clean', cleanTask);
 
 //Lint
 
 function lintScriptsTask () {
-  return gulp.src(srcPaths.scripts)
+  return gulp.src(paths.scripts)
     .pipe(plugins.cached('lint'))
     .pipe(plugins.eslint({quiet : true}))
     .pipe(plugins.eslint.format())
@@ -87,7 +90,7 @@ function lintScriptsTask () {
 gulp.task('lint-scripts', lintScriptsTask);
 
 function lintTestsTask () {
-  return gulp.src(srcPaths.tests)
+  return gulp.src(paths.tests)
     .pipe(plugins.cached('lint'))
     .pipe(plugins.eslint({quiet : true}))
     .pipe(plugins.eslint.format())
@@ -98,24 +101,35 @@ gulp.task('lint-tests', lintTestsTask);
 // Demo app
 
 function demoAppTask () {
-  return gulp.src(srcPaths.demo)
+
+  var app = gulp.src(paths.demo.concat(paths.dest.all))
     .pipe(plugins.plumber({
       errorHandler : handleError
     }))
     .pipe(plugins.cached('demo'))
     .pipe(gulp.dest(publicFolder));
+
+  var bower = gulp.src(paths.bower)
+    .pipe(plugins.plumber({
+      errorHandler : handleError
+    }))
+    .pipe(plugins.cached('demo'))
+    .pipe(gulp.dest(publicFolder + '/bower_components'));
+
+  return merge(app, bower);
+
 }
-gulp.task('demo', demoAppTask);
+gulp.task('demo', ['build'], demoAppTask);
 
 // Fonts
 
 function fontsTask () {
-  return gulp.src(srcPaths.fonts)
+  return gulp.src(paths.fonts)
     .pipe(plugins.plumber({
       errorHandler : handleError
     }))
     .pipe(plugins.cached('fonts'))
-    .pipe(gulp.dest(destPaths.fonts))
+    .pipe(gulp.dest(paths.dest.fonts))
     .pipe(plugins.livereload());
 
 }
@@ -124,13 +138,13 @@ gulp.task('fonts', fontsTask);
 // Images
 
 function imagesTask () {
-  return gulp.src(srcPaths.images)
+  return gulp.src(paths.images)
     .pipe(plugins.plumber({
       errorHandler : handleError
     }))
     .pipe(plugins.cached('images'))
     .pipe(plugins.imagemin())
-    .pipe(gulp.dest(destPaths.images))
+    .pipe(gulp.dest(paths.dest.images))
     .pipe(plugins.livereload());
 }
 gulp.task('images', imagesTask);
@@ -141,19 +155,19 @@ var scriptsTask = function () {
   return streamqueue({
     objectMode : true
   },
-  gulp.src(srcPaths.templates)
+  gulp.src(paths.templates)
     .pipe(plugins.plumber({
       errorHandler : handleError
     }))
     .pipe(plugins.templateCache('templateCache.js', {module : 'watson.common.ui.templates', standalone : true}))
-    .pipe(gulp.dest(destPaths.scripts)),
-  gulp.src(srcPaths.scripts)
+    .pipe(gulp.dest(paths.dest.scripts)),
+  gulp.src(paths.scripts)
     .pipe(plugins.plumber({
       errorHandler : handleError
     })))
     .pipe(plugins.order(['**/common-ui.js', '*']))
     .pipe(plugins.concat('ibmwatson.js'))
-    .pipe(gulp.dest(destPaths.scripts))
+    .pipe(gulp.dest(paths.dest.scripts))
     .pipe(plugins.sourcemaps.init())
     .pipe(plugins.ngAnnotate())
     .pipe(plugins.uglify())
@@ -161,7 +175,7 @@ var scriptsTask = function () {
       extname : '.min.js'
     }))
     .pipe(plugins.sourcemaps.write('../maps'))
-    .pipe(gulp.dest(destPaths.scripts))
+    .pipe(gulp.dest(paths.dest.scripts))
     .pipe(plugins.livereload());
 };
 gulp.task('scripts', ['test'], scriptsTask);
@@ -172,9 +186,7 @@ function startServer () {
   var port = 3000;
   var app = express();
   app.use(livereload());
-  app.use(express.static(__dirname + '/dist'));
   app.use(express.static(__dirname + '/public'));
-  app.use('/bower_components', express.static(__dirname + '/bower_components'));
   app.listen(port, '0.0.0.0');
 
   plugins.gutil.log(plugins.gutil.colors.green('Demo app available on port %d'), port);
@@ -197,13 +209,13 @@ gulp.task('start', serveTask);
 
 function stylesTask () {
   return merge(
-    gulp.src(srcPaths.styles)
+    gulp.src(paths.styles)
       .pipe(plugins.plumber({
         errorHandler : handleError
       }))
       .pipe(plugins.cached('styles'))
-      .pipe(gulp.dest(destPaths.styles)),
-    gulp.src(srcPaths.rootStyles)
+      .pipe(gulp.dest(paths.dest.styles)),
+    gulp.src(paths.rootStyles)
       .pipe(plugins.plumber({
         errorHandler : handleError
       }))
@@ -216,7 +228,7 @@ function stylesTask () {
         extname : '.min.css'
       }))
       .pipe(plugins.sourcemaps.write('../maps'))
-      .pipe(gulp.dest(destPaths.styles))
+      .pipe(gulp.dest(paths.dest.styles))
   ).pipe(plugins.livereload());
 }
 gulp.task('styles', stylesTask);
@@ -239,10 +251,10 @@ gulp.task('test', testTask);
 
 function watchTask (callback) {
   plugins.livereload.listen();
-  gulp.watch(srcPaths.styles, ['styles']);
-  gulp.watch(srcPaths.fonts, ['fonts']);
-  gulp.watch(srcPaths.images, ['images']);
-  gulp.watch(srcPaths.scripts, ['scripts']);
+  gulp.watch(paths.styles, ['styles']);
+  gulp.watch(paths.fonts, ['fonts']);
+  gulp.watch(paths.images, ['images']);
+  gulp.watch(paths.scripts, ['scripts']);
 
   callback();
 }
@@ -253,7 +265,15 @@ function buildTask (callback) {
     ['fonts', 'images', 'scripts', 'styles'],
     callback);
 }
+
 gulp.task('build', buildTask);
+
+function pagesTask () {
+  return gulp.src(paths.public)
+    .pipe(plugins.ghPages());
+}
+
+gulp.task('pages', ['demo'], pagesTask);
 
 // Meta
 gulp.task('default', ['lint-scripts', 'lint-tests', 'build']);
