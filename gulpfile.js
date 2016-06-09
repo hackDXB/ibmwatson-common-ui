@@ -119,7 +119,7 @@ function demoAppTask () {
   return merge(app, bower);
 
 }
-gulp.task('demo', ['build'], demoAppTask);
+gulp.task('demo', demoAppTask);
 
 // Fonts
 
@@ -196,7 +196,8 @@ gulp.task('start-server', startServer);
 function serveTask (callback) {
   runSequence('clean',
     ['lint-scripts', 'lint-tests'],
-    ['build', 'demo'],
+    'build',
+    'demo',
     'start-server',
     'watch',
     callback);
@@ -255,6 +256,7 @@ function watchTask (callback) {
   gulp.watch(paths.fonts, ['fonts']);
   gulp.watch(paths.images, ['images']);
   gulp.watch(paths.scripts, ['scripts']);
+  gulp.watch(paths.dest.all.concat(paths.demo), ['demo']);
 
   callback();
 }
