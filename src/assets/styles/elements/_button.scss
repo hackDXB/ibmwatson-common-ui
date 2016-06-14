@@ -73,6 +73,18 @@
           right: 5px;
         }
       }
+
+      &.import {
+        padding-right: 3em;
+
+        &::after {
+          content: "\e611";
+          font-family: "ibm-icons";
+          font-size: 1.5em;
+          position: absolute;
+          right: 0.5em;
+        }
+      }
     }
 
 
@@ -143,6 +155,18 @@
           left: 0;
           content: "\e608";
           font-family: ibm-icons;
+          font-size: 1.5em;
+        }
+      }
+
+      &.import {
+        padding-left: 2.5em;
+
+        &::before {
+          position: absolute;
+          left: 0;
+          content: "\e611";
+          font-family: "ibm-icons";
           font-size: 1.5em;
         }
       }
