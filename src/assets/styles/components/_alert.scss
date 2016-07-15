@@ -12,7 +12,7 @@
       top: -$banner-height * 2;
     }
   }
-
+  
   .alert {
     position: relative;
     top: 0;
@@ -26,6 +26,10 @@
     padding: 0 1em;
     line-height: 40px;
     @include transition(top);
+
+    @include screen-smedium {
+      width: 100vw;
+    }
 
     &[type=info] {
       border-color: $blue-50;

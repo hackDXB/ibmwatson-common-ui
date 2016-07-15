@@ -1,5 +1,6 @@
 // Banner
 .watson {
+
   header[role=banner] {
     position: relative;
     display: flex;
@@ -14,6 +15,11 @@
     height: $banner-height;
     line-height: $banner-height;
     z-index: $z-index-banner;
+
+    @include screen-smedium {
+      flex-wrap: wrap;
+      height: auto;
+    }
 
     a {
       color: $cool-gray-20;
@@ -54,23 +60,29 @@
       margin-top: .5em;
     }
 
-    ul[role=navigation]{
-      flex: 1 0 auto;
-      text-align: left;
-      font-weight: bold;
+    nav {
       align-self: center;
+      flex: 1 0 auto;
+      font-weight: bold;
+      text-align: left;
 
-      li {
-        display: inline;
-        margin-left: 3em;
+      @include screen-smedium {
+        margin-left: .5em;
       }
 
-      li:first-of-type {
-        margin-left: inherit;
-      }
+      & > ul {
+        & > li {
+          display: inline;
+          margin-left: 3em;
 
-      a.active {
-        color: $teal-40;
+          @include screen-smedium {
+            margin-left: 2em;
+          }
+
+          &:first-of-type {
+            margin-left: inherit;
+          }
+        }
       }
     }
   }

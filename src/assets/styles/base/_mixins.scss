@@ -68,6 +68,12 @@
   }
 }
 
+@mixin screen-smedium {
+  @media only screen and (max-width: 550px) {
+    @content;
+  }
+}
+
 @mixin screen-small {
   @media only screen and (max-width: 320px) {
     @content;
