@@ -1,13 +1,11 @@
 // File upload
 .watson {
   .file-upload {
-    border: 2px dashed $cool-gray-20;
-    padding: 1em;
+    border: 1px solid $cool-gray-40;
+    border-radius: 0.25em;
     margin-bottom: 1em;
-    text-align: center;
     vertical-align: middle;
-    color: $cool-gray-60;
-    font-family: "HelvNeueRomanforIBM";
+    color: $cool-gray-50;
     font-size: .9em;
     overflow: hidden;
     position: relative;
@@ -26,13 +24,20 @@
     }
 
     &::before {
-      font-family: 'ibm-icons';
-      content: '\e62b';
-      margin-right: .5em;
-    }
-    &::after {
+      border-right: 1px solid $cool-gray-40;
+      text-align: left;
       content: attr(title);
-      width: 100%;
+      font-weight: bold;
+      padding: 1em;
+      display: inline-block;
+      text-align: left;
+    }
+
+    &::after {
+      content: attr(file-name);
+      font-style: italic;
+      padding: 1em;
+      display: inline-block;
     }
 
     &:hover::before,
@@ -45,7 +50,7 @@
     &:hover,
     &:focus {
       background-color: $green-10;
-      border: 2px dashed $green-50;
+      border: 1px solid $cool-gray-40;
       color: $gray-80;
     }
   }
