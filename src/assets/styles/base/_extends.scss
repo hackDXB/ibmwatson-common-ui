@@ -1,13 +1,14 @@
 // Extends
 %input {
-	background-color: transparent;
-	border-radius: 0;
+  @include font-roman;
+  background-color: transparent;
+  border-radius: 0;
   border: none;
-	border-bottom: 2px solid $cool-gray-10;
-	padding: .3em .8em .2em 0;
-	font-size: 1rem;
-	box-shadow: none;
-	color: $cool-gray-60;
+  border-bottom: 2px solid $cool-gray-10;
+  padding: .3em .8em .2em 0;
+  font-size: 1rem;
+  box-shadow: none;
+  color: $cool-gray-60;
 
   &.ng-dirty.invalid {
     border-bottom: 2px solid $red-50;
@@ -17,8 +18,8 @@
     border-bottom: 2px solid $cool-gray-30;
   }
 
-	&:focus {
+  &:focus {
     border-bottom: 2px solid $teal;
-		color: $cool-gray-100;
-	}
+    color: $cool-gray-100;
+  }
 }

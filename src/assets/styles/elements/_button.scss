@@ -1,6 +1,7 @@
 // Buttons
 .watson {
   button {
+    @include font-roman;
     position: relative;
     font-size: 1em;
     text-align: center;
@@ -84,7 +85,7 @@
         &::after {
           content: "\e62b";
           font-family: "ibm-icons";
-          font-size: 1.5em;
+          font-size: 0.85em;
           position: absolute;
           right: 0.5em;
         }
@@ -138,6 +139,8 @@
       [class^="ibm-icon--"],
       [class^="ibm-glyph--"] {
         color: inherit;
+        position: relative;
+        top: 0.18em;
       }
     }
 
@@ -147,7 +150,7 @@
       [class^="ibm-glyph--"],
       [class^="ibm-icon--"] {
         &:first-child {
-          margin-right: 1rem;
+          margin-right: 0.5rem;
         }
       }
 
@@ -164,14 +167,14 @@
       }
 
       &.import {
-        padding-left: 2em;
+        padding-left: 1.5em;
 
         &::before {
           position: absolute;
           left: 0;
           content: "\e62b";
           font-family: "ibm-icons";
-          font-size: 1.5em;
+          font-size: 0.85em;
         }
       }
     }

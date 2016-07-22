@@ -5,7 +5,7 @@
     border-radius: 0.25em;
     margin-bottom: 1em;
     vertical-align: middle;
-    color: $cool-gray-50;
+    color: $cool-gray-60;
     font-size: .9em;
     overflow: hidden;
     position: relative;
@@ -13,6 +13,7 @@
     @include transition(all);
 
     input[type=file] {
+      @include font-roman;
       position: absolute;
       top: 0;
       right: 0;
