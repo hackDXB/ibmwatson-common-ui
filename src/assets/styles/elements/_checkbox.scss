@@ -1,27 +1,32 @@
 // Checkboxes
 .watson {
-	input[type=checkbox] {
-		opacity: 0;
-		width: 0;
-		height: 0;
-		overflow: hidden;
-		position: absolute;
-		display: inline;
-		margin-right: 2em;
+  input[type=checkbox] {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    position: absolute;
+    display: inline;
+    margin-right: 2em;
 
-		& + label {
-			margin-bottom: .7em;
-			padding-left: 1.5em;
-			background: url(#{$ibm-watson-images-path}/checkbox.svg) no-repeat;
-			cursor: pointer;
-		}
+    & + label {
+      margin-bottom: 0.7em;
+      padding-left: 2.5em;
+      padding-bottom: 0.7em;
+      padding-top: 0.3em;
+      background: url(#{$ibm-watson-images-path}/not-checked.svg) no-repeat;
+      cursor: pointer;
+      line-height: 30px;
+    }
 
-		&:focus + label {
-		  box-shadow: 0px 0px 5px 2px $teal-40;
-		}
+    &:focus + label {
+      box-shadow: 0px 0px 5px 2px $teal-40;
+      padding-bottom: 0.35em;
+      padding-right: 0.2em;
+    }
 
-		&:checked + label {
-			background: url(#{$ibm-watson-images-path}/checkbox_checked.svg) no-repeat;
-		}
-	}
+    &:checked + label {
+      background: url(#{$ibm-watson-images-path}/checked.svg) no-repeat;
+    }
+  }
 }
