@@ -1,123 +1,161 @@
 // IBM Glyphs
 [class^="ibm-glyph--"] {
-    font-family: 'ibm-glyph';
-    speak: none;
-    font-size: 1.2em;
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  font-family: 'ibm-glyph';
+  speak: none;
+  font-size: 1.2em;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 
-    &.small {
-      font-size: 1em;
-    }
+  &::before {
+    vertical-align: middle;
+  }
 
-    &.large {
-      font-size: 2em;
-    }
+  &.small {
+    font-size: 1em;
+  }
+
+  &.large {
+    font-size: 2em;
+  }
 }
+
 .ibm-glyph--close::before {
-    content: "\e900";
+  content: "\e900";
 }
+
 .ibm-glyph--flag_fill::before {
-    content: "\e820";
+  content: "\e820";
 }
+
 .ibm-glyph--caret-left_24::before {
-    content: "\e800";
+  content: "\e800";
 }
+
 .ibm-glyph--caret-right_24::before {
-    content: "\e801";
+  content: "\e801";
 }
+
 .ibm-glyph--caret-down_24::before {
-    content: "\e802";
+  content: "\e802";
 }
+
 .ibm-glyph--caret-up_24::before {
-    content: "\e803";
+  content: "\e803";
 }
+
 .ibm-glyph--add-new_24::before {
-    content: "\e804";
+  content: "\e804";
 }
+
 .ibm-glyph--attachment_24::before {
-    content: "\e805";
+  content: "\e805";
 }
+
 .ibm-glyph--audio-sound_24::before {
-    content: "\e806";
+  content: "\e806";
 }
+
 .ibm-glyph--bookmark_24::before {
-    content: "\e807";
+  content: "\e807";
 }
+
 .ibm-glyph--chat-IM_24::before {
-    content: "\e808";
+  content: "\e808";
 }
+
 .ibm-glyph--cut_24::before {
-    content: "\e809";
+  content: "\e809";
 }
+
 .ibm-glyph--document_24::before {
-    content: "\e80a";
+  content: "\e80a";
 }
+
 .ibm-glyph--edit_24::before {
-    content: "\e80b";
+  content: "\e80b";
 }
+
 .ibm-glyph--email_24::before {
-    content: "\e80c";
+  content: "\e80c";
 }
+
 .ibm-glyph--file_24::before {
-    content: "\e80d";
+  content: "\e80d";
 }
+
 .ibm-glyph--folder_24::before {
-    content: "\e80e";
+  content: "\e80e";
 }
+
 .ibm-glyph--help_24::before {
-    content: "\e80f";
+  content: "\e80f";
 }
+
 .ibm-glyph--home_24::before {
-    content: "\e810";
+  content: "\e810";
 }
+
 .ibm-glyph--like-heart_24::before {
-    content: "\e811";
+  content: "\e811";
 }
+
 .ibm-glyph--link_24::before {
-    content: "\e812";
+  content: "\e812";
 }
+
 .ibm-glyph--location-map_24::before {
-    content: "\e813";
+  content: "\e813";
 }
+
 .ibm-glyph--lock-secure_24::before {
-    content: "\e814";
+  content: "\e814";
 }
+
 .ibm-glyph--next-right-forward_24::before {
-    content: "\e815";
+  content: "\e815";
 }
+
 .ibm-glyph--phone-call_24::before {
-    content: "\e816";
+  content: "\e816";
 }
+
 .ibm-glyph--print_24::before {
-    content: "\e817";
+  content: "\e817";
 }
+
 .ibm-glyph--rating-star_24::before {
-    content: "\e818";
+  content: "\e818";
 }
+
 .ibm-glyph--remove-delete_24::before {
-    content: "\e819";
+  content: "\e819";
 }
+
 .ibm-glyph--save_24::before {
-    content: "\e81a";
+  content: "\e81a";
 }
+
 .ibm-glyph--search_24::before {
-    content: "\e81b";
+  content: "\e81b";
 }
+
 .ibm-glyph--settings-manage_24::before {
-    content: "\e81c";
+  content: "\e81c";
 }
+
 .ibm-glyph--unlock-nonsecure_24::before {
-    content: "\e81d";
+  content: "\e81d";
 }
+
 .ibm-glyph--user-profile_24::before {
-    content: "\e81e";
+  content: "\e81e";
 }
+
 .ibm-glyph--video_24::before {
-    content: "\e81f";
+  content: "\e81f";
 }

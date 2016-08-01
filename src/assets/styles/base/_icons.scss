@@ -11,6 +11,10 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
+    &::before {
+        vertical-align: middle;
+    }
+
     &.small {
       font-size: 1em;
     }
