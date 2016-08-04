@@ -71,30 +71,6 @@
       &:not(.icon) + [uib-dropdown-menu] {
         width: 100%;
       }
-
-      &.icon + [uib-dropdown-menu] {
-        margin-top: 20px;
-      }
-
-      &.icon + [uib-dropdown-menu]::before, &.icon + [uib-dropdown-menu]::after {
-        border-left: 14px solid transparent;
-        border-right: 14px solid transparent;
-        border-bottom: 14px solid $white;
-        bottom: 136px;
-        content: '';
-        left: 20%;
-        margin-left: -17px;
-        position: absolute;
-      }
-
-      &.icon + [uib-dropdown-menu]::before {
-        border-left: 16px solid transparent;
-        border-right: 16px solid transparent;
-        border-bottom: 16px solid;
-        border-bottom-color: inherit;
-        bottom: 136px;
-        margin-left: -20px;
-      }
     }
 
     [uib-dropdown-menu],
