@@ -16,6 +16,8 @@ $ask-watson-width: 40vw;
       @include transition(right);
 
       @include screen-medium {
+        top: 1.5 * $banner-height;
+        height: calc(100vh - 1.5 * #{$banner-height});
         width: 100vw;
         padding-left: 2em;
       }

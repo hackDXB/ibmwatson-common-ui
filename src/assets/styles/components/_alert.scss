@@ -8,11 +8,19 @@
     height: 0;
     z-index: $z-index-alert;
 
+    @include screen-medium {
+      top: 1.5 * $banner-height;
+    }
+
     &.ng-hide .alert {
       top: -$banner-height * 2;
+
+      @include screen-medium {
+        top: (1.5 * -$banner-height) * 2;
+      }
     }
   }
-  
+
   .alert {
     position: relative;
     top: 0;
