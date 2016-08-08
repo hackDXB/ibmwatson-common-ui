@@ -42,6 +42,9 @@
     vm.showHelp = function () {
       vm.helpVisible = !vm.helpVisible;
     };
+
+    vm.inputTagModel = [{"text":"Tag1"},{"text":"Tag2"},{"text":"Tag3"},{"text":"a really long tag name with lots of characters"}];
+    vm.inputTagModelReadOnly = [{"text":"Tag1"},{"text":"Tag2"},{"text":"Tag3"},{"text":"a really long tag name with lots of characters"}];
   }
 
   function bannerController ($scope, $location) {

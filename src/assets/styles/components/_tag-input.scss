@@ -1,0 +1,71 @@
+// Tag input
+.watson {
+  tags-input {
+    @include font-roman;
+    .tags {
+      display:flex;
+      flex-wrap: wrap;
+    }
+
+    ul {
+      display: inline-block;
+    }
+
+    .tag-item {
+      @include tag();
+      margin: 0.1em;
+      border-color: $teal-50;
+      color: $teal-50;
+
+      ng-include {
+        display: flex;
+      }
+
+      span {
+        flex: 1;
+        max-width: 220px;
+        min-width: 40px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+
+      &:hover {
+        background-color: $teal-50;
+        color: $white;
+
+        .remove-button {
+          border: none;
+          color: $teal-50;
+        }
+
+        .remove-button::after {
+          color: $white;
+        }
+      }
+
+      .remove-button {
+        color: $white; //because ie doesn't like visibility on pseudo elements
+
+        &::after {
+          color: $teal-50;
+          font-family: "ibm-glyph";
+          font-size: 0.8em;
+          content: "\e900";
+        }
+      }
+    }
+
+    input {
+      min-width: 150px;
+      margin-left: 0.1em;
+    }
+
+
+    &.read-only {
+      input {
+        display: none;
+      }
+    }
+  }
+}

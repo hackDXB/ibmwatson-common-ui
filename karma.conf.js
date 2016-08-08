@@ -33,6 +33,7 @@ module.exports = function (config) {
       'bower_components/angular-animate/angular-animate.js',
       'bower_components/angular-ui-router/release/angular-ui-router.js',
       'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
+      'bower_components/ng-tags-input/ng-tags-input.js',
       'src/ng/**/*.module.js',
       'src/ng/**/*.js',
       'src/ng/**/*.html'

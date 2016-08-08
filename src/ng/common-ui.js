@@ -21,6 +21,7 @@
     .module('watson.common.ui', [
       'watson.common.ui.templates',
       'ngAnimate',
+      'ngTagsInput',
       'ui.bootstrap'
     ]);
 

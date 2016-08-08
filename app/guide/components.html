@@ -140,13 +140,24 @@
   </div>
 
   <div class="guide-row">
+    <h2 id="/guide/input-tags">Input Tags</h2>
+    <p>Use <code>&lt;tags-input&gt;</code> for input tags.</p>
+    <tags-input ng-model="vm.inputTagModel" replace-spaces-with-dashes="false"></tags-input>
+
+    <p>Use <code>class="read-only"</code> for no input field</p>
+    <tags-input ng-model="vm.inputTagModelReadOnly" class="read-only" replace-spaces-with-dashes="false"></tags-input>
+  </div>
+
+  <div class="guide-row">
     <h2 id="/guide/tags">Tags</h2>
     <p>Use <code>class="tag"</code> for tags.</p>
     <div class="tag">natatorium</div>
+    <div class="tag">a long tag name that has lots of characters</div>
     <div class="tag confidence">
       <span>#hotel_location</span><span>.80</span>
     </div>
   </div>
+
   <div class="guide-row">
     <h2 id="/guide/help">Help</h2>
     <button type="button" role="button" class="primary" ng-click="vm.showHelp()">Toggle Help</button>
