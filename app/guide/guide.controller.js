@@ -1,14 +1,14 @@
 /**
  * Copyright 2015 IBM Corp.
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Licensed under the Apache License, Version 2.0 (the 'License');
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
+ * distributed under the License is distributed on an 'AS IS' BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
@@ -43,8 +43,14 @@
       vm.helpVisible = !vm.helpVisible;
     };
 
-    vm.inputTagModel = [{"text":"Tag1"},{"text":"Tag2"},{"text":"Tag3"},{"text":"a really long tag name with lots of characters"}];
-    vm.inputTagModelReadOnly = [{"text":"Tag1"},{"text":"Tag2"},{"text":"Tag3"},{"text":"a really long tag name with lots of characters"}];
+    vm.inputTagModel = [{'text' : 'Tag1'}, {'text' : 'Tag2'}, {'text' : 'Tag3'}, {'text' : 'a really long tag name with lots of characters'}];
+    vm.inputTagModelReadOnly = [{'text' : 'Tag1'}, {'text' : 'Tag2'}, {'text' : 'Tag3'}, {'text' : 'a really long tag name with lots of characters'}];
+
+    vm.toggle = {};
+    vm.toggle.switchModel = false;
+    vm.toggle.singleModel = false;
+    vm.toggle.checkModel = {'left' : false, 'middle' : false, 'right' : false};
+    vm.toggle.radioModel = 'Left';
   }
 
   function bannerController ($scope, $location) {

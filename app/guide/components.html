@@ -82,6 +82,23 @@
   </div>
 
   <div class="guide-row">
+    <h2 id="/guide/toggle">Toggle Switch</h2>
+    <p>Use <code>&lt;input id="toggle-1" class="toggle" type="checkbox" ng-model="vm.toggle.switchModel"&gt;&lt;label for="toggle-1"&gt;My Switch&lt;/label&gt;</code></label>
+
+    <pre>Model: {{vm.toggle.switchModel}}</pre>
+
+    <div>
+      <input id="toggle-1" class="toggle" type="checkbox" ng-model="vm.toggle.switchModel">
+      <label for="toggle-1">My Switch</label>
+    </div>
+
+    <div>
+      <input id="toggle-1" class="toggle" type="checkbox" ng-model="vm.toggle.switchModel">
+      <label for="toggle-1" on-label="On" off-label="Off">My Switch</label>
+    </div>
+  </div>
+
+  <div class="guide-row">
     <h2 id="/guide/breadcrumb">Breadcrumb</h2>
     <p>Use <code>&lt;ol class="breadcrumb"&gt;</code> for breadcrumbs</p>
     <ol class="breadcrumb">
