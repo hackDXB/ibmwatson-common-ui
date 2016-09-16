@@ -52,7 +52,7 @@
       &:hover {
         background-color: $teal-60;
       }
-      &:active, &:focus {
+      &.active, &:active, &:focus {
         background-color: $teal-70;
       }
 
@@ -101,7 +101,7 @@
       &:hover {
         background-color: $cool-gray-60;
       }
-      &:active, &:focus {
+      &.active, &:active, &:focus {
         background-color: $cool-gray-70;
       }
 
@@ -125,6 +125,7 @@
       }
 
       &:focus,
+      &.active,
       &:active {
         color: $teal-70;
         background-color: transparent;
@@ -185,7 +186,7 @@
       &:hover {
         background-color: $red-60;
       }
-      &:active, &:focus {
+      &.active, &:active, &:focus {
         background-color: $red-70;
       }
 
