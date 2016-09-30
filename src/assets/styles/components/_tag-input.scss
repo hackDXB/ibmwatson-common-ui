@@ -2,13 +2,9 @@
 .watson {
   tags-input {
     @include font-roman;
-    .tags {
-      display:flex;
-      flex-wrap: wrap;
-    }
 
     ul {
-      display: inline-block;
+      display: inline;
     }
 
     .tag-item {
@@ -56,9 +52,11 @@
       }
     }
 
-    input {
+    input[type=text] {
       min-width: 150px;
       margin-left: 0.1em;
+      margin-bottom: 1px;
+      vertical-align: bottom;
     }
 
 
