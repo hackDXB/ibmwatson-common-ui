@@ -64,4 +64,8 @@ body.watson {
   .no-animation {
     transition-duration: 0s;
   }
+
+  .rotate-180 {
+    transform: rotate(180deg);
+  }
 }

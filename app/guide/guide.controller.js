@@ -56,6 +56,63 @@
   function bannerController ($scope, $location) {
     var vm = this;
 
+    vm.navConfig = {
+      'label' : 'Menu',
+      'sections' : [
+        {
+          'label' : 'Back somewhere',
+          'icon' : 'ibm-glyph--next-right-forward_24 rotate-180',
+          'href' : '#/overview'
+        },
+        {
+          'label' : 'Main',
+          'icon' : 'ibm-icon--home',
+          'links' : [
+            {
+              'label' : 'Overview',
+              'href' : '#/overview',
+              'icon' : 'ibm-icon--home'
+            },
+            {
+              'label' : 'Elements',
+              'href' : '#/elements',
+              'icon' : 'ibm-icon--code'
+            },
+            {
+              'label' : 'Components',
+              'href' : '#/components',
+              'icon' : 'ibm-icon--spaces'
+            }
+          ]
+        },
+        {
+          'label' : 'Other',
+          'icon' : 'ibm-icon--spaces',
+          'links' : [
+            {
+              'label' : 'Layout',
+              'href' : '#/layout',
+              'icon' : 'ibm-icon--spaces'
+            }
+          ]
+        }
+      ],
+      'footer' : {
+        'links' : [
+          {
+            'label' : 'Settings',
+            'href' : '#/overview',
+            'icon' : 'ibm-icon--settings-manage'
+          },
+          {
+            'label' : 'Log out',
+            'href' : '#/overview',
+            'icon' : 'ibm-icon--insert'
+          }
+        ]
+      }
+    };
+
     vm.atLocation = function (location) {
       return $location.url().indexOf(location) > -1;
     };

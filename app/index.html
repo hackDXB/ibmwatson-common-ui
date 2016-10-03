@@ -44,21 +44,12 @@
     your browser</a> to improve your experience.</p>
 <![endif]-->
 <header role="banner" ng-controller="BannerController as vm">
-    <!-- <side-nav links="[{label: 'Overview', href:'#/overview', icon: 'ibm-icon--home'}, {label: 'Elements', href:'#/elements', icon: 'ibm-icon--code'}, {label: 'Components', href:'#/components', icon: 'ibm-icon--inventory'}, {label: 'Layout', href:'#/layout', icon: 'ibm-icon--spaces'}]"></side-nav> -->
+    <navigation config="vm.navConfig"></navigation>
     <h1><a href="#">IBM <strong>Watson Common UI</strong></a></h1>
-    <nav role="navigation">
-        <ul>
-            <li><a href="#/overview">Overview</a></li>
-            <li><a href="#/elements">Elements</a></li>
-            <li><a href="#/components">Components</a></li>
-            <li><a href="#/layout">Layout</a></li>
-        </ul>
-    </nav>
     <button type="button" role="button" class="icon" title="Toggle theme" aria-label="Toggle theme"
             ng-click="vm.toggleTheme()">
         <span class="ibm-icon--catalog" aria-hidden="true"></span>
     </button>
-    <!-- <ask-watson></ask-watson> -->
 </header>
 
 <div id="body-content">
