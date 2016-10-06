@@ -18,7 +18,7 @@
 		}
 
     &:focus + label {
-      box-shadow: 0px 0px 5px 2px $teal-40;
+			outline: 1px dotted $gray-40;
     }
 
 		&:checked + label {

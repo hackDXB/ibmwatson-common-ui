@@ -55,8 +55,12 @@
       }
     }
 
-    function toggleMenu () {
-      vm.menuOpen = !vm.menuOpen;
+    function toggleMenu (open) {
+      if (open === true || open === false) {
+        vm.menuOpen = open;
+      } else {
+        vm.menuOpen = !vm.menuOpen;
+      }
     }
 
     function setCurrent (section, link) {

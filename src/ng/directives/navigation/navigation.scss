@@ -1,64 +1,50 @@
 .watson {
-
   navigation {
     nav {
       display: flex;
       transition: background-color .5s ease;
 
-      &.active {
-        background-color: $gray-90;
+      a,
+      a:visited {
+        position: relative;
+        display: block;
       }
 
-      button.icon {
-        width: $banner-height - 4px;
-        height: $banner-height - 4px;
-        margin: 2px;
-        transition-duration: 0s;
-
-        [class^="ibm-icon--"],
-        [class^="ibm-glyph--"] {
-          font-size: 1.5em;
-          color: $gray-20;
-        }
-
-        &.active {
-          background-color: $gray-90;
-        }
-      }
-
+      // HORIZONTAL NAV
       .horizontal-nav {
         display: flex;
         height: $banner-height;
         background-color: $gray-80;
         border-left: 1px solid $gray-60;
 
+        @include screen-smedium {
+          display: none;
+        }
+
         [class^="ibm-icon--"],
         [class^="ibm-glyph--"] {
           align-self: center;
-          font-size: 18px;
-          margin: 0 20px;
+          font-size: 24px;
+          margin-left: $space-large;
           color: $teal-30;
         }
 
-        @include screen-smedium {
-          & > [class^="ibm-icon--"],
-          & > [class^="ibm-glyph--"] {
-            display: none;
+        a,
+        a:visited {
+          &::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 3px;
+            border-radius: 3px;
+            background-color: transparent;
+            transition: background-color .2s ease;
           }
-        }
 
-        a {
-          [class^="ibm-icon--"],
-          [class^="ibm-glyph--"] {
-            display: none;
-            color: $gray-20;
-
-            @include screen-smedium {
-              display: inline;
-
-              & ~ * {
-                display: none;
-              }
+          &:hover {
+            &::before {
+              background-color: $gray-50;
             }
           }
         }
@@ -66,74 +52,21 @@
         ul {
           display: flex;
 
-          li {
-            &:not(:first-child) {
-              padding-left: 15px;
-            }
-
-            &:not(:last-child) {
-              padding-right: 15px;
-            }
-
-            @include screen-smedium {
-              &:not(:first-child) {
-                padding-left: 0;
-              }
-              &:not(:last-child) {
-                padding-right: 0;
-              }
-            }
-
-            &.hovered-link {
-              a {
-                border-bottom: 3px solid $teal-30;
-              }
-            }
-
-            &.active-link-other-hover {
-              a {
-                font-weight: bold;
-                color: $white;
-              }
-            }
+          & > li {
+            margin-left: $space-large;
 
             &.active-link {
               a {
-                border-bottom: 3px solid $teal-30;
-                font-weight: bold;
                 color: $white;
 
-                &:hover {
-                  color: $white;
+                &::before {
+                  background-color: $teal-30;
                 }
-              }
-            }
 
-            a {
-              display: block;
-              height: calc(100% - 2px);
-              margin: 2px 0;
-
-              &:hover {
-                color: $gray-20;
-              }
-
-              // Trick to stop changes in width when changing font-weight
-              &::after {
-                display: block;
-                content: attr(label);
-                font-weight: bold;
-                height: 1px;
-                color: transparent;
-                overflow: hidden;
-                visibility: hidden;
-                margin: -1px 0;
-              }
-
-              @include screen-smedium {
-                &::after {
-                  display: none;
-                  content: '';
+                &:hover {
+                  &::before {
+                    background-color: $teal-30;
+                  }
                 }
               }
             }
@@ -141,48 +74,61 @@
         }
       }
 
+      // DROPDOWN MENU
       .menu {
         position: fixed;
         left: 0;
         top: $banner-height;
-        width: 250px;
+        width: $nav-menu-width;
         min-height: calc(100vh - #{$banner-height});
         background-color: $gray-90;
-        color: $gray-20;
+        color: $gray-30;
         z-index: 1000;
         display: flex;
         flex-direction: column;
-        padding-top: 1.5em;
+        transition: left .32s ease-out;
 
         &.ng-hide {
-          left: -60px;
+          left: -$nav-menu-width;
+
+          &.ng-hide-add {
+            transition-delay: .4s;
+          }
         }
 
         .footer {
           margin-top: auto;
-          padding-top: 8px;
-          padding-bottom: 12px;
+          padding: $space-medium;
           background-color: $gray-80;
 
           li {
-            line-height: 32px;
-          }
-        }
-
-        ul {
-          ul {
-            margin-bottom: 10px;
-          }
-
-          li {
-            margin: 0;
+            line-height: 100%;
+            margin-bottom: $space-medium;
 
             [class^="ibm-icon--"],
             [class^="ibm-glyph--"] {
               display: inline-block;
-              width: $banner-height;
               text-align: center;
-              font-size: .9em;
+              font-size: 16px;
+              margin-right: $space-medium;
+            }
+          }
+        }
+
+        ul[role=menu] {
+          padding: $space-medium;
+
+          & > li {
+            margin: 0;
+            line-height: 100%;
+            margin-bottom: $space-large;
+
+            [class^="ibm-icon--"],
+            [class^="ibm-glyph--"] {
+              display: inline-block;
+              text-align: center;
+              font-size: 16px;
+              margin-right: $space-medium;
             }
 
             &.active-section {
@@ -191,96 +137,54 @@
 
             .section-header {
               display: flex;
-              margin: 2px;
-
-              & > * {
-                line-height: 2em;
-              }
-            }
-
-            a.section-header {
-              margin-bottom: 20px;
-            }
-
-            li.hovered-link {
-              a,
-              a:visited {
-                &::before {
-                  border-left: 3px solid $teal-30;
-                }
-              }
-            }
-
-            li.active-link-other-hover {
-              a,
-              a:visited {
-                font-weight: bold;
-                color: $white;
-              }
             }
 
             li.active-link {
               a,
               a:visited {
-                font-weight: bold;
                 color: $white;
 
                 &::before {
-                  border-left: 3px solid $teal-30;
+                  background-color: $teal-30;
                 }
 
                 &:hover {
-                  color: $white;
+                  &::before {
+                    background-color: $teal-30;
+                  }
                 }
               }
             }
 
-            li a,
-            li a:visited {
-              display: flex;
-              color: $gray-20;
-              padding: .5em 0 .5em 75px;
-              line-height: 32px;
-              font-weight: normal;
+            li {
+              margin-top: $space-medium;
+              margin-left: $space-large;
 
-              [class^="ibm-icon--"] {
-                margin-right: 0;
+              a,
+              a:visited {
+                padding-left: $space-medium;
+
+                &::before {
+                  content: '';
+                  position: absolute;
+                  left: 0;
+                  width: 3px;
+                  height: 16px;
+                  border-radius: 3px;
+                  background-color: transparent;
+                  transition: background-color .2s ease;
+                }
+
+                &:hover {
+                  &::before {
+                    background-color: $gray-60;
+                  }
+                }
               }
-
-              &::before {
-                content: '';
-                margin-right: 10px;
-                border-left: 3px solid transparent;
-              }
-
-              // Trick to stop changes in width when changing font-weight
-              &::after {
-                display: block;
-                content: attr(label);
-                font-weight: bold;
-                height: 1px;
-                color: transparent;
-                overflow: hidden;
-                visibility: hidden;
-                margin: -1px 0;
-              }
-            }
-
-            a,
-            a:visited {
-              display: block;
-              margin: 2px;
-            }
-
-            a:hover,
-            a:visited:hover,
-            a:focus {
-              color: $gray-20;
-              border-bottom: none;
             }
           }
         }
-      }
+      } // DROPDOWN MENU
     }
   }
 }

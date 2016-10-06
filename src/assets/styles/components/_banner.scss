@@ -1,31 +1,24 @@
 // Banner
 .watson {
-
   header[role=banner] {
     position: relative;
-    display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    flex: none;
-    border: 0;
-    border-radius: 0;
     margin-bottom: 0;
-    padding: 0 1.2em 0 0;
     background-color: $gray-80;
-    color: $white;
+    color: $gray-30;
     height: $banner-height;
     line-height: $banner-height;
     z-index: $z-index-banner;
 
-    a {
-      color: $gray-20;
+    a,
+    a:visited {
+      color: $gray-30;
 
       &:hover,
       &:focus {
-        color: $teal-40;
-        text-decoration: none;
-        border-bottom: 2px solid transparent;
+        color: $white;
+        border: none;
       }
     }
 
@@ -35,32 +28,30 @@
       overflow-x: hidden;
       text-overflow: ellipsis;
       font-size: 20px;
-      margin-left: 30px;
+      margin-left: $space-medium;
 
       @include screen-medium {
         flex-basis: 100%;
       }
     }
 
-    & > button.link, button.icon {
-      align-self: center;
-    }
+    button.icon {
+      width: $banner-height;
+      min-width: $banner-height;
+      height: $banner-height;
+      transition-duration: 0s;
+      color: $gray-30;
 
-    button.icon,
-    button.link {
-      color: $gray-20;
+      [class^="ibm-icon--"],
+      [class^="ibm-glyph--"] {
+        font-size: 24px;
+      }
 
-      &:hover,
-      &:focus {
+      &.active,
+      &:focus,
+      &:hover {
         color: $teal-40;
       }
-    }
-
-    input[type=search] {
-      width: 300px;
-      margin-right: 100px;
-      display: block;
-      margin-top: .5em;
     }
   }
 }

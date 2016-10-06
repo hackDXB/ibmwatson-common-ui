@@ -109,6 +109,17 @@ describe('Controller: WorkspaceController', function testWorkspaceController () 
       vm.toggleMenu();
       vm.menuOpen.should.equal(false);
     });
+
+    it('should close the menu', function () {
+      vm.toggleMenu(false);
+      vm.menuOpen.should.equal(false);
+    });
+
+    it('should open the menu', function () {
+      vm.toggleMenu(true);
+      vm.toggleMenu(true);
+      vm.menuOpen.should.equal(true);
+    });
   });
 
   describe('.setCurrent', function () {

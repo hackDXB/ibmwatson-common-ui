@@ -9,7 +9,7 @@
 
   <!-- Main menu -->
   <div ng-show="vm.menuOpen" class="menu" ng-click="vm.toggleMenu()">
-    <ul role="menu" ng-show="vm.menuOpen">
+    <ul class="main" role="menu">
       <li ng-class="[{'active-section': vm.currentSection.label == section.label}]" ng-repeat="section in vm.sections">
         <h3>
           <a ng-if="section.href" class="section-header" href={{section.href}} ng-click="vm.setCurrent(section)">
@@ -21,9 +21,8 @@
             <div>{{section.label}}</div>
           </div>
         </h3>
-        <ul ng-if="section.links && section.links.length > 0" ng-mouseleave="vm.hoveredLink = null">
-          <li ng-class="[{'active-link': vm.currentLink.href == link.href && (vm.hoveredLink == null || vm.hoveredLink == link.href), 'active-link-other-hover': vm.currentLink.href == link.href && vm.hoveredLink != link.href, 'hovered-link': vm.hoveredLink == link.href}]"
-              ng-repeat="link in section.links" ng-mouseenter="vm.hoveredLink = link.href">
+        <ul ng-if="section.links && section.links.length > 0">
+          <li ng-class="[{'active-link': vm.currentLink.href == link.href}]" ng-repeat="link in section.links">
             <a role="menuitem" href="{{link.href}}" title="{{link.label}}" ng-click="vm.setCurrent(section, link)">
               <span>{{link.label}}</span>
             </a>
@@ -42,13 +41,11 @@
   </div>
 
   <!-- Horizontal sub tabs -->
-  <div class="horizontal-nav">
+  <div class="horizontal-nav" ng-click="vm.toggleMenu(false)">
     <div class="{{vm.currentSection.icon}}" aria-hidden="true"></div>
-    <ul ng-if="vm.currentSection.links && vm.currentSection.links.length > 0" ng-mouseleave="vm.hoveredLink = null">
-      <li ng-class="[{'active-link': vm.currentLink.href == link.href && (vm.hoveredLink == null || vm.hoveredLink == link.href), 'active-link-other-hover': vm.currentLink.href == link.href && vm.hoveredLink != link.href, 'hovered-link': vm.hoveredLink == link.href}]"
-          ng-repeat="link in vm.currentSection.links" ng-mouseenter="vm.hoveredLink = link.href">
+    <ul ng-if="vm.currentSection.links && vm.currentSection.links.length > 0">
+      <li ng-class="[{'active-link': vm.currentLink.href == link.href}]" ng-repeat="link in vm.currentSection.links">
         <a href="{{link.href}}" label="{{link.label}}" ng-click="vm.setCurrent(vm.currentSection, link)">
-          <span ng-if="link.icon" class="{{link.icon}}" aria-hidden="true"></span>
           <span>{{link.label}}</span>
         </a>
       </li>
