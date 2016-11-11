@@ -29,6 +29,10 @@
 
     vm.helpTemplate = 'templates/help.html';
 
+    vm.showHelp = function () {
+      vm.helpVisible = !vm.helpVisible;
+    };
+
     vm.openModal = function () {
       $uibModal.open({
         animation : true,
@@ -39,10 +43,6 @@
       });
     };
 
-    vm.showHelp = function () {
-      vm.helpVisible = !vm.helpVisible;
-    };
-
     vm.inputTagModel = [{'text' : 'Tag1'}, {'text' : 'Tag2'}, {'text' : 'Tag3'}, {'text' : 'a really long tag name with lots of characters'}];
     vm.inputTagModelReadOnly = [{'text' : 'Tag1'}, {'text' : 'Tag2'}, {'text' : 'Tag3'}, {'text' : 'a really long tag name with lots of characters'}];
 
@@ -51,6 +51,44 @@
     vm.toggle.singleModel = false;
     vm.toggle.checkModel = {'left' : false, 'middle' : false, 'right' : false};
     vm.toggle.radioModel = 'Left';
+
+
+    vm.popover = {
+      content : 'Some help text',
+      title : 'Tooltip Title',
+      placement : {
+        options : [
+          'top',
+          'top-left',
+          'top-right',
+          'bottom',
+          'bottom-left',
+          'bottom-right',
+          'left',
+          'left-top',
+          'left-bottom',
+          'right',
+          'right-top',
+          'right-bottom'
+        ],
+        selected : 'top'
+      }
+    };
+
+    vm.buttonGroup = {
+      buttons : [
+        {
+          label : 'Button 1'
+        }, {
+          label : 'Button 2'
+        }, {
+          label : 'Button 3',
+          disabled : true
+        }, {
+          label : 'Button 4'
+        }
+      ]
+    };
   }
 
   function bannerController ($scope, $location) {
@@ -63,8 +101,7 @@
           'label' : 'Back somewhere',
           'icon' : 'ibm-glyph--next-right-forward_24 rotate-180',
           'href' : '#/overview'
-        },
-        {
+        }, {
           'label' : 'Main',
           'icon' : 'ibm-icon--home',
           'links' : [
@@ -72,20 +109,17 @@
               'label' : 'Overview',
               'href' : '#/overview',
               'icon' : 'ibm-icon--home'
-            },
-            {
+            }, {
               'label' : 'Elements',
               'href' : '#/elements',
               'icon' : 'ibm-icon--code'
-            },
-            {
+            }, {
               'label' : 'Components',
               'href' : '#/components',
               'icon' : 'ibm-icon--spaces'
             }
           ]
-        },
-        {
+        }, {
           'label' : 'Other',
           'icon' : 'ibm-icon--spaces',
           'links' : [
@@ -103,18 +137,13 @@
             'label' : 'Settings',
             'href' : '#/overview',
             'icon' : 'ibm-icon--settings-manage'
-          },
-          {
+          }, {
             'label' : 'Log out',
             'href' : '#/overview',
             'icon' : 'ibm-icon--insert'
           }
         ]
       }
-    };
-
-    vm.atLocation = function (location) {
-      return $location.url().indexOf(location) > -1;
     };
 
     vm.atLocation = function (location) {

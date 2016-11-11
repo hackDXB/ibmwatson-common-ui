@@ -69,6 +69,10 @@
     font-family: $font-code;
     color: $white;
     display: block;
+
+    &.pre {
+      white-space: pre;
+    }
   }
 
   .uppercase {
