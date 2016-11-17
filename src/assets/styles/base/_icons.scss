@@ -1,4 +1,24 @@
 /* IBM Icons */
+
+/* svg icons */
+svg.ibm-icon {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+
+  &.small {
+    width: 16px;
+    height: 16px;
+  }
+
+  &.large {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+/* font-based icons */
+
 [class^="ibm-icon--"] {
     font-family: 'ibm-icons';
     speak: none;

@@ -24,6 +24,8 @@ var runSequence = require('run-sequence');
 var karma = require('karma');
 var merge = require('merge-stream');
 var streamqueue = require('streamqueue');
+var path = require('path');
+var util = require('util');
 
 // Load gulp plugins
 var plugins = require('gulp-load-plugins')({
@@ -49,8 +51,11 @@ var coverageFolder = './coverage';
 
 var paths = {
   demo : ['./app/**/*'],
+  demoView : './app/**/*.html',
   fonts : [srcFolder + '/assets/fonts/**/*.{eot,svg,ttf,woff,woff2}'],
-  images : [srcFolder + '/assets/images/**/*.{png,ico,jpg,gif,svg}'],
+  images : [
+    srcFolder + '/assets/images/**/*.{png,ico,jpg,gif,svg}'],
+  icons : [srcFolder + '/assets/icons/*.svg'],
   scripts : [
     srcFolder + '/ng/**/!(*.spec|*.mock).js'
   ],
@@ -65,6 +70,7 @@ var paths = {
     all : [distFolder + '/**/*'],
     fonts : distFolder + '/fonts',
     images : distFolder + '/images',
+    icons : distFolder + '/icons',
     styles : distFolder + '/styles',
     scripts : distFolder + '/js'
   },
@@ -100,13 +106,45 @@ gulp.task('lint-tests', lintTestsTask);
 
 // Demo app
 
+function transformFileContents (filePath, file) {
+  return file.contents.toString();
+}
+
+function transformIconSample (filePath, file) {
+
+  var p = path.parse(filePath);
+
+  var template = '<svg class=\"ibm-icon\"><use xlink:href=\"#%s\"></use></svg>',
+      id = 'ibm-icon--' + p.name.replace(/\s/g, '_').toLowerCase();
+
+  return util.format(template, id);
+}
+
 function demoAppTask () {
 
-  var app = gulp.src(paths.demo.concat(paths.dest.all))
+  var appGlob = paths.demo
+    .concat(['!' + paths.demoView])
+    .concat(paths.dest.all);
+
+  var app = gulp.src(appGlob)
     .pipe(plugins.plumber({
       errorHandler : handleError
     }))
     .pipe(plugins.cached('demo'))
+    .pipe(gulp.dest(publicFolder));
+
+  var svgs = gulp.src(paths.icons.concat(['!**/*_{16,64}.svg']));
+
+  var inlineSvgs = gulp.src(paths.dest.icons + '/icons-inline.svg');
+
+  var icons = gulp.src(paths.demoView)
+    .pipe(plugins.plumber({
+      errorHandler : handleError
+    }))
+    .pipe(plugins.inject(inlineSvgs, { transform : transformFileContents }))
+    .pipe(plugins.inject(svgs, {
+      transform : transformIconSample,
+      starttag : '<!-- inject:icons -->'}))
     .pipe(gulp.dest(publicFolder));
 
   var bower = gulp.src(paths.bower)
@@ -116,7 +154,7 @@ function demoAppTask () {
     .pipe(plugins.cached('demo'))
     .pipe(gulp.dest(publicFolder + '/bower_components'));
 
-  return merge(app, bower);
+  return merge(app, icons, bower);
 
 }
 gulp.task('demo', demoAppTask);
@@ -148,6 +186,32 @@ function imagesTask () {
     .pipe(plugins.livereload());
 }
 gulp.task('images', imagesTask);
+
+
+function formatIconId (path) {
+  path.basename = 'ibm-icon--' + path.basename.replace(/\s/g, '_').toLowerCase();
+}
+
+function iconsTask () {
+
+  var icons = gulp.src(paths.icons)
+    .pipe(plugins.rename(formatIconId))
+    .pipe(plugins.imagemin());
+
+  var standalone = icons
+    .pipe(plugins.svgstore())
+    .pipe(gulp.dest(paths.dest.icons));
+
+  var inline = icons
+    .pipe(plugins.svgstore({inlineSvg : true}))
+    .pipe(plugins.rename({suffix : '-inline'}))
+    .pipe(gulp.dest(paths.dest.icons));
+
+  return merge(standalone, inline);
+
+}
+
+gulp.task('icons', iconsTask);
 
 // Scripts
 
@@ -264,7 +328,7 @@ gulp.task('watch', watchTask);
 
 function buildTask (callback) {
   runSequence('clean',
-    ['fonts', 'images', 'scripts', 'styles'],
+    ['fonts', 'images', 'icons', 'scripts', 'styles'],
     callback);
 }
 
