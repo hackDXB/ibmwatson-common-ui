@@ -25,7 +25,7 @@
     h1 {
       flex: 0 1 33%;
       white-space: nowrap;
-      overflow-x: hidden;
+      overflow: hidden;
       text-overflow: ellipsis;
       font-size: 20px;
       margin-left: $space-medium;
