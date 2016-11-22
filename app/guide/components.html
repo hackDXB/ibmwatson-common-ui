@@ -334,21 +334,34 @@ vm.showHelp = function () {
 
     <p><h3>Live demo:</h3></p>
     <div>
-      <div class="inline-notification success">You are about to delete <strong>Robot Concierge</strong> workspace.</div>
+      <div class="inline-notification success">
+        You successfully added <strong>Robot Concierge</strong> workspace.
+      </div>
     </div>
     <div>
-      <div class="inline-notification info">You are about to delete <strong>Robot Concierge</strong> workspace.</div>
+      <div class="inline-notification info">
+        You are able to delete <strong>Robot Concierge</strong> workspace.
+      </div>
     </div>
     <div>
-      <div class="inline-notification warning">You are about to delete <strong>Robot Concierge</strong> workspace.</div>
+      <div class="inline-notification warning">
+        You are about to delete <strong>Robot Concierge</strong> workspace.
+      </div>
     </div>
     <div>
-      <div class="inline-notification error">You are about to delete <strong>Robot Concierge</strong> workspace.</div>
+      <div class="inline-notification error">
+        Error: Unable to delete <strong>Robot Concierge</strong> workspace.
+      </div>
     </div>
-    <div>
+    <div ng-init="vm.showClosableNotification = true"
+         ng-show="vm.showClosableNotification">
       <div class="inline-notification error closable">
         <span>Persistent notification with close icon.</span>
-        <button type="button" role="button" class="icon" title="Close" aria-label="Close"><span class="ibm-glyph--close" aria-hidden="true"></span></button>
+        <button type="button" role="button" class="icon"
+                title="Close" aria-label="Close"
+                ng-click="vm.showClosableNotification = false">
+          <span class="ibm-glyph--close" aria-hidden="true"></span>
+        </button>
       </div>
     </div>
 
@@ -356,29 +369,32 @@ vm.showHelp = function () {
     <code class="pre" ng-non-bindable>
 &lt;div&gt;
   &lt;div class="inline-notification success"&gt;
-    You are about to delete &lt;strong&gt; Robot Concierge&lt;/strong&gt; workspace.
+    You successfully added &lt;strong&gt;Robot Concierge&lt;/strong&gt; workspace.
   &lt;/div&gt;
 &lt;/div&gt;
 &lt;div&gt;
   &lt;div class="inline-notification info"&gt;
-    You are about to delete &lt;strong&gt; Robot Concierge&lt;/strong&gt; workspace.
+    You are able to delete &lt;strong&gt;Robot Concierge&lt;/strong&gt; workspace.
   &lt;/div&gt;
 &lt;/div&gt;
 &lt;div&gt;
   &lt;div class="inline-notification warning"&gt;
-    You are about to delete &lt;strong&gt; Robot Concierge&lt;/strong&gt; workspace.
+    You are about to delete &lt;strong&gt;Robot Concierge&lt;/strong&gt; workspace.
   &lt;/div&gt;
 &lt;/div&gt;
 &lt;div&gt;
   &lt;div class="inline-notification error"&gt;
-    You are about to delete &lt;strong&gt; Robot Concierge&lt;/strong&gt; workspace.
+    Error: Unable to delete &lt;strong&gt;Robot Concierge&lt;/strong&gt; workspace.
   &lt;/div&gt;
 &lt;/div&gt;
-&lt;div&gt;
+&lt;div ng-init="vm.showClosableNotification = true"
+     ng-show="vm.showClosableNotification"&gt;
   &lt;div class="inline-notification error closable"&gt;
     &lt;span&gt;Persistent notification with close icon.&lt;/span&gt;
-    &lt;button type="button" role="button" class="icon" title="Close"&gt;
-        &lt;span class="ibm-glyph--close"&gt;&lt;/span&gt;
+    &lt;button type="button" role="button" class="icon"
+            title="Close" aria-label="Close"
+            ng-click="vm.showCloseableNotification = false"&gt;
+      &lt;span class="ibm-glyph--close" aria-hidden="true"&gt;&lt;/span&gt;
     &lt;/button&gt;
   &lt;/div&gt;
 &lt;/div&gt;
