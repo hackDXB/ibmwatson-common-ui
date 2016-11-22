@@ -21,12 +21,9 @@
           display: none;
         }
 
-        [class^="ibm-icon--"],
-        [class^="ibm-glyph--"] {
-          align-self: center;
-          font-size: 24px;
-          margin-left: $space-large;
-          color: $teal-30;
+        svg.ibm-icon {
+          margin: auto 0 auto $space-large;
+          fill : $teal-30;
         }
 
         a,
@@ -86,14 +83,10 @@
         z-index: 1000;
         display: flex;
         flex-direction: column;
-        transition: left .32s ease-out;
+        transition: left 0.25s cubic-bezier(0.7, 0, 0.3, 1);
 
         &.ng-hide {
           left: -$nav-menu-width;
-
-          &.ng-hide-add {
-            transition-delay: .4s;
-          }
         }
 
         .footer {
@@ -105,34 +98,34 @@
             line-height: 100%;
             margin-bottom: $space-medium;
 
-            [class^="ibm-icon--"],
-            [class^="ibm-glyph--"] {
-              display: inline-block;
-              text-align: center;
-              font-size: 16px;
-              margin-right: $space-medium;
+            svg.ibm-icon {
+              width: $space-medium;
+              height: $space-medium;
+              margin: auto $space-medium auto 0;
             }
           }
         }
 
         ul[role=menu] {
-          padding: $space-medium;
+          padding: $space-large $space-medium;
 
           & > li {
             margin: 0;
             line-height: 100%;
             margin-bottom: $space-large;
 
-            [class^="ibm-icon--"],
-            [class^="ibm-glyph--"] {
-              display: inline-block;
-              text-align: center;
-              font-size: 16px;
-              margin-right: $space-medium;
+            svg.ibm-icon {
+              width: $space-medium;
+              height: $space-medium;
+              margin: auto $space-medium auto 0;
             }
 
             &.active-section {
               color: $teal-30;
+
+              svg.ibm-icon {
+                fill: $teal-30;
+              }
             }
 
             .section-header {
@@ -181,6 +174,28 @@
                   }
                 }
               }
+              
+              .details {
+
+                ul {
+                  max-height: 100vh;
+                  opacity: 1;
+                  overflow: hidden;
+                  @include transition(max-height, opacity);
+
+                  &.ng-hide {
+                    max-height: 0px;
+                    opacity: 0;
+                  }
+
+                  li {
+                    color: $white;
+                    font-size: 0.8em;
+                    margin-top: $space-smedium;
+                  }
+                }
+              }
+
             }
           }
         }

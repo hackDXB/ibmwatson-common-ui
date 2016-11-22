@@ -63,7 +63,8 @@ var paths = {
     srcFolder + '/ng/**/*.{spec,mock}.js'
   ],
   rootStyles : [srcFolder + '/assets/styles/ibmwatson.scss'],
-  styles : [srcFolder + '/assets/styles/**/*.scss'],
+  styles : [srcFolder + '/assets/styles/**/*.scss',
+    srcFolder + '/ng/**/*.scss'],
   templates : [srcFolder + '/ng/**/*.html'],
   bower : ['./bower_components/**/*'],
   dest : {
@@ -114,10 +115,10 @@ function transformIconSample (filePath, file) {
 
   var p = path.parse(filePath);
 
-  var template = '<svg class=\"ibm-icon\"><use xlink:href=\"#%s\"></use></svg>',
+  var template = '<svg class=\"ibm-icon %s\"><use xlink:href=\"#%s\"></use></svg>',
       id = 'ibm-icon--' + p.name.replace(/\s/g, '_').toLowerCase();
 
-  return util.format(template, id);
+  return util.format(template, id, id);
 }
 
 function demoAppTask () {

@@ -5,6 +5,8 @@ svg.ibm-icon {
   display: inline-block;
   width: 24px;
   height: 24px;
+  fill: $cool-gray-80;
+
 
   &.small {
     width: 16px;
@@ -14,6 +16,13 @@ svg.ibm-icon {
   &.large {
     width: 32px;
     height: 32px;
+  }
+}
+
+.dark-theme {
+  svg.ibm-icon {
+    fill: $cool-gray-20;
+
   }
 }
 

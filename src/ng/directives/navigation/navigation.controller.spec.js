@@ -142,4 +142,18 @@ describe('Controller: WorkspaceController', function testWorkspaceController () 
       should.not.exist(vm.currentLink);
     });
   });
+
+  describe('.toggleDetails', function () {
+    it('should set detailsOpen to true', function () {
+      var link = {'label' : 'link', 'details' : ['one', 'two', 'three']};
+      vm.toggleDetails(link);
+      link.detailsOpen.should.be.true;
+    });
+
+    it('should set detailsOpen to false', function () {
+      var link = {'label' : 'link', 'details' : ['one', 'two', 'three'], 'detailsOpen' : true};
+      vm.toggleDetails(link);
+      link.detailsOpen.should.be.false;
+    });
+  });
 });

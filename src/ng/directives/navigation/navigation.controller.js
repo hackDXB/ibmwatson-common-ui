@@ -21,6 +21,12 @@
     .module('watson.common.ui')
     .controller('NavigationController', NavigationController);
 
+
+  var DEFAULT_TRANSLATIONS = {
+    'DETAILS' : 'Details',
+    'CLOSE' : 'Close'
+  };
+
   NavigationController.$inject = ['$scope', '$location'];
 
   function NavigationController ($scope, $location) {
@@ -29,12 +35,17 @@
     vm.toggleMenu = toggleMenu;
     vm.location = location;
     vm.setCurrent = setCurrent;
+    vm.toggleDetails = toggleDetails;
 
+    vm.showTabs = true;
     vm.sections = [];
     vm.footer = [];
     if ($scope.config) {
+      vm.label = $scope.config.label;
+      vm.showInBanner = $scope.config.showTabs;
       vm.sections = $scope.config.sections;
       vm.footer = $scope.config.footer;
+      vm.translations = angular.extend({}, DEFAULT_TRANSLATIONS, $scope.config.translations || {});
     }
 
     initializeLocation();
@@ -68,6 +79,15 @@
         vm.currentSection = section;
       }
       vm.currentLink = link;
+    }
+
+    function toggleDetails (link) {
+      if (link.detailsOpen) {
+        link.detailsOpen = false;
+      } else {
+        link.detailsOpen = true;
+      }
+
     }
   }
 }());

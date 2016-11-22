@@ -99,34 +99,37 @@
       'sections' : [
         {
           'label' : 'Back somewhere',
-          'icon' : 'ibm-glyph--next-right-forward_24 rotate-180',
+          'icon' : '#ibm-icon--go_back_24',
           'href' : '#/overview'
         }, {
           'label' : 'Main',
-          'icon' : 'ibm-icon--home',
+          'icon' : '#ibm-icon--home_24',
           'links' : [
             {
               'label' : 'Overview',
               'href' : '#/overview',
-              'icon' : 'ibm-icon--home'
+              'icon' : '#ibm-icon--home_24'
             }, {
               'label' : 'Elements',
               'href' : '#/elements',
-              'icon' : 'ibm-icon--code'
+              'icon' : '#ibm-icon--sample_app_24'
             }, {
               'label' : 'Components',
               'href' : '#/components',
-              'icon' : 'ibm-icon--spaces'
+              'icon' : '#ibm-icon--workspace_24'
             }
           ]
         }, {
           'label' : 'Other',
-          'icon' : 'ibm-icon--spaces',
+          'icon' : '#ibm-icon--workspace_24',
           'links' : [
             {
               'label' : 'Layout',
               'href' : '#/layout',
-              'icon' : 'ibm-icon--spaces'
+              'icon' : '#ibm-icon--workspace_24',
+              'details' : [
+                'A collection of layout styles'
+              ]
             }
           ]
         }
@@ -136,11 +139,11 @@
           {
             'label' : 'Settings',
             'href' : '#/overview',
-            'icon' : 'ibm-icon--settings-manage'
+            'icon' : '#ibm-icon--settings_24'
           }, {
             'label' : 'Log out',
             'href' : '#/overview',
-            'icon' : 'ibm-icon--insert'
+            'icon' : '#ibm-icon--log_out_24'
           }
         ]
       }

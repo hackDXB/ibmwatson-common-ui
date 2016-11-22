@@ -41,17 +41,17 @@
       height: $banner-height;
       transition-duration: 0s;
       color: $gray-30;
-
-      [class^="ibm-icon--"],
-      [class^="ibm-glyph--"] {
-        font-size: 24px;
-      }
+      line-height: 1em;
 
       &.active,
       &:focus,
       &:hover {
         color: $teal-40;
       }
+    }
+
+    svg.ibm-icon {
+      fill : $gray-30;
     }
   }
 }

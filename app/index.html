@@ -38,7 +38,7 @@
     <script src="guide/guide.controller.js"></script>
     <!-- endbuild -->
 </head>
-<body class="watson animate style-guide" ng-app="watson.common.ui.guide">
+<body class="watson animate style-guide fade" ng-app="watson.common.ui.guide">
 <!--[if lt IE 7]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
     your browser</a> to improve your experience.</p>
@@ -54,7 +54,9 @@
     <h1><a href="#">IBM <strong>Watson Common UI</strong></a></h1>
     <button type="button" role="button" class="icon" title="Toggle theme" aria-label="Toggle theme"
             ng-click="vm.toggleTheme()">
-        <span class="ibm-icon--catalog" aria-hidden="true"></span>
+        <svg class="ibm-icon" aria-hidden="true">
+          <use xlink:href="#ibm-icon--shuffle_24"></use>
+        </svg>
     </button>
 </header>
 
