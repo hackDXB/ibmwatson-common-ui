@@ -1,4 +1,4 @@
-<div role="main" id="guide-main" style="max-width:100%;">
+<div role="main" id="guide-main">
   <header>
     <h1>Components</h1>
     <div class="notifications" ng-show="vm.alert">
@@ -634,31 +634,28 @@ vm.inputTagModelReadOnly = [{'text' : 'Tag1'},
     <p>Use <code>uib-popover</code> attribute directives for tooltips. Use <code>uib-popover-html</code> attribute directives for tooltips that include HTML tags within them. Use <code>uib-popover-template</code> attribute directives for tooltips that use templates via URL.</p>
 
     <p><h3>Live demo:</h3></p>
-    <div style="text-align:center">
+    <div id="tooltip-demos">
       Trigger: click
-      <span class="ibm-icon--info-question"
+      <span class="ibm-icon--info-question demo"
             aria-hidden="true"
             uib-popover="{{vm.popover.content}}"
             popover-title="{{vm.popover.title}}"
             popover-placement="{{vm.popover.placement}}"
-            popover-trigger="click"
-            style="margin-right:25px"></span>
+            popover-trigger="click"></span>
       Trigger: mouseover
-      <span class="ibm-icon--warning"
+      <span class="ibm-icon--warning demo"
             aria-hidden="true"
             uib-popover="{{vm.popover.content}}"
             popover-title="{{vm.popover.title}}"
             popover-placement="{{vm.popover.placement}}"
-            popover-trigger="mouseenter"
-            style="margin-right:25px"></span>
+            popover-trigger="mouseenter"></span>
       Trigger: outsideClick
-      <span class="ibm-icon--info-moreinfo"
+      <span class="ibm-icon--info-moreinfo demo"
             aria-hidden="true"
             uib-popover="{{vm.popover.content}}"
             popover-title="{{vm.popover.title}}"
             popover-placement="{{vm.popover.placement}}"
-            popover-trigger="outsideClick"
-            style="margin-right:25px"></span>
+            popover-trigger="outsideClick"></span>
     </div>
     <div class="form-group">
       <label>Tooltip Content:</label>
@@ -701,28 +698,25 @@ vm.popover = {
 
     <h4>In template:</h4>
     <code class="pre" ng-non-bindable>
-&lt;div style="text-align:center"&gt;
+&lt;div"&gt;
   Trigger: click
   &lt;span class="ibm-icon--info-question"
         uib-popover="{{vm.popover.content}}"
         popover-title="{{vm.popover.title}}"
         popover-placement="{{vm.popover.placement}}"
-        popover-trigger="click"
-        style="margin-right:25px"&gt;&lt;/span&gt;
+        popover-trigger="click"&gt;&lt;/span&gt;
   Trigger: mouseover
   &lt;span class="ibm-icon--warning"
         uib-popover="{{vm.popover.content}}"
         popover-title="{{vm.popover.title}}"
         popover-placement="{{vm.popover.placement}}"
-        popover-trigger="mouseenter"
-        style="margin-right:25px"&gt;&lt;/span&gt;
+        popover-trigger="mouseenter"&gt;&lt;/span&gt;
   Trigger: outsideClick
   &lt;span class="ibm-icon--info-moreinfo"
         uib-popover="{{vm.popover.content}}"
         popover-title="{{vm.popover.title}}"
         popover-placement="{{vm.popover.placement}}"
-        popover-trigger="outsideClick"
-        style="margin-right:25px"&gt;&lt;/span&gt;
+        popover-trigger="outsideClick"&gt;&lt;/span&gt;
 &lt;/div&gt;
 &lt;div class="form-group"&gt;
   &lt;label&gt;Tooltip Content:&lt;/label&gt;
