@@ -27,6 +27,11 @@
     'CLOSE' : 'Close'
   };
 
+  var DEFAULT_ICONS = {
+    'MENU' : '#ibm-icon--menu_24',
+    'CLOSE' : '#ibm-icon--close_cancel_24'
+  };
+
   NavigationController.$inject = ['$scope', '$location'];
 
   function NavigationController ($scope, $location) {
@@ -42,13 +47,16 @@
     vm.footer = [];
     if ($scope.config) {
       vm.label = $scope.config.label;
-      vm.showInBanner = $scope.config.showTabs;
+      vm.showTabs = !($scope.config.showTabs === false);
       vm.sections = $scope.config.sections;
       vm.footer = $scope.config.footer;
       vm.translations = angular.extend({}, DEFAULT_TRANSLATIONS, $scope.config.translations || {});
+      vm.icons = angular.extend({}, DEFAULT_ICONS, $scope.config.icons || {});
     }
 
     initializeLocation();
+
+    $scope.$watch('vm.navConfig', initializeLocation);
 
     function initializeLocation () {
       // Find current section from url
@@ -87,7 +95,7 @@
       } else {
         link.detailsOpen = true;
       }
-
     }
+
   }
 }());

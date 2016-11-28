@@ -72,6 +72,7 @@ var paths = {
     fonts : distFolder + '/fonts',
     images : distFolder + '/images',
     icons : distFolder + '/icons',
+    iconSprite : distFolder + '/icons/sprite',
     styles : distFolder + '/styles',
     scripts : distFolder + '/js'
   },
@@ -136,7 +137,7 @@ function demoAppTask () {
 
   var svgs = gulp.src(paths.icons.concat(['!**/*_{16,64}.svg']));
 
-  var inlineSvgs = gulp.src(paths.dest.icons + '/icons-inline.svg');
+  var inlineSvgs = gulp.src(paths.dest.iconSprite + '/ibm-icons-inline.svg');
 
   var icons = gulp.src(paths.demoView)
     .pipe(plugins.plumber({
@@ -199,16 +200,19 @@ function iconsTask () {
     .pipe(plugins.rename(formatIconId))
     .pipe(plugins.imagemin());
 
+  var copy = icons
+    .pipe(gulp.dest(paths.dest.icons));
+
   var standalone = icons
     .pipe(plugins.svgstore())
-    .pipe(gulp.dest(paths.dest.icons));
+    .pipe(gulp.dest(paths.dest.iconSprite));
 
   var inline = icons
     .pipe(plugins.svgstore({inlineSvg : true}))
-    .pipe(plugins.rename({suffix : '-inline'}))
-    .pipe(gulp.dest(paths.dest.icons));
+    .pipe(plugins.rename({prefix : 'ibm-', suffix : '-inline'}))
+    .pipe(gulp.dest(paths.dest.iconSprite));
 
-  return merge(standalone, inline);
+  return merge(copy, standalone, inline);
 
 }
 

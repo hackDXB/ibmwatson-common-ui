@@ -3,10 +3,10 @@
   <button type="button" role="button" class="icon"
           ng-click="vm.toggleMenu()" title="{{vm.label}}" aria-label="{{vm.label}}">
     <svg ng-if="!vm.menuOpen" class="ibm-icon" aria-hidden="true">
-      <use xlink:href="#ibm-icon--menu_24"></use>
+      <use xlink:href="{{vm.icons.MENU}}"></use>
     </svg>
     <svg ng-if="vm.menuOpen" class="ibm-icon" aria-hidden="true">
-      <use xlink:href="#ibm-icon--close_cancel_24"></use>
+      <use xlink:href="{{vm.icons.CLOSE}}"></use>
     </svg>
   </button>
 
