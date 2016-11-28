@@ -1,9 +1,9 @@
 {
   "name": "ibmwatson-common-ui",
-  "version": "0.0.11",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "gulp serve",
+    "start": "gulp start",
     "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "bower cache clean && bower install",
     "build": "gulp"
