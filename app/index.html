@@ -38,34 +38,35 @@
     <script src="guide/guide.controller.js"></script>
     <!-- endbuild -->
 </head>
-<body class="watson animate style-guide" ng-app="watson.common.ui.guide">
+<body class="watson animate style-guide fade" ng-app="watson.common.ui.guide">
 <!--[if lt IE 7]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
     your browser</a> to improve your experience.</p>
 <![endif]-->
+
+<svg style="display:none;">
+  <!-- inject:svg -->
+  <!-- endinject -->
+</svg>
+
 <header role="banner" ng-controller="BannerController as vm">
-    <!-- <side-nav links="[{label: 'Overview', href:'#/overview', icon: 'ibm-icon--home'}, {label: 'Elements', href:'#/elements', icon: 'ibm-icon--code'}, {label: 'Components', href:'#/components', icon: 'ibm-icon--inventory'}, {label: 'Layout', href:'#/layout', icon: 'ibm-icon--spaces'}]"></side-nav> -->
+    <navigation config="vm.navConfig"></navigation>
     <h1><a href="#">IBM <strong>Watson Common UI</strong></a></h1>
-    <nav role="navigation">
-        <ul>
-            <li><a href="#/overview">Overview</a></li>
-            <li><a href="#/elements">Elements</a></li>
-            <li><a href="#/components">Components</a></li>
-            <li><a href="#/layout">Layout</a></li>
-        </ul>
-    </nav>
     <button type="button" role="button" class="icon" title="Toggle theme" aria-label="Toggle theme"
             ng-click="vm.toggleTheme()">
-        <span class="ibm-icon--catalog" aria-hidden="true"></span>
+        <svg class="ibm-icon" aria-hidden="true">
+          <use xlink:href="#ibm-icon--shuffle_24"></use>
+        </svg>
     </button>
-    <!-- <ask-watson></ask-watson> -->
 </header>
 
 <div id="body-content">
     <section ui-view="" class="main-container" id="theme-container"></section>
 </div>
 
-<footer role="contentinfo" scroll-to-top>
+<footer role="contentinfo">
+    <div scroll-to-top></div>
+    <span class="ibm-logo"></span>
 </footer>
 
 </body>

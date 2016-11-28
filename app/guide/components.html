@@ -8,28 +8,171 @@
     </div>
   </header>
 
+
   <div class="guide-row">
-    <h2 id="/guide/banner">Banner</h2>
-    <p>Use <code>&lt;header role="banner"&gt;&lt;/header&gt;</code> for the top banner.</p>
+    <h2 id="/guide/accordion">Accordion</h2>
+    <p>Use <code>&lt;uib-accordion&gt;</code> and <code>&lt;uib-accordion-group&gt;</code> for accordions.</p>
+
+    <p><h3>Live demo:</h3></p>
+    <uib-accordion close-others="true">
+      <uib-accordion-group heading="First thing">
+        <p>...stuff...</p>
+      </uib-accordion-group>
+      <uib-accordion-group heading="Second thing">
+        <p>...more stuff...</p>
+      </uib-accordion-group>
+      <uib-accordion-group heading="Third thing" is-disabled="true">
+        <p>...even more stuff...</p>
+      </uib-accordion-group>
+    </uib-accordion>
+
+    <p><h3>Demo code:</h3></p>
+    <code class="pre" ng-non-bindable>
+&lt;uib-accordion close-others="true"&gt;
+  &lt;uib-accordion-group heading="First thing"&gt;
+    &lt;p&gt;...stuff...&lt;/p&gt;
+  &lt;/uib-accordion-group&gt;
+  &lt;uib-accordion-group heading="Second thing"&gt;
+    &lt;p&gt;...more stuff...&lt;/p&gt;
+  &lt;/uib-accordion-group&gt;
+  &lt;uib-accordion-group heading="Third thing" is-disabled="true"&gt;
+    &lt;p&gt;...even more stuff...&lt;/p&gt;
+  &lt;/uib-accordion-group&gt;
+&lt;/uib-accordion&gt;
+    </code>
   </div>
+
 
   <div class="guide-row">
     <h2 id="/guide/banner">Alert</h2>
     <p>Use <code>uib-alert</code> directive for the alerts.  Wrap in a <code>notifications</code> class to put it at the top of the page.</p>
-    <button type="button" role="button" class="primary" ng-click="vm.alert = {type: error, message: 'This is an alert!'}">Show alert</button>
+
+    <p><h3>Live demo:</h3></p>
+    <button type="button" role="button" class="primary" ng-click="vm.alert = {type: 'error', message: 'This is an alert!'}">Show alert</button>
+
+    <p><h3>Demo code:</h3></p>
+
+    <h4>Alert area:</h4>
+    <code class="pre" ng-non-bindable>
+&lt;div class="notifications" ng-show="vm.alert"&gt;
+  &lt;uib-alert type="{{vm.alert.type}}" close="vm.alert = null"&gt;
+    {{vm.alert.message}}
+  &lt;/uib-alert&gt;
+&lt;/div&gt;
+    </code>
+
+    <h4>Button:</h4>
+    <code class="pre" ng-non-bindable>
+&lt;button type="button" role="button" class="primary"
+    ng-click="vm.alert = {type: 'error', message: 'This is an alert!'}"&gt;
+  Show alert
+&lt;/button&gt;
+    </code>
   </div>
 
+
   <div class="guide-row">
-    <h2 id="/guide/sidenav">Sidenav</h2>
-    <p>Use <code>&lt;side-nav links="[{label:'Overview', icon:'ibm-icon--home', href:'#/overview'}]"&gt;&lt;/side-nav&gt;</code> for the sidenav.</p>
+    <h2 id="/guide/banner">Banner</h2>
+    <p>Use <code>&lt;header role="banner"&gt;&lt;/header&gt;</code> for the top banner that remains on screen as the user scrolls.</p>
+
+    <p><h3>A live demo can be seen in the banner at the top of this page.</h3></p>
+
+    <p><h3>Demo code:</h3></p>
+    <code class="pre" ng-non-bindable>
+&lt;header role="banner" ng-controller="BannerController as vm"&gt;
+  &lt;navigation config="vm.navConfig"&gt;&lt;/navigation&gt;
+  &lt;h1&gt;&lt;a href="#"&gt;IBM
+      &lt;strong&gt;Watson Common UI&lt;/strong&gt;&lt;/a&gt;&lt;/h1&gt;
+  &lt;button type="button" role="button" class="icon" title="Toggle theme"
+      ng-click="vm.toggleTheme()"&gt;
+    &lt;span class="ibm-icon--catalog"&gt;&lt;/span&gt;
+  &lt;/button&gt;
+&lt;/header&gt;
+    </code>
   </div>
+
+
+  <div class="guide-row">
+    <h2 id="/guide/breadcrumb">Breadcrumb</h2>
+    <p>Use <code>&lt;ol class="breadcrumb"&gt;</code> for breadcrumbs</p>
+
+    <p><h3>Live demo:</h3></p>
+    <ol class="breadcrumb">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Library</a></li>
+      <li>Data</li>
+    </ol>
+
+    <p><h3>Demo code:</h3></p>
+    <code class="pre" ng-non-bindable>
+&lt;ol class="breadcrumb"&gt;
+  &lt;li&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="#"&gt;Library&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Data&lt;/li&gt;
+&lt;/ol&gt;
+    </code>
+  </div>
+
+
+  <div class="guide-row">
+    <h2 id="/guide/buttonGroup">Button Group</h2>
+
+    <p>Use the <code>button-group</code> class to create a set of buttons that is visually connected.</p>
+
+    <p><h3>Live demo:</h3></p>
+    <p>In this example, a button group has been made to behave as a set of radio buttons.</p>
+    <p>Selected button: {{vm.buttonGroup.activeButton.label || 'None'}}</p>
+    <div class="button-group">
+      <label ng-repeat="button in vm.buttonGroup.buttons"
+             class="button primary"
+             ng-class="{'active' : (!button.disabled && (vm.buttonGroup.activeButton == button)), 'disabled' : button.disabled}"
+             ng-click="!button.disabled && (vm.buttonGroup.activeButton = button)">
+        {{button.label}}
+      </label>
+    </div>
+
+    <p><h3>Demo code:</h3></p>
+    <h4>In controller:</h4>
+    <code class="pre" ng-non-bindable>
+vm.buttonGroup = {
+  buttons : [
+    {
+      label : 'Button 1'
+    }, {
+      label : 'Button 2'
+    }, {
+      label : 'Button 3',
+      disabled : true
+    }, {
+      label : 'Button 4'
+    }
+  ]
+};
+    </code>
+
+    <h4>In template:</h4>
+    <code class="pre" ng-non-bindable>
+&lt;p&gt;Selected button: {{vm.buttonGroup.activeButton.label || 'None'}}&lt;/p&gt;
+&lt;div class="button-group"&gt;
+  &lt;label ng-repeat="button in vm.buttonGroup.buttons" class="button primary"
+      ng-class="{'active' : (!button.disabled && (vm.buttonGroup.activeButton == button)),
+        'disabled' : button.disabled}"
+      ng-click="!button.disabled && (vm.buttonGroup.activeButton = button)"&gt;
+  {{button.label}}
+  &lt;/label&gt;
+&lt;/div&gt;
+    </code>
+  </div>
+
 
   <div class="guide-row">
     <h2 id="/guide/dropdowns">Dropdowns</h2>
     <p>Use the <code>uib-dropdown</code> attribute directives for dropdowns.</p>
+
+    <p><h3>Live demo:</h3></p>
     <div uib-dropdown is-open="status1.isopen">
       <button id="dropdown-default" type="button" role="button" uib-dropdown-toggle>
-        <span>Dropdown</span><span class="ibm-glyph--caret-down_24"></span>
+        <span>Default Dropdown</span><span class="ibm-glyph--caret-down_24"></span>
       </button>
       <ul uib-dropdown-menu role="menu" aria-labelledby="dropdown-default">
         <li role="menuitem"><a href="#">Action</a></li>
@@ -79,12 +222,398 @@
         <li role="menuitem"><a href="#">Separated link</a></li>
       </ul>
     </div>
+
+    <p><h3>Demo code:</h3></p>
+    <h4>Default:</h4>
+    <code class="pre" ng-non-bindable>
+&lt;div uib-dropdown is-open="status1.isopen"&gt;
+  &lt;button id="dropdown-default" uib-dropdown-toggle
+      type="button" role="button"&gt;
+    &lt;span&gt;Default Dropdown&lt;/span&gt;
+    &lt;span class="ibm-glyph--caret-down_24"&gt;&lt;/span&gt;
+  &lt;/button&gt;
+  &lt;ul uib-dropdown-menu role="menu"&gt;
+    ...
+  &lt;/ul&gt;
+&lt;/div&gt;
+    </code>
+
+    <h4>Labelled:</h4>
+    <code class="pre" ng-non-bindable>
+&lt;div uib-dropdown is-open="status3.isopen"&gt;
+  &lt;span class="label"&gt;Sort by:&lt;/span&gt;
+  &lt;button id="dropdown-with-label" uib-dropdown-toggle
+      type="button" role="button"&gt;
+    &lt;span&gt;Dropdown - with label&lt;/span&gt;
+    &lt;span class="ibm-glyph--caret-down_24"&gt;&lt;/span&gt;
+  &lt;/button&gt;
+  &lt;ul uib-dropdown-menu role="menu" class="pull-right"&gt;
+    ...
+  &lt;/ul&gt;
+&lt;/div&gt;
+    </code>
+
+    <h4>Minimal:</h4>
+    <code class="pre" ng-non-bindable> 
+&lt;div uib-dropdown is-open="status4.isopen" class="minimal"&gt;
+   &lt;button id="dropdown-minimal" uib-dropdown-toggle 
+      type="button" role="button"&gt; 
+    &lt;span&gt;Minimal dropdown&lt;/span&gt; 
+    &lt;span class="ibm-glyph--caret-down_24"&gt;&lt;/span&gt; 
+  &lt;/button&gt; 
+  &lt;ul uib-dropdown-menu role="menu"&gt;
+     ... 
+  &lt;/ul&gt; 
+&lt;/div&gt; 
+    </code>
+
+    <h4>Icon:</h4>
+    <code class="pre" ng-non-bindable>
+&lt;div uib-dropdown is-open="status5.isopen" class="minimal"&gt;
+  &lt;button id="dropdown-icon" uib-dropdown-toggle
+      type="button" role="button" class="icon" title="Actions"&gt;
+    &lt;span class="ibm-icon--menuoverflow-vertical"&gt;&lt;/span&gt;
+  &lt;/button&gt;
+  &lt;ul uib-dropdown-menu role="menu"&gt;
+    ...
+  &lt;/ul&gt;
+&lt;/div&gt;
+    </code>
   </div>
+
+
+  <div class="guide-row">
+    <h2 id="/guide/footer">Footer</h2>
+
+    <p>Use a <code>footer</code> tag to create a region at the bottom of the page that remains on screen as the user scrolls.</p>
+
+    <p><h3>A live demo of the footer can be seen at the bottom of the page.</h3></p>
+
+    <p><h3>Demo code:</h3></p>
+    <code class="pre" ng-non-bindable>
+&lt;footer role="contentinfo"&gt;
+  &lt;div scroll-to-top&gt;&lt;/div&gt;
+  &lt;span class="ibm-logo"&gt;&lt;/span&gt;
+&lt;/footer&gt;
+    </code>
+  </div>
+
+
+  <div class="guide-row">
+    <h2 id="/guide/help">Help</h2>
+
+    <p>Use a <code>help-assistant</code> tag to create help messages at the bottom of the screen.</p>
+
+    <p><h3>Live demo:</h3></p>
+    <button type="button" role="button" class="primary" ng-click="vm.showHelp()">Toggle Help</button>
+    <help-assistant template="vm.helpTemplate" show-help="vm.showHelp" ng-show="vm.helpVisible"></help-assistant>
+
+    <p><h3>Demo code:</h3></p>
+    <h4>In controller:</h4>
+    <code class="pre" ng-non-bindable>
+vm.helpTemplate = 'templates/help.html';
+
+vm.showHelp = function () {
+  vm.helpVisible = !vm.helpVisible;
+};
+    </code>
+    <h4>In template:</h4>
+    <code class="pre" ng-non-bindable>
+&lt;button type="button" role="button" class="primary" ng-click="vm.showHelp()"&gt;
+      Toggle Help
+&lt;/button&gt;
+&lt;help-assistant template="vm.helpTemplate" show-help="vm.showHelp" ng-show="vm.helpVisible"&gt;
+&lt;/help-assistant&gt;
+    </code>
+  </div>
+
+
+  <div class="guide-row">
+    <h2 id="/guide/inline-notifications">Inline Notifications</h2>
+    <p>Use <code>inline-notification</code> class for inline notifications.  Add <code>success</code>, <code>info</code>, <code>warning</code>, or <code>error</code> classes for the different types.</p>
+
+    <p><h3>Live demo:</h3></p>
+    <div>
+      <div class="inline-notification success">
+        You successfully added <strong>Robot Concierge</strong> workspace.
+      </div>
+    </div>
+    <div>
+      <div class="inline-notification info">
+        You are able to delete <strong>Robot Concierge</strong> workspace.
+      </div>
+    </div>
+    <div>
+      <div class="inline-notification warning">
+        You are about to delete <strong>Robot Concierge</strong> workspace.
+      </div>
+    </div>
+    <div>
+      <div class="inline-notification error">
+        Error: Unable to delete <strong>Robot Concierge</strong> workspace.
+      </div>
+    </div>
+    <div ng-init="vm.showClosableNotification = true"
+         ng-show="vm.showClosableNotification">
+      <div class="inline-notification error closable">
+        <span>Persistent notification with close icon.</span>
+        <button type="button" role="button" class="icon"
+                title="Close" aria-label="Close"
+                ng-click="vm.showClosableNotification = false">
+          <span class="ibm-glyph--close" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+
+    <p><h3>Demo code:</h3></p>
+    <code class="pre" ng-non-bindable>
+&lt;div&gt;
+  &lt;div class="inline-notification success"&gt;
+    You successfully added &lt;strong&gt;Robot Concierge&lt;/strong&gt; workspace.
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div&gt;
+  &lt;div class="inline-notification info"&gt;
+    You are able to delete &lt;strong&gt;Robot Concierge&lt;/strong&gt; workspace.
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div&gt;
+  &lt;div class="inline-notification warning"&gt;
+    You are about to delete &lt;strong&gt;Robot Concierge&lt;/strong&gt; workspace.
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div&gt;
+  &lt;div class="inline-notification error"&gt;
+    Error: Unable to delete &lt;strong&gt;Robot Concierge&lt;/strong&gt; workspace.
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div ng-init="vm.showClosableNotification = true"
+     ng-show="vm.showClosableNotification"&gt;
+  &lt;div class="inline-notification error closable"&gt;
+    &lt;span&gt;Persistent notification with close icon.&lt;/span&gt;
+    &lt;button type="button" role="button" class="icon"
+            title="Close" aria-label="Close"
+            ng-click="vm.showCloseableNotification = false"&gt;
+      &lt;span class="ibm-glyph--close" aria-hidden="true"&gt;&lt;/span&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+    </code>
+  </div>
+
+
+  <div class="guide-row">
+    <h2 id="/guide/loading">Loading/Thinking indicators</h2>
+
+    <p>Use <code>loading</code> and <code>thinking</code> classes for indicating progress.</p>
+
+    <p><h3>Live demo:</h3></p>
+    <div class="loading"></div>
+    <div class="thinking"></div>
+
+    <p><h3>Demo code:</h3></p>
+    <code class="pre" ng-non-bindable>
+&lt;div class="loading"&gt;&lt;/div&gt;
+&lt;div class="thinking"&gt;&lt;/div&gt;
+    </code>
+  </div>
+
+
+  <div class="guide-row">
+    <h2 id="/guide/modals">Modals</h2>
+    <p>Use the <code>$uibModal</code> service for modals.</p>
+
+    <p><h3>Live demo:</h3></p>
+    <button type="button" role="button" class="primary" ng-click="vm.openModal()">Open Modal</button>
+
+    <p><h3>Demo code:</h3></p>
+    <h4>In controller:</h4>
+    <code class="pre" ng-non-bindable>
+vm.openModal = function () {
+  $uibModal.open({
+    animation : true,
+    windowTemplateUrl : 'templates/modal.html',
+    templateUrl : 'templates/modal-content.html',
+    controller : 'ModalController',
+    controllerAs : 'vm'
+  });
+};
+    </code>
+
+    <h4>In template:</h4>
+    <code class="pre" ng-non-bindable>
+&lt;button type="button" role="button" class="primary" ng-click="vm.openModal()"&gt;
+  Open Modal
+&lt;/button&gt;
+    </code>
+  </div>
+
+
+  <div class="guide-row">
+    <h2 id="/guide/navigation">Navigation</h2>
+
+    <p>Use a <code>navigation</code> tag to create a button that toggles the display of a navigation region. Use the configuration object to customize the navigation component.</p>
+
+    <p><h3>A live demo can be seen in the banner at the top of the page. Click on the icon on the far left side of the header to toggle the navigation panel.</h3></p>
+
+    <p><h3>Demo code:</h3></p>
+    <h4>In the banner controller:</h4>
+    <code class="pre" ng-non-bindable>
+vm.navConfig = {
+  'label' : 'Menu',
+  'sections' : [
+    {
+      'label' : 'Back somewhere',
+      'icon' : 'ibm-glyph--next-right-forward_24 rotate-180',
+      'href' : '#/overview'
+    }, {
+      'label' : 'Main',
+      'icon' : 'ibm-icon--home',
+      'links' : [
+        {
+          'label' : 'Overview',
+          'href' : '#/overview',
+          'icon' : 'ibm-icon--home'
+        }, {
+          'label' : 'Elements',
+          'href' : '#/elements',
+          'icon' : 'ibm-icon--code'
+        }, {
+          'label' : 'Components',
+          'href' : '#/components',
+          'icon' : 'ibm-icon--spaces'
+        }
+      ]
+    }, {
+      'label' : 'Other',
+      'icon' : 'ibm-icon--spaces',
+      'links' : [
+        {
+          'label' : 'Layout',
+          'href' : '#/layout',
+          'icon' : 'ibm-icon--spaces'
+        }
+      ]
+    }
+  ],
+  'footer' : {
+    'links' : [
+      {
+        'label' : 'Settings',
+        'href' : '#/overview',
+        'icon' : 'ibm-icon--settings-manage'
+      }, {
+        'label' : 'Log out',
+        'href' : '#/overview',
+        'icon' : 'ibm-icon--insert'
+      }
+    ]
+  }
+};
+    </code>
+
+    <h4>In template:</h4>
+    <code class="pre" ng-non-bindable>
+&lt;navigation config="vm.navConfig"&gt;&lt;/navigation&gt;
+    </code>
+  </div>
+
+
+  <div class="guide-row">
+    <h2 id="/guide/scrollToTop">Scroll to Top</h2>
+
+    <p>Use the <code>scroll-to-top</code> attribute to create a button that can be used to jump to the top of the current page.</p>
+
+    <p><h3>A live demo of the scroll to top component is in the footer below. Click the capped up arrow to see it in action.</h3></p>
+
+    <p><h3>Demo code:</h3></p>
+    <code class="pre" ng-non-bindable>
+&lt;div scroll-to-top&gt;&lt;/div&gt;
+    </code>
+  </div>
+
+
+  <div class="guide-row">
+    <h2 id="/guide/sidenav">Sidenav</h2>
+    <p>Use a <code>side-nav</code> tag for a navigation panel docked on the left side.</p>
+
+    <p><h3>Live demo:</h3></p>
+    <side-nav links="[{label:'Overview', icon:'ibm-icon--home', href:'#/overview'}, {label:'Elements', icon:'ibm-icon--tag', href:'#/elements'}, {label:'Components', icon:'ibm-icon--commandline-terminal', href:'#/components'}, {label:'Layout', icon:'ibm-icon--file', href:'#/layout'}]"></side-nav>
+
+    <p><h3>Demo code:</h3></p>
+    <code class="pre" ng-non-bindable>
+&lt;side-nav links="[{label:'Overview', icon:'ibm-icon--home', href:'#/overview'},
+    {label:'Elements', icon:'ibm-icon--tag', href:'#/elements'},
+    {label:'Components', icon:'ibm-icon--commandline-terminal', href:'#/components'},
+    {label:'Layout', icon:'ibm-icon--file', href:'#/layout'}]"&gt;
+&lt;/side-nav&gt;
+    </code>
+  </div>
+
+
+  <div class="guide-row">
+    <h2 id="/guide/tags">Tags</h2>
+    <p>Use <code>class="tag"</code> for tags.</p>
+
+    <p><h3>Live demo:</h3></p>
+    <div class="tag">natatorium</div>
+    <div class="tag">a long tag name that has lots of characters</div>
+    <div class="tag confidence">
+      <span>#hotel_location</span><span>.80</span>
+    </div>
+    <div class="tag small">natatorium</div>
+
+    <p><h3>Demo code:</h3></p>
+    <code class="pre" ng-non-bindable>
+&lt;div class="tag"&gt;natatorium&lt;/div&gt;
+&lt;div class="tag"&gt;a long tag name that has lots of characters&lt;/div&gt;
+&lt;div class="tag confidence"&gt;
+  &lt;span&gt;#hotel_location&lt;/span&gt;
+  &lt;span&gt;.80&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="tag small"&gt;natatorium&lt;/div&gt;
+    </code>
+  </div>
+
+
+  <div class="guide-row">
+    <h2 id="/guide/input-tags">Tags with Input</h2>
+    <p>Use <code>&lt;tags-input&gt;</code> for input tags.</p>
+    <p>Use <code>class="read-only"</code> for no input field</p>
+
+    <p><h3>Live demo:</h3></p>
+    <tags-input ng-model="vm.inputTagModel" replace-spaces-with-dashes="false"></tags-input>
+    <tags-input ng-model="vm.inputTagModelReadOnly" class="read-only" replace-spaces-with-dashes="false"></tags-input>
+
+    <p><h3>Demo code:</h3></p>
+    <h4>In controller:</h4>
+    <code class="pre" ng-non-bindable>
+vm.inputTagModel = [{'text' : 'Tag1'},
+    {'text' : 'Tag2'},
+    {'text' : 'Tag3'},
+    {'text' : 'a really long tag name with lots of characters'}];
+vm.inputTagModelReadOnly = [{'text' : 'Tag1'},
+    {'text' : 'Tag2'},
+    {'text' : 'Tag3'},
+    {'text' : 'a really long tag name with lots of characters'}];
+    </code>
+    <h4>In template:</h4>
+    <code class="pre" ng-non-bindable>
+&lt;tags-input ng-model="vm.inputTagModel"
+      replace-spaces-with-dashes="false"&gt;
+&lt;/tags-input&gt;
+&lt;tags-input ng-model="vm.inputTagModelReadOnly"
+      replace-spaces-with-dashes="false" class="read-only"&gt;
+&lt;/tags-input&gt;
+    </code>
+  </div>
+
 
   <div class="guide-row">
     <h2 id="/guide/toggle">Toggle Switch</h2>
-    <p>Use <code>&lt;input id="toggle-1" class="toggle" type="checkbox" ng-model="vm.toggle.switchModel"&gt;&lt;label for="toggle-1"&gt;My Switch&lt;/label&gt;</code></label>
+    <p>Use the <code>toggle</code> class on an <code>input</code> element with a corresponding <code>label</code> to set up a toggle switch.</p>
 
+    <p><h3>Live demo:</h3></p>
     <pre>Model: {{vm.toggle.switchModel}}</pre>
 
     <div>
@@ -93,97 +622,134 @@
     </div>
 
     <div>
-      <input id="toggle-1" class="toggle" type="checkbox" ng-model="vm.toggle.switchModel">
-      <label for="toggle-1" on-label="On" off-label="Off">My Switch</label>
+      <input id="toggle-2" class="toggle" type="checkbox" ng-model="vm.toggle.switchModel">
+      <label for="toggle-2" on-label="On" off-label="Off">My Switch</label>
     </div>
+
+    <p><h3>Demo code:</h3></p>
+    <code class="pre" ng-non-bindable>
+&lt;pre&gt;Model: {{vm.toggle.switchModel}}&lt;/pre&gt;
+
+&lt;div&gt;
+  &lt;input id="toggle-1" class="toggle" type="checkbox" ng-model="vm.toggle.switchModel"&gt;
+  &lt;label for="toggle-1"&gt;My Switch&lt;/label&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;input id="toggle-2" class="toggle" type="checkbox" ng-model="vm.toggle.switchModel"&gt;
+  &lt;label for="toggle-2" on-label="On" off-label="Off"&gt;
+      My Switch
+  &lt;/label&gt;
+&lt;/div&gt;
+    </code>
   </div>
 
-  <div class="guide-row">
-    <h2 id="/guide/breadcrumb">Breadcrumb</h2>
-    <p>Use <code>&lt;ol class="breadcrumb"&gt;</code> for breadcrumbs</p>
-    <ol class="breadcrumb">
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Library</a></li>
-      <li>Data</li>
-    </ol>
-  </div>
-
-  <div class="guide-row">
-    <h2 id="/guide/modals">Modals</h2>
-    <p>Use the <code>$uibModal</code> service for modals.</p>
-    <button type="button" role="button" class="primary" ng-click="vm.openModal()">Open Modal</button>
-  </div>
 
   <div class="guide-row">
     <h2 id="/guide/tooltips">Tooltips</h2>
-    <p>Use <code>uib-popover</code> attribute directives for tooltips.</p>
-    <span class="ibm-icon--info-question" aria-hidden="true" uib-popover="Some help text" popover-trigger="mouseenter" popover-placement="bottom-left"></span>
-  </div>
+    <p>Use <code>uib-popover</code> attribute directives for tooltips. Use <code>uib-popover-html</code> attribute directives for tooltips that include HTML tags within them. Use <code>uib-popover-template</code> attribute directives for tooltips that use templates via URL.</p>
 
-  <div class="guide-row">
-    <h2 id="/guide/inline-notifications">Inline Notifications</h2>
-    <p>Use <code>inline-notification</code> class for inline notifications.  Add <code>success</code>, <code>info</code>, <code>warning</code>, <code>error</code> classes for the different types.</p>
-    <div>
-      <div class="inline-notification success">You are about to delete <strong>Robot Concierge</strong> workspace.</div>
+    <p><h3>Live demo:</h3></p>
+    <div id="tooltip-demos">
+      Trigger: click
+      <span class="ibm-icon--info-question demo"
+            aria-hidden="true"
+            uib-popover="{{vm.popover.content}}"
+            popover-title="{{vm.popover.title}}"
+            popover-placement="{{vm.popover.placement}}"
+            popover-trigger="click"></span>
+      Trigger: mouseover
+      <span class="ibm-icon--warning demo"
+            aria-hidden="true"
+            uib-popover="{{vm.popover.content}}"
+            popover-title="{{vm.popover.title}}"
+            popover-placement="{{vm.popover.placement}}"
+            popover-trigger="mouseenter"></span>
+      Trigger: outsideClick
+      <span class="ibm-icon--info-moreinfo demo"
+            aria-hidden="true"
+            uib-popover="{{vm.popover.content}}"
+            popover-title="{{vm.popover.title}}"
+            popover-placement="{{vm.popover.placement}}"
+            popover-trigger="outsideClick"></span>
     </div>
-    <div>
-      <div class="inline-notification info">You are about to delete <strong>Robot Concierge</strong> workspace.</div>
+    <div class="form-group">
+      <label>Tooltip Content:</label>
+      <input type="text" ng-model="vm.popover.content" class="form-control">
     </div>
-    <div>
-      <div class="inline-notification warning">You are about to delete <strong>Robot Concierge</strong> workspace.</div>
+    <div class="form-group">
+      <label>Tooltip Title:</label>
+      <input type="text" ng-model="vm.popover.title" class="form-control">
     </div>
-    <div>
-      <div class="inline-notification error">You are about to delete <strong>Robot Concierge</strong> workspace.</div>
+    <div class="form-group">
+      <label>Tooltip Placement:</label>
+      <select class="form-control" ng-model="vm.popover.placement.selected" ng-options="o as o for o in vm.popover.placement.options"></select>
     </div>
-    <div>
-      <div class="inline-notification error closable">
-        <span>Persistent notification with close icon.</span>
-        <button type="button" role="button" class="icon" title="Close" aria-label="Close"><span class="ibm-glyph--close" aria-hidden="true"></span>
-      </div>
-    </div>
-  </div>
 
-  <div class="guide-row">
-    <h2 id="/guide/accordian">Accordian</h2>
-    <p>Use <code>&lt;uib-accordian&gt;</code> and <code>&lt;uib-accordian-group&gt;</code> for accordians.</p>
-    <uib-accordion close-others="true">
-      <uib-accordion-group heading="First thing">
-        <p>...stuff...</p>
-      </uib-accordion-group>
-      <uib-accordion-group heading="Second thing">
-        <p>...more stuff...</p>
-      </uib-accordion-group>
-    </uib-accordion>
-  </div>
+    <p><h3>Demo code:</h3></p>
+    <h4>In controller:</h4>
+    <code class="pre" ng-non-bindable>
+vm.popover = {
+  content : 'Some help text',
+  title : 'Tooltip Title',
+  placement : {
+    options : [
+      'top',
+      'top-left',
+      'top-right',
+      'bottom',
+      'bottom-left',
+      'bottom-right',
+      'left',
+      'left-top',
+      'left-bottom',
+      'right',
+      'right-top',
+      'right-bottom'
+    ],
+    selected : 'top'
+  }
+};
+    </code>
 
-  <div class="guide-row">
-    <h2 id="/guide/input-tags">Input Tags</h2>
-    <p>Use <code>&lt;tags-input&gt;</code> for input tags.</p>
-    <tags-input ng-model="vm.inputTagModel" replace-spaces-with-dashes="false"></tags-input>
-
-    <p>Use <code>class="read-only"</code> for no input field</p>
-    <tags-input ng-model="vm.inputTagModelReadOnly" class="read-only" replace-spaces-with-dashes="false"></tags-input>
-  </div>
-
-  <div class="guide-row">
-    <h2 id="/guide/tags">Tags</h2>
-    <p>Use <code>class="tag"</code> for tags.</p>
-    <div class="tag">natatorium</div>
-    <div class="tag">a long tag name that has lots of characters</div>
-    <div class="tag confidence">
-      <span>#hotel_location</span><span>.80</span>
-    </div>
-  </div>
-
-  <div class="guide-row">
-    <h2 id="/guide/help">Help</h2>
-    <button type="button" role="button" class="primary" ng-click="vm.showHelp()">Toggle Help</button>
-    <help-assistant template="vm.helpTemplate" show-help="vm.showHelp" ng-show="vm.helpVisible"></help-assistant>
-  </div>
-
-  <div class="guide-row">
-    <h2 id="/guide/loading">Loading/Thinking indicators</h2>
-    <div class="loading"></div>
-    <div class="thinking"></div>
+    <h4>In template:</h4>
+    <code class="pre" ng-non-bindable>
+&lt;div"&gt;
+  Trigger: click
+  &lt;span class="ibm-icon--info-question"
+        uib-popover="{{vm.popover.content}}"
+        popover-title="{{vm.popover.title}}"
+        popover-placement="{{vm.popover.placement}}"
+        popover-trigger="click"&gt;&lt;/span&gt;
+  Trigger: mouseover
+  &lt;span class="ibm-icon--warning"
+        uib-popover="{{vm.popover.content}}"
+        popover-title="{{vm.popover.title}}"
+        popover-placement="{{vm.popover.placement}}"
+        popover-trigger="mouseenter"&gt;&lt;/span&gt;
+  Trigger: outsideClick
+  &lt;span class="ibm-icon--info-moreinfo"
+        uib-popover="{{vm.popover.content}}"
+        popover-title="{{vm.popover.title}}"
+        popover-placement="{{vm.popover.placement}}"
+        popover-trigger="outsideClick"&gt;&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="form-group"&gt;
+  &lt;label&gt;Tooltip Content:&lt;/label&gt;
+  &lt;input type="text" ng-model="vm.popover.content"
+      class="form-control"&gt;
+&lt;/div&gt;
+&lt;div class="form-group"&gt;
+  &lt;label&gt;Tooltip Title:&lt;/label&gt;
+  &lt;input type="text" ng-model="vm.popover.title"
+      class="form-control"&gt;
+&lt;/div&gt;
+&lt;div class="form-group"&gt;
+  &lt;label&gt;Tooltip Placement:&lt;/label&gt;
+  &lt;select class="form-control" ng-model="vm.popover.placement.selected"
+      ng-options="o as o for o in vm.popover.placement.options"&gt;
+  &lt;/select&gt;
+&lt;/div&gt;
+    </code>
   </div>
 </div>

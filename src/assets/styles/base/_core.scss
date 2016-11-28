@@ -8,13 +8,13 @@ body.watson {
 
 .watson * {
   box-sizing: border-box;
-  outline: none;
 }
 
 .watson {
   display: flex;
   flex-direction: column;
   height: 100vh;
+  overflow-y: hidden;
 
   #body-content {
     flex: 1;
@@ -63,5 +63,9 @@ body.watson {
 
   .no-animation {
     transition-duration: 0s;
+  }
+
+  .rotate-180 {
+    transform: rotate(180deg);
   }
 }

@@ -1,104 +1,57 @@
 // Banner
 .watson {
-
   header[role=banner] {
     position: relative;
-    display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    flex: none;
-    border: 0;
-    border-radius: 0;
     margin-bottom: 0;
-    padding: 0 1.2em 0 0;
-    background-color: $cool-gray-80;
-    color: $white;
+    background-color: $gray-80;
+    color: $gray-30;
     height: $banner-height;
     line-height: $banner-height;
     z-index: $z-index-banner;
-    border-bottom: 1px solid $cool-gray-60;
 
-    @include screen-medium {
-      flex-wrap: wrap;
-      height: 1.5 * $banner-height;
-      line-height: 50px;
-    }
-
-    @include screen-smedium {
-      flex-wrap: wrap;
-    }
-
-    a {
-      color: $cool-gray-20;
+    a,
+    a:visited {
+      color: $gray-30;
 
       &:hover,
       &:focus {
-        color: $teal-40;
-        text-decoration: none;
-        border-bottom: 2px solid transparent;
+        color: $white;
+        border: none;
       }
     }
 
     h1 {
       flex: 0 1 33%;
       white-space: nowrap;
-      overflow-x: hidden;
+      overflow: hidden;
       text-overflow: ellipsis;
       font-size: 20px;
-      margin-left: 30px;
+      margin-left: $space-medium;
 
       @include screen-medium {
         flex-basis: 100%;
       }
     }
 
-    & > button.link, button.icon {
-      align-self: center;
-    }
+    button.icon {
+      width: $banner-height;
+      min-width: $banner-height;
+      height: $banner-height;
+      transition-duration: 0s;
+      color: $gray-30;
+      line-height: 1em;
 
-    button.icon,
-    button.link {
-      @include screen-smedium {
-        margin-left: 30px;
-      }
-
-      color: $cool-gray-20;
-
-      &:hover,
-      &:focus {
+      &.active,
+      &:focus,
+      &:hover {
         color: $teal-40;
       }
     }
 
-    input[type=search] {
-      width: 300px;
-      margin-right: 100px;
-      display: block;
-      margin-top: .5em;
-    }
-
-    nav {
-      align-self: center;
-      flex: 1 0 auto;
-      font-weight: bold;
-      text-align: left;
-      margin: 0 2.5em;
-
-      @include screen-medium {
-        margin: 0 2em;
-      }
-
-      & > ul {
-        & > li {
-          display: inline;
-          margin-left: 2.5em;
-
-          &:first-of-type {
-            margin-left: inherit;
-          }
-        }
-      }
+    svg.ibm-icon {
+      fill : $gray-30;
     }
   }
 }

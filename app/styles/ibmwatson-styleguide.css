@@ -16,6 +16,14 @@
   border: 1px solid #C7C7C7;
 }
 
-.watson.style-guide h3 {
-  margin-top: 0.5em;
+.watson.style-guide #guide-main {
+  max-width: 100%;
+}
+
+.watson.style-guide #tooltip-demos {
+  text-align: center;
+}
+
+.watson.style-guide #tooltip-demos .demo {
+  margin-right: 25px
 }

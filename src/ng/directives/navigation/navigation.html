@@ -1,0 +1,71 @@
+<nav role="navigation" aria-label="{{vm.label}}" ng-class="{'active': vm.menuOpen}">
+  <!-- Menu button -->
+  <button type="button" role="button" class="icon"
+          ng-click="vm.toggleMenu()" title="{{vm.label}}" aria-label="{{vm.label}}">
+    <svg ng-if="!vm.menuOpen" class="ibm-icon" aria-hidden="true">
+      <use xlink:href="{{vm.icons.MENU}}"></use>
+    </svg>
+    <svg ng-if="vm.menuOpen" class="ibm-icon" aria-hidden="true">
+      <use xlink:href="{{vm.icons.CLOSE}}"></use>
+    </svg>
+  </button>
+
+  <!-- Main menu -->
+  <div ng-show="vm.menuOpen" class="menu">
+    <ul class="main" role="menu">
+      <li ng-class="[{'active-section': vm.currentSection.label == section.label}]" ng-repeat="section in vm.sections">
+        <h3>
+          <a ng-if="section.href" class="section-header" href={{section.href}} ng-click="vm.setCurrent(section); vm.toggleMenu();">
+            <svg ng-if="section.icon" class="ibm-icon" aria-hidden="true">
+              <use xlink:href="{{section.icon}}"></use>
+            </svg>
+            <span>{{section.label}}</span>
+          </a>
+          <div ng-if="!section.href" class="section-header">
+            <svg ng-if="section.icon" class="ibm-icon" aria-hidden="true">
+              <use xlink:href="{{section.icon}}"></use>
+            </svg>
+            <div>{{section.label}}</div>
+          </div>
+        </h3>
+        <ul ng-if="section.links && section.links.length > 0">
+          <li ng-class="[{'active-link': vm.currentLink.href == link.href}]" ng-repeat="link in section.links">
+            <a role="menuitem" href="{{link.href}}" title="{{link.label}}" ng-click="vm.setCurrent(section, link); vm.toggleMenu();">
+              <span>{{link.label}}</span>
+            </a>
+            <div class="details" ng-if="link.details && link.details.length > 0">
+              <ul ng-show="link.detailsOpen">
+                <li ng-repeat="detail in link.details">{{detail}}</li>
+              </ul>
+              <button class="link small" ng-click="vm.toggleDetails(link)">{{link.detailsOpen ? vm.translations.CLOSE : vm.translations.DETAILS}}</button>
+            </div>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <ul class="footer" ng-if="vm.footer.links && vm.footer.links.length > 0">
+      <li ng-repeat="link in vm.footer.links">
+        <a role="menuitem" href="{{link.href}}" title="{{link.label}}" aria-label="link.label" ng-click="vm.setCurrent(null, link)">
+          <svg ng-if="link.icon" class="ibm-icon" aria-hidden="true">
+            <use xlink:href="{{link.icon}}"></use>
+          </svg>
+          <span>{{link.label}}</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Horizontal sub tabs -->
+  <div ng-if="vm.showTabs" class="horizontal-nav" ng-click="vm.toggleMenu(false)">
+    <svg ng-if="vm.currentSection.icon" class="ibm-icon" aria-hidden="true">
+      <use xlink:href="{{vm.currentSection.icon}}"></use>
+    </svg>
+    <ul ng-if="vm.currentSection.links && vm.currentSection.links.length > 0">
+      <li ng-class="[{'active-link': vm.currentLink.href == link.href}]" ng-repeat="link in vm.currentSection.links">
+        <a href="{{link.href}}" label="{{link.label}}" ng-click="vm.setCurrent(vm.currentSection, link)">
+          <span>{{link.label}}</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>

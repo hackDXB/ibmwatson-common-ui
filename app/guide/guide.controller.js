@@ -29,6 +29,10 @@
 
     vm.helpTemplate = 'templates/help.html';
 
+    vm.showHelp = function () {
+      vm.helpVisible = !vm.helpVisible;
+    };
+
     vm.openModal = function () {
       $uibModal.open({
         animation : true,
@@ -39,10 +43,6 @@
       });
     };
 
-    vm.showHelp = function () {
-      vm.helpVisible = !vm.helpVisible;
-    };
-
     vm.inputTagModel = [{'text' : 'Tag1'}, {'text' : 'Tag2'}, {'text' : 'Tag3'}, {'text' : 'a really long tag name with lots of characters'}];
     vm.inputTagModelReadOnly = [{'text' : 'Tag1'}, {'text' : 'Tag2'}, {'text' : 'Tag3'}, {'text' : 'a really long tag name with lots of characters'}];
 
@@ -51,13 +51,102 @@
     vm.toggle.singleModel = false;
     vm.toggle.checkModel = {'left' : false, 'middle' : false, 'right' : false};
     vm.toggle.radioModel = 'Left';
+
+
+    vm.popover = {
+      content : 'Some help text',
+      title : 'Tooltip Title',
+      placement : {
+        options : [
+          'top',
+          'top-left',
+          'top-right',
+          'bottom',
+          'bottom-left',
+          'bottom-right',
+          'left',
+          'left-top',
+          'left-bottom',
+          'right',
+          'right-top',
+          'right-bottom'
+        ],
+        selected : 'top'
+      }
+    };
+
+    vm.buttonGroup = {
+      buttons : [
+        {
+          label : 'Button 1'
+        }, {
+          label : 'Button 2'
+        }, {
+          label : 'Button 3',
+          disabled : true
+        }, {
+          label : 'Button 4'
+        }
+      ]
+    };
   }
 
   function bannerController ($scope, $location) {
     var vm = this;
 
-    vm.atLocation = function (location) {
-      return $location.url().indexOf(location) > -1;
+    vm.navConfig = {
+      'label' : 'Menu',
+      'sections' : [
+        {
+          'label' : 'Back somewhere',
+          'icon' : '#ibm-icon--go_back_24',
+          'href' : '#/overview'
+        }, {
+          'label' : 'Main',
+          'icon' : '#ibm-icon--home_24',
+          'links' : [
+            {
+              'label' : 'Overview',
+              'href' : '#/overview',
+              'icon' : '#ibm-icon--home_24'
+            }, {
+              'label' : 'Elements',
+              'href' : '#/elements',
+              'icon' : '#ibm-icon--sample_app_24'
+            }, {
+              'label' : 'Components',
+              'href' : '#/components',
+              'icon' : '#ibm-icon--workspace_24'
+            }
+          ]
+        }, {
+          'label' : 'Other',
+          'icon' : '#ibm-icon--workspace_24',
+          'links' : [
+            {
+              'label' : 'Layout',
+              'href' : '#/layout',
+              'icon' : '#ibm-icon--workspace_24',
+              'details' : [
+                'A collection of layout styles'
+              ]
+            }
+          ]
+        }
+      ],
+      'footer' : {
+        'links' : [
+          {
+            'label' : 'Settings',
+            'href' : '#/overview',
+            'icon' : '#ibm-icon--settings_24'
+          }, {
+            'label' : 'Log out',
+            'href' : '#/overview',
+            'icon' : '#ibm-icon--log_out_24'
+          }
+        ]
+      }
     };
 
     vm.atLocation = function (location) {

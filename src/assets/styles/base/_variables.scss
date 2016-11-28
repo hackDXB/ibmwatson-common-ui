@@ -33,10 +33,11 @@ $bg-color-warning: $yellow-10;
 $bg-color-error: $red-10;
 
 // Sizes
-$banner-height: 70px;
+$banner-height: 56px;
 $footer-height: 50px;
 $banner-border-width: 1px;
 $sidenav-width: 60px;
+$nav-menu-width: 250px;
 
 // z-indices
 $z-index-tooltip: 1030;
@@ -45,3 +46,11 @@ $z-index-modal-backdrop: 1040;
 $z-index-alert: 1060;
 $z-index-banner: 1010;
 $z-index-dropdown: 1000;
+
+// Spacing
+$space-xsmall: 2px;
+$space-small: 4px;
+$space-smedium: 8px;
+$space-medium: 16px;
+$space-large: 32px;
+$space-xlarge: 64px;

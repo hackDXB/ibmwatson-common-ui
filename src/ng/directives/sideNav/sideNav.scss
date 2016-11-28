@@ -31,11 +31,6 @@
         transition: left .5s ease;
         flex-direction: column;
 
-        @include screen-medium {
-          top: 1.5 * $banner-height;
-          min-height: calc(100vh - 1.5 * #{$banner-height});
-        }
-
         &.ng-hide {
           left: -60px;
         }

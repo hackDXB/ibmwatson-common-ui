@@ -53,7 +53,27 @@
     </div>
   </div>
   <div class="guide-row">
-    <h2 id="/guide/icons">Icons</h2>
+    <h2 id="guide/icons">Icons</h2>
+
+    <p>Font based icons have been superseded by svg icon based ones. In order to use them, your application should include the SVG icon spritesheet, either by reference or by value. The svg can be found at <code>/dist/icons/icons-inline.svg</code></p>
+
+    <p>Each icon in the spritesheet has an id, constructed from the original filename. Use the <b>ibm-icon</b> class and the id of the icon. Add classes <code>small</code> or <code>large</code> to adjust size.</p>
+
+    <pre>
+&lt;svg class=&quot;ibm-icon&quot;&gt;
+  &lt;use xlink:href=&quot;#ibm-icon--copy_24&quot;&gt;&lt;/use&gt;
+&lt;/svg&gt;
+    </pre>
+
+    <!-- inject:icons -->
+    <!-- endinject -->
+
+  </div>
+
+
+  <div class="guide-row">
+    <h2 id="/guide/font-icons">Font Icons (deprecated)</h2>
+
     <p>Use the <code>ibm-icon--*</code> classes for icons.  Add classes <code>small</code> or <code>large</code> to adjust size.</p>
     <div>
       <span class="ibm-icon--flag_outline" aria-hidden="true"></span>

@@ -1,0 +1,207 @@
+.watson {
+  navigation {
+    nav {
+      display: flex;
+      transition: background-color .5s ease;
+
+      a,
+      a:visited {
+        position: relative;
+        display: block;
+      }
+
+      // HORIZONTAL NAV
+      .horizontal-nav {
+        display: flex;
+        height: $banner-height;
+        background-color: $gray-80;
+        border-left: 1px solid $gray-60;
+
+        @include screen-smedium {
+          display: none;
+        }
+
+        svg.ibm-icon {
+          margin: auto 0 auto $space-large;
+          fill : $teal-30;
+        }
+
+        a,
+        a:visited {
+          &::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 3px;
+            border-radius: 3px;
+            background-color: transparent;
+            transition: background-color .2s ease;
+          }
+
+          &:hover {
+            &::before {
+              background-color: $gray-50;
+            }
+          }
+        }
+
+        ul {
+          display: flex;
+
+          & > li {
+            margin-left: $space-large;
+
+            &.active-link {
+              a {
+                color: $white;
+
+                &::before {
+                  background-color: $teal-30;
+                }
+
+                &:hover {
+                  &::before {
+                    background-color: $teal-30;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      // DROPDOWN MENU
+      .menu {
+        position: fixed;
+        left: 0;
+        top: $banner-height;
+        width: $nav-menu-width;
+        height: calc(100vh - #{$banner-height});
+        background-color: $gray-90;
+        color: $gray-30;
+        z-index: 1000;
+        display: flex;
+        flex-direction: column;
+        transition: left 0.25s cubic-bezier(0.7, 0, 0.3, 1);
+
+        &.ng-hide {
+          left: -$nav-menu-width;
+        }
+
+        .footer {
+          margin-top: auto;
+          padding: $space-medium;
+          background-color: $gray-80;
+
+          li {
+            line-height: 100%;
+            margin-bottom: $space-medium;
+
+            svg.ibm-icon {
+              width: $space-medium;
+              height: $space-medium;
+              margin: auto $space-medium auto 0;
+            }
+          }
+        }
+
+        ul[role=menu] {
+          padding: $space-large $space-medium;
+          overflow-x: hidden;
+          overflow-y: auto;
+
+          & > li {
+            margin: 0;
+            line-height: 100%;
+            margin-bottom: $space-large;
+
+            svg.ibm-icon {
+              width: $space-medium;
+              height: $space-medium;
+              margin: auto $space-medium auto 0;
+            }
+
+            &.active-section {
+              color: $teal-30;
+
+              svg.ibm-icon {
+                fill: $teal-30;
+              }
+            }
+
+            .section-header {
+              display: flex;
+            }
+
+            li.active-link {
+              a,
+              a:visited {
+                color: $white;
+
+                &::before {
+                  background-color: $teal-30;
+                }
+
+                &:hover {
+                  &::before {
+                    background-color: $teal-30;
+                  }
+                }
+              }
+            }
+
+            li {
+              margin-top: $space-medium;
+              margin-left: $space-large;
+
+              a,
+              a:visited {
+                padding-left: $space-medium;
+
+                &::before {
+                  content: '';
+                  position: absolute;
+                  left: 0;
+                  width: 3px;
+                  height: 16px;
+                  border-radius: 3px;
+                  background-color: transparent;
+                  transition: background-color .2s ease;
+                }
+
+                &:hover {
+                  &::before {
+                    background-color: $gray-60;
+                  }
+                }
+              }
+
+              .details {
+
+                ul {
+                  max-height: 100vh;
+                  opacity: 1;
+                  overflow: hidden;
+                  @include transition(max-height, opacity);
+
+                  &.ng-hide {
+                    max-height: 0px;
+                    opacity: 0;
+                  }
+
+                  li {
+                    color: $white;
+                    font-size: 0.8em;
+                    margin-top: $space-smedium;
+                  }
+                }
+              }
+
+            }
+          }
+        }
+      } // DROPDOWN MENU
+    }
+  }
+}

@@ -39,22 +39,6 @@
       width: 100vw;
     }
 
-    &[type=info] {
-      border-color: $blue-50;
-    }
-
-    &[type=success] {
-      border-color: $green-50;
-    }
-
-    &[type=warning] {
-      border-color: $yellow-30;
-    }
-
-    &[type=error] {
-      border-color: $red-50;
-    }
-
     & > button {
       float: right;
       margin: 0;
