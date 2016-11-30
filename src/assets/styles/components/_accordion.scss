@@ -12,6 +12,10 @@
       border-top: 1px solid $gray-20;
       color: $gray-70;
 
+      .text-muted {
+        color: $gray-30
+      }
+
       &:hover,
       &:focus {
         border-bottom: none;
