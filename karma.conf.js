@@ -45,7 +45,8 @@ module.exports = function (config) {
     },
 
     ngHtml2JsPreprocessor : {
-      moduleName : 'watson.common.ui.templates'
+      moduleName : 'watson.common.ui.templates',
+      stripPrefix : 'src/ng/'
     },
 
     // list of files / patterns to exclude
