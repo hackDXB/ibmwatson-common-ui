@@ -31,3 +31,7 @@
 .watson.style-guide #tooltip-demos .demo {
   margin-right: 25px
 }
+
+.watson.style-guide  {
+  overflow-y: hidden;
+}

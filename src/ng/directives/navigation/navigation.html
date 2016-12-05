@@ -12,7 +12,11 @@
 
   <!-- Main menu -->
   <div ng-show="vm.menuOpen" class="menu">
-    <ul class="main" role="menu">
+    <div class="menu-loading" ng-show="vm.loading">
+      <div class="loading"></div>
+      <span>{{vm.translations.LOADING}}</span>
+    </div>
+    <ul ng-if="!vm.loading" class="main" role="menu">
       <li ng-class="[{'active-section': vm.currentSection.label == section.label}]" ng-repeat="section in vm.sections">
         <h3>
           <a ng-if="section.href" class="section-header" href={{section.href}} ng-click="vm.setCurrent(section); vm.toggleMenu();">
