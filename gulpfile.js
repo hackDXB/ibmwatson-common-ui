@@ -108,18 +108,15 @@ gulp.task('lint-tests', lintTestsTask);
 
 // Demo app
 
-function transformFileContents (filePath, file) {
-  return file.contents.toString();
-}
-
 function transformIconSample (filePath, file) {
 
   var p = path.parse(filePath);
 
-  var template = '<svg class=\"ibm-icon %s\"><use xlink:href=\"#%s\"></use></svg>',
-      id = 'ibm-icon--' + p.name.replace(/\s/g, '_').toLowerCase();
+  var template = '<svg class=\"ibm-icon %s\"><use xlink:href=\"%s#%s\"></use></svg>',
+      id = 'ibm-icon--' + p.name.replace(/\s/g, '_').toLowerCase(),
+      filename = paths.dest.iconSprite.slice(distFolder.length) + '/ibm-icons.svg';
 
-  return util.format(template, id, id);
+  return util.format(template, id, filename, id);
 }
 
 function demoAppTask () {
@@ -137,13 +134,10 @@ function demoAppTask () {
 
   var svgs = gulp.src(paths.icons.concat(['!**/*_{16,64}.svg']));
 
-  var inlineSvgs = gulp.src(paths.dest.iconSprite + '/ibm-icons-inline.svg');
-
   var icons = gulp.src(paths.demoView)
     .pipe(plugins.plumber({
       errorHandler : handleError
     }))
-    .pipe(plugins.inject(inlineSvgs, { transform : transformFileContents }))
     .pipe(plugins.inject(svgs, {
       transform : transformIconSample,
       starttag : '<!-- inject:icons -->'}))
@@ -205,6 +199,7 @@ function iconsTask () {
 
   var standalone = icons
     .pipe(plugins.svgstore())
+    .pipe(plugins.rename({prefix : 'ibm-'}))
     .pipe(gulp.dest(paths.dest.iconSprite));
 
   var inline = icons
