@@ -1,6 +1,6 @@
 {
   "name": "ibmwatson-common-ui",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": [
     "dist/js/ibmwatson.js",
     "dist/styles/ibmwatson.scss"
@@ -12,7 +12,8 @@
     "angular-animate": "1.4.8",
     "angular-translate": "2.11.0",
     "bootstrap": "3.3.6",
-    "ng-tags-input": "3.1.1"
+    "ng-tags-input": "3.1.1",
+    "svgxuse": "1.1.23"
   },
   "devDependencies": {
     "angular-mocks": "^1.5.3"

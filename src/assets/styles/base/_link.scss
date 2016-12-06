@@ -20,29 +20,33 @@
 			color: $teal-70;
 		}
 
-		a.grey {
+		&.gray {
 			color: $cool-gray-50;
 
 			&:hover {
 				color: $cool-gray-60;
+				border-bottom: 2px solid $cool-gray-60;
 			}
 
 			&:active,
 			&:focus {
 				color: $cool-gray-70;
+				border-bottom: 2px solid $cool-gray-70;
 			}
 		}
 
-		a.purple {
+		&.purple {
 			color: $purple-50;
 
 			&:hover {
 				color: $purple-60;
+				border-bottom: 2px solid $purple-60;
 			}
 
 			&:active,
 			&:focus {
 				color: $purple-70;
+				border-bottom: 2px solid $purple-70;
 			}
 		}
 	}

@@ -22,14 +22,23 @@
     .directive('scrollToTop', scrollToTop);
 
 
-  function scrollToTop ($window, $filter) {
+  function scrollToTop ($window) {
     return {
       restrict : 'A',
       templateUrl : 'directives/scrollToTop/scrollToTop.html',
       link : function (scope, element, attributes) {
-        var container = angular.element(document.getElementById('scroll-to-top-container'));
-        angular.element($window).bind('scroll', function () {
-          if (this.pageYOffset >= 100) {
+        var container = angular.element(element[0].querySelector('#scroll-to-top-container'));
+        var useWindow = false;
+
+        var scrollBody = angular.element(document.getElementById(attributes.scrollBody));
+        if (!scrollBody.length) {
+          scrollBody = angular.element($window);
+          useWindow = true;
+        }
+
+        scrollBody.bind('scroll', function () {
+          var scrollValue = (useWindow ? this.scrollY : this.scrollTop);
+          if (scrollValue >= 100) {
             container.removeClass('ng-hide');
           } else {
             container.addClass('ng-hide');
@@ -37,9 +46,13 @@
           scope.$apply();
         });
 
-        var button = angular.element(document.getElementById('scroll-to-top-button'));
+        var button = angular.element(element[0].querySelector('#scroll-to-top-button'));
         button.bind('click', function () {
-          $window.scrollTo(0, 0);
+          if (useWindow) {
+            scrollBody[0].scrollY = 0;
+          } else {
+            scrollBody[0].scrollTop = 0;
+          }
         });
       }
     };

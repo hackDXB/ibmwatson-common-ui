@@ -96,37 +96,37 @@
 
     vm.navConfig = {
       'label' : 'Menu',
+      'icons' : {
+        'MENU' : 'icons/sprite/ibm-icons.svg#ibm-icon--menu_24',
+        'CLOSE' : 'icons/sprite/ibm-icons.svg#ibm-icon--close_cancel_24'
+      },
       'sections' : [
         {
           'label' : 'Back somewhere',
-          'icon' : '#ibm-icon--go_back_24',
+          'icon' : 'icons/sprite/ibm-icons.svg#ibm-icon--go_back_24',
           'href' : '#/overview'
         }, {
           'label' : 'Main',
-          'icon' : '#ibm-icon--home_24',
+          'icon' : 'icons/sprite/ibm-icons.svg#ibm-icon--home_24',
           'links' : [
             {
               'label' : 'Overview',
-              'href' : '#/overview',
-              'icon' : '#ibm-icon--home_24'
+              'href' : '#/overview'
             }, {
               'label' : 'Elements',
               'href' : '#/elements',
-              'icon' : '#ibm-icon--sample_app_24'
             }, {
               'label' : 'Components',
               'href' : '#/components',
-              'icon' : '#ibm-icon--workspace_24'
             }
           ]
         }, {
           'label' : 'Other',
-          'icon' : '#ibm-icon--workspace_24',
+          'icon' : 'icons/sprite/ibm-icons.svg#ibm-icon--workspace_24',
           'links' : [
             {
               'label' : 'Layout',
               'href' : '#/layout',
-              'icon' : '#ibm-icon--workspace_24',
               'details' : [
                 'A collection of layout styles'
               ]
@@ -139,11 +139,11 @@
           {
             'label' : 'Settings',
             'href' : '#/overview',
-            'icon' : '#ibm-icon--settings_24'
+            'icon' : 'icons/sprite/ibm-icons.svg#ibm-icon--settings_24'
           }, {
             'label' : 'Log out',
             'href' : '#/overview',
-            'icon' : '#ibm-icon--log_out_24'
+            'icon' : 'icons/sprite/ibm-icons.svg#ibm-icon--log_out_24'
           }
         ]
       }

@@ -29,6 +29,7 @@
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <script src="bower_components/ng-tags-input/ng-tags-input.js"></script>
+    <script src="bower_components/svgxuse/svgxuse.js" defer></script>
     <!-- endbuild -->
 
     <script src="js/ibmwatson.min.js"></script>
@@ -44,18 +45,13 @@
     your browser</a> to improve your experience.</p>
 <![endif]-->
 
-<svg style="display:none;">
-  <!-- inject:svg -->
-  <!-- endinject -->
-</svg>
-
 <header role="banner" ng-controller="BannerController as vm">
     <navigation config="vm.navConfig"></navigation>
     <h1><a href="#">IBM <strong>Watson Common UI</strong></a></h1>
     <button type="button" role="button" class="icon" title="Toggle theme" aria-label="Toggle theme"
             ng-click="vm.toggleTheme()">
         <svg class="ibm-icon" aria-hidden="true">
-          <use xlink:href="#ibm-icon--shuffle_24"></use>
+          <use xlink:href="icons/sprite/ibm-icons.svg#ibm-icon--shuffle_24"></use>
         </svg>
     </button>
 </header>
@@ -64,9 +60,11 @@
     <section ui-view="" class="main-container" id="theme-container"></section>
 </div>
 
-<footer role="contentinfo">
-    <div scroll-to-top></div>
+<footer role="contentinfo" class="flex-container">
+    <div scroll-to-top scroll-body="body-content"></div>
     <span class="ibm-logo"></span>
+    <div class="flex"></div>
+    <div scroll-to-top scroll-body="body-content"></div>
 </footer>
 
 </body>

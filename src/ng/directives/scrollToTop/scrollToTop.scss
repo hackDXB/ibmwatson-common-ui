@@ -1,18 +1,11 @@
 .watson {
   [scroll-to-top] {
 
-    .stt-container {
-      position: fixed;
-      bottom: 0;
-      right: 0;
-    }
-
     button {
       background-color: #323C3C;
       color: #AEB8B8;
       border: none;
-      padding: 8px 12px;
-      padding: .5em .2em .2em .5em;
+      padding: 0;
       min-width: 0;
       margin: 0;
     }

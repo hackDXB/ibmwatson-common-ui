@@ -89,6 +89,12 @@
           left: -$nav-menu-width;
         }
 
+        .menu-loading {
+          flex: 0;
+          align-self: center;
+          margin: auto 0px;
+        }
+
         .footer {
           margin-top: auto;
           padding: $space-medium;
@@ -154,6 +160,7 @@
             li {
               margin-top: $space-medium;
               margin-left: $space-large;
+              word-wrap: break-word;
 
               a,
               a:visited {
@@ -194,6 +201,16 @@
                     color: $white;
                     font-size: 0.8em;
                     margin-top: $space-smedium;
+                  }
+                }
+
+                button.link {
+                  padding: $space-small $space-medium;
+                  border: none;
+
+                  &::-moz-focus-inner {
+                    border: 0;
+                    padding: 0;
                   }
                 }
               }

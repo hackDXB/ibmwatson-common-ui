@@ -23,6 +23,7 @@
 
 
   var DEFAULT_TRANSLATIONS = {
+    'LOADING' : 'Loading',
     'DETAILS' : 'Details',
     'CLOSE' : 'Close'
   };
@@ -32,9 +33,9 @@
     'CLOSE' : '#ibm-icon--close_cancel_24'
   };
 
-  NavigationController.$inject = ['$scope', '$location'];
+  NavigationController.$inject = ['$scope', '$location', '$q'];
 
-  function NavigationController ($scope, $location) {
+  function NavigationController ($scope, $location, $q) {
     var vm = this;
 
     vm.toggleMenu = toggleMenu;
@@ -45,34 +46,65 @@
     vm.showTabs = true;
     vm.sections = [];
     vm.footer = [];
-    if ($scope.config) {
-      vm.label = $scope.config.label;
-      vm.showTabs = !($scope.config.showTabs === false);
-      vm.sections = $scope.config.sections;
-      vm.footer = $scope.config.footer;
-      vm.translations = angular.extend({}, DEFAULT_TRANSLATIONS, $scope.config.translations || {});
-      vm.icons = angular.extend({}, DEFAULT_ICONS, $scope.config.icons || {});
-    }
+    vm.icons = DEFAULT_ICONS;
+    vm.translations = DEFAULT_TRANSLATIONS;
 
-    initializeLocation();
+    vm.loading = true;
 
-    $scope.$watch('vm.navConfig', initializeLocation);
+    $scope.$watch('config', function (config, oldConfig) {
+      vm.loading = config && typeof config.then === 'function';
+      $q.when(config, setup, handleRejection);
+    });
 
-    function initializeLocation () {
+
+    function initializeLocation (sections) {
       // Find current section from url
       var currentUrl = $location.url();
-      for (var i = 0; i < vm.sections.length; i++) {
-        var links = vm.sections[i].links;
+      for (var i = 0; i < sections.length; i++) {
+        var links = sections[i].links;
         if (links) {
           for (var j = 0; j < links.length; j++) {
             if (links[j].href.indexOf(currentUrl) > -1) {
-              setCurrent(vm.sections[i], links[j]);
+              setCurrent(sections[i], links[j]);
               return;
             }
           }
         }
       }
     }
+
+
+    function setup (config) {
+
+      if (config) {
+        vm.label = config.label;
+        vm.showTabs = !(config.showTabs === false);
+        vm.footer = config.footer;
+        vm.translations = angular.extend({}, DEFAULT_TRANSLATIONS, config.translations || {});
+        vm.icons = angular.extend({}, DEFAULT_ICONS, config.icons || {});
+
+        // If sections are a promise, loading in progress
+        vm.loading = config.sections && typeof config.sections.then === 'function';
+        $q.when(config.sections, setupSections, handleRejection);
+
+      } else {
+        vm.loading = false;
+      }
+
+    }
+
+
+    function setupSections (sections) {
+      vm.sections = sections;
+      initializeLocation(sections);
+      vm.loading = false;
+    }
+
+
+    function handleRejection () {
+      vm.loading = false;
+    }
+
 
     function toggleMenu (open) {
       if (open === true || open === false) {
@@ -82,12 +114,14 @@
       }
     }
 
+
     function setCurrent (section, link) {
       if (section) {
         vm.currentSection = section;
       }
       vm.currentLink = link;
     }
+
 
     function toggleDetails (link) {
       if (link.detailsOpen) {
