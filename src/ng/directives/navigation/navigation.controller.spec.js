@@ -163,6 +163,17 @@ describe('Controller: WorkspaceController', function testWorkspaceController () 
       });
     });
 
+    describe('locationChange', function () {
+      it('should track location url changes', function () {
+        should.not.exist(vm.currentLink);
+        $scope.$emit('$locationChangeSuccess');
+        $scope.$apply();
+        // Note MOCKS.LOCATION addresses 'Elements'
+        should.exist(vm.currentLink);
+        vm.currentLink.label.should.equal('Elements');
+      });
+    });
+
   });
 
   describe('sections as promise', function () {
