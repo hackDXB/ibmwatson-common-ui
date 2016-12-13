@@ -56,6 +56,11 @@
       $q.when(config, setup, handleRejection);
     });
 
+    $scope.$on('$locationChangeSuccess', function () {
+      if (vm.sections) {
+        initializeLocation(vm.sections);
+      }
+    });
 
     function initializeLocation (sections) {
       // Find current section from url
