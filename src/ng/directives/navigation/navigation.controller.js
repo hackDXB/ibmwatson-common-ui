@@ -63,8 +63,8 @@
     });
 
     function initializeLocation (sections) {
-      // Find current section from url
-      var currentUrl = $location.url();
+      // Find current section from path e.g. /elements
+      var currentUrl = $location.path();
       for (var i = 0; i < sections.length; i++) {
         var links = sections[i].links;
         if (links) {
