@@ -8,3 +8,4 @@ public
 *.log
 coverage
 TESTS-PhantomJS_*_(Linux_0.0.0).xml
+/.history

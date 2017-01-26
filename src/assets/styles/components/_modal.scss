@@ -37,15 +37,15 @@
       min-width: 320px;
 
       .modal-content {
-        background-color: $white;
+        background-color: color('white');
         background-clip: padding-box;
-        border: 1px solid $cool-gray-20;
+        border: 1px solid color('cool-gray', 20);
         border-radius: 6px;
         outline: 0;
         box-shadow: 1px 1px 3px rgba(0, 0, 0, .2);
 
         & > header {
-          color: $teal-50;
+          color: color('teal', 50);
           display: flex;
           padding: 2em 2em 0 2em;
 
@@ -53,14 +53,14 @@
             position: absolute;
             top: 1em;
             right: 1em;
-            color: $cool-gray-60;
+            color: color('cool-gray', 60);
           }
         }
 
         & > section {
           position: relative;
           padding: 0 2em 1em 2em;
-          color: $cool-gray-60;
+          color: color('cool-gray', 60);
         }
 
         & > footer {
@@ -81,7 +81,7 @@
     bottom: 0;
     left: 0;
     z-index: $z-index-modal-backdrop;
-    background-color: $cool-gray-80;
+    background-color: color('cool-gray', 80);
 
     &.fade {
       filter: alpha(opacity=0);

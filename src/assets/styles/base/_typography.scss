@@ -54,7 +54,7 @@
 
     &.helper {
       font-style: italic;
-      color: $gray-50;
+      color: color('gray', 50);
     }
   }
 
@@ -63,11 +63,11 @@
   }
 
   code {
-    background-color: $cool-gray-70;
+    background-color: color('cool-gray', 70);
     padding: 1em;
     border-radius: 0;
     font-family: $font-code;
-    color: $white;
+    color: color('white');
     display: block;
 
     &.pre {
@@ -81,22 +81,22 @@
   }
 
   .error-text {
-    color: $red-50;
+    color: color('red', 50);
   }
 
   mark {
-    background-color: $yellow-10;
-    color: $black;
+    background-color: color('yellow', 50);
+    color: color('black', 100);
   }
 
   label {
     font-size: .8em;
-    color: $cool-gray-50;
+    color: color('cool-gray', 50);;
   }
 
   .dark-theme {
     label {
-      color: $cool-gray-20;
+      color: color('cool-gray', 20);
     }
   }
 }

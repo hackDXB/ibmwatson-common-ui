@@ -50,9 +50,9 @@
 
 // Box shadow
 @mixin dropshadow {
-	-moz-box-shadow: .1em .1em .2em $gray-50;
-	-webkit-box-shadow: .1em .1em .2em $gray-50;
-	box-shadow: .1em .1em .2em $gray-50;
+  -moz-box-shadow: .1em .1em .2em color('gray', 50);
+	-webkit-box-shadow: .1em .1em .2em color('gray', 50);
+	box-shadow: .1em .1em .2em color('gray', 50);
 }
 
 // Media breakpoints
@@ -115,10 +115,10 @@
 
 @mixin tag() {
   display: inline-block;
-  border: 1px solid $cool-gray-20;
+  border: 1px solid color('cool-gray', 20);
   border-radius: 4px;
-  background-color: $white;
-  color: $cool-gray-50;
+  background-color: color('white');
+  color: color('cool-gray', 50);
   line-height: 28px;
   height: 30px;
   max-width: 250px;

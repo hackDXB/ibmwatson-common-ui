@@ -20,7 +20,7 @@
     }
 
     &:focus + label {
-      outline: 1px dotted $gray-40;
+      outline: 1px dotted color('gray', 40);
       padding-bottom: 0.35em;
       padding-right: 0.2em;
     }

@@ -2,8 +2,8 @@
 body.watson {
   @include font-roman;
   margin: 0;
-  color: $cool-gray-80;
-  background-color: $neutral-white-3;
+  color: $primary-text-color;
+  background-color: $primary-background-color;
 }
 
 .watson * {
@@ -23,8 +23,8 @@ body.watson {
 
   &.dark-theme,
   .dark-theme {
-    background-color: $cool-gray-80;
-    color: $cool-gray-20;
+    background-color: $secondary-background-color;
+    color: $secondary-text-color;
   }
 
   .main-container {

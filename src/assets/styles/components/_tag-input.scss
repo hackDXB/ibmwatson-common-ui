@@ -10,8 +10,8 @@
     .tag-item {
       @include tag();
       margin: 0.1em;
-      border-color: $teal-50;
-      color: $teal-50;
+      border-color: color('teal', 50);
+      color: color('teal', 50);
 
       ng-include {
         display: flex;
@@ -27,24 +27,24 @@
       }
 
       &:hover {
-        background-color: $teal-50;
-        color: $white;
+        background-color: color('teal', 50);
+        color: color('white');
 
         .remove-button {
           border: none;
-          color: $teal-50;
+          color: color('teal', 50);
         }
 
         .remove-button::after {
-          color: $white;
+          color: color('white');
         }
       }
 
       .remove-button {
-        color: $white; //because ie doesn't like visibility on pseudo elements
+        color: color('white'); //because ie doesn't like visibility on pseudo elements
 
         &::after {
-          color: $teal-50;
+          color: color('teal', 50);
           font-family: "ibm-glyph";
           font-size: 0.8em;
           content: "\e900";

@@ -22,7 +22,7 @@
     @include transition(all);
 
     &:focus {
-      outline: 1px dotted $gray-40;
+      outline: 1px dotted color('gray', 40);
     }
 
     & + button {
@@ -45,19 +45,19 @@
     }
 
     &.primary {
-      background-color: $teal-50;
-      color: $white;
+      background-color: $primary-color;
+      color: color('white');
       border-radius: 20px;
 
       &:hover {
-        background-color: $teal-60;
+        background-color: $primary-highlight-color;
       }
       &.active, &:active, &:focus {
-        background-color: $teal-70;
+        background-color: $primary-deepen-color;
       }
 
       &[disabled], &[disabled]:hover {
-        background-color: $cool-gray-20;
+        background-color: $disabled-background-color;
       }
 
       [class^="ibm-icon--"]:last-child,
@@ -94,19 +94,19 @@
 
 
     &.secondary {
-      background-color: $cool-gray-50;
-      color: $white;
+      background-color: $secondary-color;
+      color: color('white');
       border-radius: 20px;
 
       &:hover {
-        background-color: $cool-gray-60;
+        background-color: $secondary-highlight-color;
       }
       &.active, &:active, &:focus {
-        background-color: $cool-gray-70;
+        background-color: $secondary-deepen-color;
       }
 
       &[disabled], &[disabled]:hover {
-        background-color: $cool-gray-20;
+        background-color: $disabled-background-color;
       }
     }
 
@@ -114,12 +114,12 @@
     &.icon,
     &.close {
       background-color: transparent;
-      color: $teal-50;
+      color: $primary-color;
       min-width: 0;
       padding: 0;
 
       &:hover{
-        color: $teal-60;
+        color: $primary-highlight-color;
         background-color: transparent;
         border: 1px solid transparent;
       }
@@ -127,14 +127,14 @@
       &:focus,
       &.active,
       &:active {
-        color: $teal-70;
+        color: $primary-deepen-color;
         background-color: transparent;
         border: 1px solid transparent;
       }
 
       &[disabled], &[disabled]:hover {
         background-color: transparent;
-        color: $cool-gray-20;
+        color: $disabled-background-color;
       }
 
       [class^="ibm-icon--"],
@@ -144,7 +144,7 @@
     }
 
     &.link {
-      color: $teal-50;
+      color: $primary-color;
 
       [class^="ibm-glyph--"],
       [class^="ibm-icon--"] {
@@ -179,19 +179,19 @@
     }
 
     &.delete {
-      background-color: $red-50;
-      color: $white;
+      background-color: color('red', 50);
+      color: color('white');
       border-radius: 20px;
 
       &:hover {
-        background-color: $red-60;
+        background-color: color('red', 60);
       }
       &.active, &:active, &:focus {
-        background-color: $red-70;
+        background-color: color('red', 70);
       }
 
       &[disabled], &[disabled]:hover {
-        background-color: $cool-gray-20;
+        background-color: $disabled-background-color;
       }
     }
 
@@ -208,11 +208,11 @@
   .dark-theme {
     button.icon,
     button.link {
-      color: $teal-30;
+      color: color('teal', 30);
 
       &:hover,
       &:focus {
-        color: $teal-40;
+        color: color('teal', 40);
       }
     }
   }
@@ -220,11 +220,11 @@
   // .dark-theme {
   //   button {
   //     &.primary {
-  //       background-color: $teal-50;
-  //       color: $white;
+  //       background-color: $primary-color-50;
+  //       color: color('white');
   //
   //       &:hover {
-  //         background-color: $teal-40;
+  //         background-color: $primary-color-40;
   //       }
   //       &:active, &:focus {
   //         background-color: $cool-gray-30;
@@ -237,21 +237,21 @@
   //
   //     &.secondary {
   //       background-color: transparent;
-  //       border: solid 1px $teal-20;
-  //       color: $teal-20;
+  //       border: solid 1px $primary-color-20;
+  //       color: $primary-color-20;
   //
   //       &:hover {
   //         border-color: $cool-gray-20;
   //         color: $cool-gray-20;
   //       }
   //       &:active, &:focus {
-  //         border-color: $white;
-  //         color: $white;
+  //         border-color: color('white');
+  //         color: color('white');
   //       }
   //
   //       &[disabled], &[disabled]:hover {
   //         border-color: $gray-20;
-  //         color: $white;
+  //         color: color('white');
   //       }
   //     }
   //
@@ -264,7 +264,7 @@
   //       &:active {
   //         border: 1px solid $red-70;
   //         background-color: $red-70;
-  //         color: $white;
+  //         color: color('white');
   //       }
   //
   //       &[disabled]:hover {
@@ -275,7 +275,7 @@
   //
   //     &.delete {
   //       background-color: $red-50;
-  //       color: $white;
+  //       color: color('white');
   //
   //       &:hover {
   //         background-color: $red-40;
@@ -292,7 +292,7 @@
   //     &.link,
   //     &.icon,
   //     &.close {
-  //       color: $teal-50;
+  //       color: $primary-color-50;
   //
   //       &:hover,
   //       &:active {
@@ -305,7 +305,7 @@
   //     }
   //
   //     &.link {
-  //       color: $teal-20;
+  //       color: $primary-color-20;
   //
   //       &[disabled], &[disabled]:hover {
   //         color: $cool-gray-20;

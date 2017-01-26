@@ -17,7 +17,7 @@
       border-radius: 32px;
       overflow: hidden;
       height: 34px;
-      color: $gray-60;
+      color: color('gray', 60);
     }
 
     & + label::before,
@@ -34,10 +34,10 @@
       text-align: right;
       padding: 0 10px 0 30px;
       height: 30px;
-      background-color: $neutral-white-1;
+      background-color: $primary-background-color;
       border-radius: 32px;
       transition: background 0.4s;
-      border: 1px solid $cool-gray-20;
+      border: 1px solid color('cool-gray', 20);
       margin: -1px;
     }
 
@@ -48,15 +48,15 @@
       width: 22px;
       height: 22px;
       margin: 5px 0;
-      background-color: $gray-60;
+      background-color: color('gray', 60);
       border-radius: 100%;
-      border: 1px solid $gray-60;
+      border: 1px solid color('gray', 60);
       transition-property: left, border, background-color;
       transition-duration: 0.4s;
     }
 
     &:focus + label {
-      outline: 1px dotted $gray-40;
+      outline: 1px dotted color('gray', 40);
     }
 
     &:checked + label {
@@ -64,18 +64,18 @@
     }
 
     &:checked + label::before {
-      background-color: $teal-40;
-      border-color: $teal-40;
+      background-color: $primary-color;
+      border-color: $primary-color;
       content: attr(on-label);
       padding: 0 30px 0 10px;
-      color: $white;
+      color: color('white');
       text-align: left;
     }
 
     &:checked + label::after {
       left: calc(100% - 30px);
-      background-color: $white;
-      border-color: $white;
+      background-color: color('white');
+      border-color: color('white');
     }
 
   }

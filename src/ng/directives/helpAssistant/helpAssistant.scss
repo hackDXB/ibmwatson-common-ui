@@ -11,8 +11,8 @@
     aside {
       min-height: 100px;
       max-height: 30vh;
-      background-color: $white;
-      border: 1px solid $cool-gray-20;
+      background-color: color('white');
+      border: 1px solid color('cool-gray', 20);
       padding: 1em 1em 1em 2em;
       box-shadow: 1px 1px 3px rgba(0, 0, 0, .2);
       display: flex;
@@ -24,7 +24,7 @@
       p::before {
         content: '';
         margin-right: 1em;
-        border-left: 4px solid $teal;
+        border-left: 4px solid $primary-color;
       }
     }
 
