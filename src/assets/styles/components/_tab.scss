@@ -1,0 +1,30 @@
+.watson {
+  .tabs {
+    background-color: $white;
+
+    & > fieldset {
+      border-bottom: 1px solid $gray-20;
+      background-color: inherit;
+      margin: 0 0 $space-large;
+    }
+
+    input[type=radio] {
+      & + label {
+        background: none;
+        padding: $space-medium $space-large;
+        border: 0;
+        margin: 0 0 -1px;
+      }
+
+      &:checked + label {
+        border: 1px solid $gray-20;
+        border-bottom: 0;
+        background-color: inherit;
+
+        &:first-of-type {
+          border-left: 0;
+        }
+      }
+    }
+  }
+}
