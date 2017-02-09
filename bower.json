@@ -1,24 +1,21 @@
 {
   "name": "ibmwatson-common-ui",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "main": [
     "dist/js/ibmwatson.js",
     "dist/styles/ibmwatson.scss"
   ],
   "dependencies": {
-    "angular": "1.4.8",
-    "angular-bootstrap": "1.1.2",
-    "angular-ui-router": "0.2.15",
-    "angular-animate": "1.4.8",
+    "angular": "1.5.11",
+    "angular-bootstrap": "2.3.0",
+    "angular-ui-router": "0.4.2",  
+    "angular-animate": "1.5.11",
     "angular-translate": "2.11.0",
-    "bootstrap": "3.3.6",
+    "bootstrap": "3.3.7",
     "ng-tags-input": "3.1.1"
   },
   "devDependencies": {
-    "angular-mocks": "^1.5.3"
-  },
-  "resolutions": {
-    "angular": "1.4.8"
+    "angular-mocks": "1.5.11"
   },
   "repository": {
     "type": "git",
