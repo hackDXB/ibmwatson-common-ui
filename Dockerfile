@@ -27,11 +27,11 @@ CMD ["/usr/sbin/sshd", "-D"]
 RUN apt-get update && apt-get install -y python-setuptools
 RUN easy_install junit_xml
 
-RUN cd /opt && wget https://nodejs.org/dist/v0.12.9/node-v0.12.9-linux-x64.tar.gz && tar zxvf node-v0.12.9-linux-x64.tar.gz && mv node-v0.12.9-linux-x64 node
+RUN cd /opt && wget https://nodejs.org/dist/v6.9.4/node-v6.9.4-linux-x64.tar.gz && tar zxf node-v6.9.4-linux-x64.tar.gz && mv node-v6.9.4-linux-x64 node
 
 ENV PATH /opt/node/bin:$PATH
 
-RUN export USER=root && npm install npm@2.13.5 -g  && npm install -g mocha istanbul babel gulp gulp-cli http-server esdoc jspm bower node-inspector nodemon chai mocha-junit-reporter grunt-cli yo jasmine
+RUN export USER=root && npm install npm@3.10.0 -g  && npm install -g mocha istanbul babel gulp gulp-cli http-server esdoc jspm bower node-inspector nodemon chai mocha-junit-reporter grunt-cli yo jasmine
 
 RUN chown -R ibmadmin:ibmadmin /home/ibmadmin
 
