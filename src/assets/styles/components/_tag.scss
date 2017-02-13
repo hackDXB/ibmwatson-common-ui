@@ -10,7 +10,7 @@
       border: 1px solid color('cool-gray', 70);
       color: color('cool-gray', 70);
 
-      * + * {
+      > * + * {
         border-left: 1px solid color('cool-gray', 70);
       }
     }
@@ -19,7 +19,7 @@
       border: 1px solid color('teal', 40);
       color: color('teal', 40);
 
-      * + * {
+      > * + * {
         border-left: 1px solid color('teal', 40);
       }
     }
@@ -40,7 +40,7 @@
         border: 1px solid color('cool-gray', 70);
         color: color('cool-gray', 70);
 
-        * + * {
+        > * + * {
           border-left: 1px solid color('cool-gray', 70);
         }
       }
@@ -49,13 +49,12 @@
         border: 1px solid color('purple', 60);
         color: color('purple', 60);
 
-        * + * {
+        > * + * {
           border-left: 1px solid color('purple', 40);
         }
       }
     }
-
-    * {
+    > * {
       display: inline-block;
 
       & + * {
