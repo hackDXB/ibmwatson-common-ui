@@ -6,18 +6,36 @@
     text-overflow: ellipsis;
     overflow: hidden;
 
+    &.invalid {
+      border: 2px solid $red-50;
+    }
+
     &:hover {
       border: 1px solid color('cool-gray', 70);
       color: color('cool-gray', 70);
 
+      &.invalid {
+        border: 2px solid $red-50;
+        > * + * {
+         border-left: 2px solid $red-50;
+        }
+      }
+
       > * + * {
         border-left: 1px solid color('cool-gray', 70);
       }
+
     }
 
     &:focus, &:active {
       border: 1px solid color('teal', 40);
       color: color('teal', 40);
+      &.invalid {
+        border: 2px solid $red-50;
+        > * + * {
+          border-left: 2px solid $red-50;
+        }
+      }
 
       > * + * {
         border-left: 1px solid color('teal', 40);
@@ -36,9 +54,25 @@
       border: 1px solid color('cool-gray', 20);
       color: color('purple', 50);
 
+      &.invalid {
+        border: 2px solid $red-50;
+
+        > * + * {
+          border-left: 2px solid $red-50;
+        }
+      }
+
       &:hover {
         border: 1px solid color('cool-gray', 70);
         color: color('cool-gray', 70);
+
+        &.invalid {
+          border: 2px solid $red-50;
+
+          > * + * {
+            border-left: 2px solid $red-50;
+          }
+        }
 
         > * + * {
           border-left: 1px solid color('cool-gray', 70);
@@ -48,6 +82,13 @@
       &:focus, &:active {
         border: 1px solid color('purple', 60);
         color: color('purple', 60);
+        &.invalid {
+          border: 2px solid $red-50;
+
+          > * + * {
+            border-left: 2px solid $red-50;
+          }
+        }
 
         > * + * {
           border-left: 1px solid color('purple', 40);
