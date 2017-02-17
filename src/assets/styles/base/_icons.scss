@@ -1,6 +1,12 @@
 /* IBM Icons */
 
 /* svg icons */
+
+// Fixes: https://github.ibm.com/WatsonTooling/ibmwatson-common-ui/issues/163
+svg use {
+  pointer-events : none;
+}
+
 svg.ibm-icon {
   display: inline-block;
   width: 24px;

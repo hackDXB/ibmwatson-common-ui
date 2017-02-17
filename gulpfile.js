@@ -114,7 +114,7 @@ function transformIconSample (filePath, file) {
 
   var template = '<svg class=\"ibm-icon %s\"><use xlink:href=\"%s#%s\"></use></svg>',
       id = 'ibm-icon--' + p.name.replace(/\s/g, '_').toLowerCase(),
-      filename = paths.dest.iconSprite.slice(distFolder.length) + '/ibm-icons.svg';
+      filename = paths.dest.iconSprite.slice(distFolder.length + 1) + '/ibm-icons.svg';
 
   return util.format(template, id, filename, id);
 }
