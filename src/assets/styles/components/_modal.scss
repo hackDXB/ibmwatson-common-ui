@@ -37,36 +37,38 @@
       min-width: 320px;
 
       .modal-content {
-        background-color: $white;
+        background-color: color('white');
         background-clip: padding-box;
-        border: 1px solid $cool-gray-20;
-        border-radius: 6px;
+        border: 1px solid color('cool-gray', 20);
         outline: 0;
+        padding: $space-xlarge $space-xlarge $space-large;
         box-shadow: 1px 1px 3px rgba(0, 0, 0, .2);
 
         & > header {
-          color: $teal-50;
           display: flex;
-          padding: 2em 2em 0 2em;
+          margin-bottom: $space-medium;
+
+          h2 {
+            font-weight: 400;
+          }
 
           .modal-exit {
             position: absolute;
-            top: 1em;
-            right: 1em;
-            color: $cool-gray-60;
+            top: $space-large;
+            right: $space-large;
+            color: color('cool-gray', 60);
           }
         }
 
         & > section {
           position: relative;
-          padding: 0 2em 1em 2em;
-          color: $cool-gray-60;
+          color: color('cool-gray', 60);
         }
 
         & > footer {
-          padding: 1em 2em;
           text-align: right;
           display: flex;
+          margin-top: $space-large;
           justify-content: flex-end;
         }
       }
@@ -81,15 +83,15 @@
     bottom: 0;
     left: 0;
     z-index: $z-index-modal-backdrop;
-    background-color: $cool-gray-80;
+    background-color: color('black', 100);
 
     &.fade {
       filter: alpha(opacity=0);
       opacity: 0;
     }
     &.in {
-      filter: alpha(opacity=50);
-      opacity: .5;
+      filter: alpha(opacity=70);
+      opacity: .7;
     }
   }
 

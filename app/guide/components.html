@@ -256,7 +256,7 @@ vm.buttonGroup = {
     <h4>Minimal:</h4>
     <code class="pre" ng-non-bindable> 
 &lt;div uib-dropdown is-open="status4.isopen" class="minimal"&gt;
-   &lt;button id="dropdown-minimal" uib-dropdown-toggle 
+ &lt;button id="dropdown-minimal" uib-dropdown-toggle 
       type="button" role="button"&gt; 
     &lt;span&gt;Minimal dropdown&lt;/span&gt; 
     &lt;span class="ibm-glyph--caret-down_24"&gt;&lt;/span&gt; 
@@ -550,6 +550,53 @@ vm.navConfig = {
     </code>
   </div>
 
+  <div class="guide-row">
+    <h2 id="/guide/tabs">Tabs</h2>
+    <p>Use <code>class="tabs"</code> for a tab container and add a radio button <code>fieldset</code> as the controls.</p>
+    <div class="tabs" ng-init="vm.selectedTab = 1">
+      <fieldset>
+        <legend class="sr-only" translate>ADVANCED_PROMPTS</legend>
+        <input type="radio" id="tab-one" name="tabs" ng-model="vm.selectedTab" value="1"/>
+        <label for="tab-one">One</label>
+        <input type="radio" id="tab-two" name="tabs" ng-model="vm.selectedTab" value="2"/>
+        <label for="tab-two">Two</label>
+        <input type="radio" id="tab-three" name="tabs" ng-model="vm.selectedTab" value="3"/>
+        <label for="tab-three">Three</label>
+      </fieldset>
+      <div class="tab" ng-if="vm.selectedTab == 1">
+        First tab
+      </div>
+      <div class="tab" ng-if="vm.selectedTab == 2">
+        Second tab
+      </div>
+      <div class="tab" ng-if="vm.selectedTab == 3">
+        Third tab
+      </div>
+    </div>
+
+    <code class="pre" ng-non-bindable>
+      &lt;div class="tabs" ng-init="vm.selectedTab = 1"&gt;
+        &lt;fieldset&gt;
+          &lt;legend class="sr-only"&gt;My tabs&lt;/legend&gt;
+          &lt;input type="radio" id="tab-one" name="tabs" ng-model="vm.selectedTab" value="1"/&gt;
+          &lt;label for="tab-one"&gt;One&lt;/label&gt;
+          &lt;input type="radio" id="tab-two" name="tabs" ng-model="vm.selectedTab" value="2"/&gt;
+          &lt;label for="tab-two"&gt;Two&lt;/label&gt;
+          &lt;input type="radio" id="tab-three" name="tabs" ng-model="vm.selectedTab" value="3"/&gt;
+          &lt;label for="tab-three"&gt;Three&lt;/label&gt;
+        &lt;/fieldset&gt;
+        &lt;div class="tab" ng-if="vm.selectedTab == 1"&gt;
+          First tab
+        &lt;/div&gt;
+        &lt;div class="tab" ng-if="vm.selectedTab == 2"&gt;
+          Second tab
+        &lt;/div&gt;
+        &lt;div class="tab" ng-if="vm.selectedTab == 3"&gt;
+          Third tab
+        &lt;/div&gt;
+      &lt;/div&gt;
+    </code>
+  </div>
 
   <div class="guide-row">
     <h2 id="/guide/tags">Tags</h2>
@@ -562,6 +609,12 @@ vm.navConfig = {
       <span>#hotel_location</span><span>.80</span>
     </div>
     <div class="tag small">natatorium</div>
+    <br>
+    <div class="tag invalid">a long invalid tag name that has lots of characters</div>
+    <div class="tag confidence invalid">
+      <span>#invalid_hotel_location</span><span>.80</span>
+    </div>
+    <div class="tag small invalid">invalid natatorium</div>
 
     <p><h3>Demo code:</h3></p>
     <code class="pre" ng-non-bindable>

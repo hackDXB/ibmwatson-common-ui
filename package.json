@@ -1,6 +1,6 @@
 {
   "name": "ibmwatson-common-ui",
-  "version": "0.1.3",
+  "version": "0.2.0",
   "private": true,
   "scripts": {
     "start": "gulp start",
@@ -11,6 +11,10 @@
   "repository": {
     "type": "git",
     "url": "git@github.ibm.com:WatsonTooling/ibmwatson-common-ui.git"
+  },
+  "engines": {
+    "node": "~6.9.4",
+    "npm": "~3.10.10"
   },
   "devDependencies": {
     "browser-sync": "^2.11.1",
@@ -42,7 +46,8 @@
     "gulp-svgstore": "^6.1.0",
     "gulp-uglify": "^1.5.3",
     "gulp-util": "^3.0.7",
-    "karma": "^0.13.22",
+    "ibm-design-colors": "^2.0.3",
+    "karma": "^1.4.1",
     "karma-chai": "^0.1.0",
     "karma-coverage": "^0.5.5",
     "karma-junit-reporter": "^0.4.2",
@@ -54,7 +59,8 @@
     "lolex": "^1.4.0",
     "merge-stream": "^1.0.0",
     "mocha": "^2.4.5",
-    "phantomjs-prebuilt": "^2.1.7",
+    "node-sass": "^4.3.0",
+    "phantomjs-prebuilt": "^2.1.14",
     "run-sequence": "^1.1.5",
     "sinon": "^1.17.3",
     "sinon-chai": "^2.8.0",
@@ -66,5 +72,8 @@
     "bower.json",
     "LICENSE",
     "README.md"
-  ]
+  ],
+  "peerDependencies": {
+    "ibm-design-colors": "^2.0.3"
+  }
 }

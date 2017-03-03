@@ -18,8 +18,8 @@
 		width: 100%;
 		border-radius: 20px;
 		font-size: 1.1em;
-    padding-top: .3em;
-    padding-bottom: 0.3em;
+		padding-top: .3em;
+		padding-bottom: 0.3em;
 	}
 
 	input.filter[type=search] {
@@ -30,7 +30,7 @@
 		input,
 		input:hover,
 		input:focus {
-			color: $white;
+			color: color('white');
 		}
 	}
 }

@@ -24,7 +24,7 @@ describe('Controller: WorkspaceController', function testWorkspaceController () 
 
     MOCKS = {
       LOCATION : {
-        url : function () {
+        path : function () {
           return '/elements';
         }
       }

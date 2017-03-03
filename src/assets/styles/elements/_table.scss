@@ -12,7 +12,7 @@
       tr {
         th {
           text-align: left;
-          border-bottom: 2px solid $gray-10;
+          border-bottom: 2px solid color('gray', 10);
           padding: 8px;
           font-weight: 700;
         }
@@ -23,12 +23,12 @@
       tr {
         @include screen-medium {
           &:nth-child(odd) {
-            background-color: $cool-white-3;
+            background-color: color('cool-white', 3);
           }
         }
 
         td {
-          border-top: 1px solid $gray-10;
+          border-top: 1px solid color('gray', 10);
           padding: 8px;
 
           @include screen-medium {

@@ -2,51 +2,51 @@
 .watson {
 	a,
 	a:visited {
-		color: $teal-50;
+		color: $primary-color;
 		text-decoration: none;
 		cursor: pointer;
 
 		&:hover {
-			border-bottom: 2px solid $teal-60;
+			border-bottom: 2px solid $primary-highlight-color;
 			text-decoration: none;
-			color: $teal-60;
+			color: $primary-highlight-color;
 		}
 
 		&:active,
 		&:focus {
-			outline: 1px dotted $gray-40;
-			border-bottom: 2px solid $teal-70;
+			outline: 1px dotted color('gray', 40);
+			border-bottom: 2px solid $primary-deepen-color;
 			text-decoration: none;
-			color: $teal-70;
+			color: $primary-deepen-color;
 		}
 
 		&.gray {
-			color: $cool-gray-50;
+			color: $secondary-color;
 
 			&:hover {
-				color: $cool-gray-60;
-				border-bottom: 2px solid $cool-gray-60;
+				color: $secondary-highlight-color;
+				border-bottom: 2px solid $secondary-highlight-color;
 			}
 
 			&:active,
 			&:focus {
-				color: $cool-gray-70;
-				border-bottom: 2px solid $cool-gray-70;
+				color: $secondary-deepen-color;
+				border-bottom: 2px solid $secondary-deepen-color;
 			}
 		}
 
 		&.purple {
-			color: $purple-50;
+			color: $watson-color;
 
 			&:hover {
-				color: $purple-60;
-				border-bottom: 2px solid $purple-60;
+				color: $watson-highlight-color;
+				border-bottom: 2px solid $watson-highlight-color;
 			}
 
 			&:active,
 			&:focus {
-				color: $purple-70;
-				border-bottom: 2px solid $purple-70;
+				color: $watson-deepen-color;
+				border-bottom: 2px solid $watson-deepen-color;
 			}
 		}
 	}

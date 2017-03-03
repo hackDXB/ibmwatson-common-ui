@@ -6,23 +6,23 @@
 		width: 100%;
 
 		&.code {
-			background-color: $cool-gray-70;
-    	color: $white;
+			background-color: color('cool-gray', 70);
+    	color: color('white');
 
 	    &:hover,
 	    &:focus {
-	      border-color: $purple-50;
+	      border-color: color('purple', 50);
 	    }
 
 	    &.invalid {
-	      border-color: $red-50;
+	      border-color: color('red', 50);
 	    }
 	  }
 	}
 
 	.dark-theme {
 		textarea {
-			color: $white;
+			color: color('white');
 		}
 	}
 }

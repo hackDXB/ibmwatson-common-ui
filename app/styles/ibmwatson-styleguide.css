@@ -35,3 +35,7 @@
 .watson.style-guide  {
   overflow-y: hidden;
 }
+
+.watson.style-guide .tabs {
+  margin-bottom: 32px;
+}

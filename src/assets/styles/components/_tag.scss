@@ -6,21 +6,39 @@
     text-overflow: ellipsis;
     overflow: hidden;
 
-    &:hover {
-      border: 1px solid $cool-gray-70;
-      color: $cool-gray-70;
+    &.invalid {
+      border: 2px solid $red-50;
+    }
 
-      * + * {
-        border-left: 1px solid $cool-gray-70;
+    &:hover {
+      border: 1px solid color('cool-gray', 70);
+      color: color('cool-gray', 70);
+
+      &.invalid {
+        border: 2px solid $red-50;
+        > * + * {
+         border-left: 2px solid $red-50;
+        }
       }
+
+      > * + * {
+        border-left: 1px solid color('cool-gray', 70);
+      }
+
     }
 
     &:focus, &:active {
-      border: 1px solid $teal-40;
-      color: $teal-40;
+      border: 1px solid color('teal', 40);
+      color: color('teal', 40);
+      &.invalid {
+        border: 2px solid $red-50;
+        > * + * {
+          border-left: 2px solid $red-50;
+        }
+      }
 
-      * + * {
-        border-left: 1px solid $teal-40;
+      > * + * {
+        border-left: 1px solid color('teal', 40);
       }
     }
 
@@ -33,33 +51,55 @@
     }
 
     &.confidence {
-      border: 1px solid $cool-gray-20;
-      color: $purple-50;
+      border: 1px solid color('cool-gray', 20);
+      color: color('purple', 50);
+
+      &.invalid {
+        border: 2px solid $red-50;
+
+        > * + * {
+          border-left: 2px solid $red-50;
+        }
+      }
 
       &:hover {
-        border: 1px solid $cool-gray-70;
-        color: $cool-gray-70;
+        border: 1px solid color('cool-gray', 70);
+        color: color('cool-gray', 70);
 
-        * + * {
-          border-left: 1px solid $cool-gray-70;
+        &.invalid {
+          border: 2px solid $red-50;
+
+          > * + * {
+            border-left: 2px solid $red-50;
+          }
+        }
+
+        > * + * {
+          border-left: 1px solid color('cool-gray', 70);
         }
       }
 
       &:focus, &:active {
-        border: 1px solid $purple-60;
-        color: $purple-60;
+        border: 1px solid color('purple', 60);
+        color: color('purple', 60);
+        &.invalid {
+          border: 2px solid $red-50;
 
-        * + * {
-          border-left: 1px solid $purple-40;
+          > * + * {
+            border-left: 2px solid $red-50;
+          }
+        }
+
+        > * + * {
+          border-left: 1px solid color('purple', 40);
         }
       }
     }
-
-    * {
+    > * {
       display: inline-block;
 
       & + * {
-        border-left: 1px solid $cool-gray-20;
+        border-left: 1px solid color('cool-gray', 20);
         margin-left: .5em;
         padding-left: .5em;
       }

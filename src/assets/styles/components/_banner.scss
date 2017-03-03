@@ -5,19 +5,19 @@
     align-items: center;
     justify-content: space-between;
     margin-bottom: 0;
-    background-color: $gray-80;
-    color: $gray-30;
+    background-color: color('gray', 80);
+    color: color('gray', 30);
     height: $banner-height;
     line-height: $banner-height;
     z-index: $z-index-banner;
 
     a,
     a:visited {
-      color: $gray-30;
+      color: color('gray', 30);
 
       &:hover,
       &:focus {
-        color: $white;
+        color: color('white');
         border: none;
       }
     }
@@ -40,18 +40,18 @@
       min-width: $banner-height;
       height: $banner-height;
       transition-duration: 0s;
-      color: $gray-30;
+      color: color('gray', 30);
       line-height: 1em;
 
       &.active,
       &:focus,
       &:hover {
-        color: $teal-40;
+        color: $primary-color;
       }
     }
 
     svg.ibm-icon {
-      fill : $gray-30;
+      fill : color('gray', 30);
     }
   }
 }

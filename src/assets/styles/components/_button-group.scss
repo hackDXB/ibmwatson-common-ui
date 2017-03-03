@@ -37,20 +37,20 @@
       }
 
       &.primary {
-        background-color: $teal-50;
-        color: $white;
+        background-color: $primary-color;
+        color: color('white');
         border-radius: 20px;
 
         &:hover {
-          background-color: $teal-60;
+          background-color: $primary-highlight-color;
         }
 
         &.active {
-          background-color: $teal-70;
+          background-color: $primary-deepen-color;
         }
 
         &.disabled, &.disabled:hover {
-          background-color: $cool-gray-20;
+          background-color: color('cool-gray', 20);
         }
       }
     }

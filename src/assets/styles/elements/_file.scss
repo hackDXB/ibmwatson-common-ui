@@ -1,11 +1,11 @@
 // File upload
 .watson {
   .file-upload {
-    border: 1px solid $cool-gray-40;
+    border: 1px solid color('cool-gray', 40);
     border-radius: 0.25em;
     margin-bottom: 1em;
     vertical-align: middle;
-    color: $cool-gray-60;
+    color: color('cool-gray', 60);
     font-size: .9em;
     overflow: hidden;
     position: relative;
@@ -25,7 +25,7 @@
     }
 
     &::before {
-      border-right: 1px solid $cool-gray-40;
+      border-right: 1px solid color('cool-gray', 40);
       text-align: left;
       content: attr(title);
       font-weight: bold;
@@ -45,20 +45,20 @@
     &:focus::before,
     &:hover::after,
     &:focus::after {
-      color: $gray-80;
+      color: color('gray', 80);
     }
 
     &:hover,
     &:focus {
-      background-color: $green-10;
-      border: 1px solid $cool-gray-40;
-      color: $gray-80;
+      background-color: color('green', 10);
+      border: 1px solid color('cool-gray', 40);
+      color: color('gray', 80);
     }
   }
 
   .dark-theme {
     .file-upload {
-      color: $gray-10;
+      color: color('gray', 10);
     }
   }
 }

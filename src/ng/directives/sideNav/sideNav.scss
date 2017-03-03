@@ -14,7 +14,7 @@
 
         &:hover,
         &:focus {
-          color: $gray-90;
+          color: color('gray', 90);
         }
       }
 
@@ -24,8 +24,8 @@
         top: $banner-height;
         width: $sidenav-width;
         min-height: calc(100vh - #{$banner-height});
-        background-color: $neutral-white-4;
-        color: $gray-90;
+        background-color: color('neutral-white', 4);
+        color: color('gray', 90);
         z-index: 1000;
         text-align: center;
         transition: left .5s ease;
@@ -39,14 +39,14 @@
           height: 60px;
 
           &.active {
-            background-color: $gray-20;
+            background-color: color('gray', 20);
             border-radius: 50%;
           }
 
           a,
           a:visited {
             display: block;
-            color: $gray-90;
+            color: color('gray', 90);
             padding: 1em 1em .6em 1em;
             line-height: 1em;
 
@@ -58,8 +58,8 @@
           a:hover,
           a:visited:hover,
           a:focus {
-            background-color: $gray-20;
-            color: $gray-90;
+            background-color: color('gray', 20);
+            color: color('gray', 90);
             border-radius: 50%;
             border-bottom: none;
           }
